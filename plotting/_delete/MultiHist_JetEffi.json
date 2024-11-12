@@ -1,0 +1,41 @@
+{
+    "lumi":{
+        "22preEE": 7980.4,
+        "22postEE": 26671.7
+    },
+    "era": "22postEE",
+    "MultiHist_list":["Jet", "genJet"],
+    "MultiHist":{
+        "Jet":{
+            "file":{
+                "22postEE": "../minitree_reco/22postEE_VBFToHH.root"
+            },
+            "tree": "DiphotonTree/data_125_13TeV_NOTAG",
+            "weight": "((lead_gen_PromptHardProcess==1)&&(sublead_gen_PromptHardProcess==1)&&(sublead_gen_pdgIdMother==25)&&(lead_gen_pdgIdMother==25))&&(lead_bjet_gen_PromptHardProcess==1)&&(fabs(lead_bjet_pFlav)==5)&&(lead_bjet_gen_pt>=0)&&(lead_bjet_gen_pdgIdMother == 25)",
+            "xs": 0.00192,
+            "histColor": "#EC8C6F",
+            "histLine": 1
+        },
+        "genJet":{
+            "file":{
+                "22postEE": "../minitree_genJet/22postEE_VBFToHH.root"
+            },
+            "tree": "DiphotonTree/data_125_13TeV_NOTAG",
+            "weight": "((lead_gen_PromptHardProcess==1)&&(sublead_gen_PromptHardProcess==1)&&(sublead_gen_pdgIdMother==25)&&(lead_gen_pdgIdMother==25))&&(lead_bjet_gen_PromptHardProcess==1)&&(fabs(lead_bjet_pFlav)==5)&&(lead_bjet_gen_pt>=0)&&(lead_bjet_gen_pdgIdMother == 25)",
+            "xs": 0.00192,
+            "histColor": "#37A3D2",
+            "histLine": 1
+        }
+    },
+    "var_list":{
+        "lead_bjet_ptRel":{
+            "var":{
+                "Jet":"1",
+                "genJet":"1"
+            },
+            "unit":["lead b (p_{T} - p_{T}^{GenPart})/p_{T}^{GenPart}", "events"],
+            "range":[-1, 5, 1.3],
+            "nbin": 6
+        }
+    }
+}

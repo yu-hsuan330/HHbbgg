@@ -1,0 +1,141 @@
+{
+    "tree":{
+        "MC": "DiphotonTree/data_125_13TeV_NOTAG",
+        "Data": "DiphotonTree/Data_13TeV_NOTAG"
+    },
+
+    "MC":{
+        "GluGluToHH":{
+            "file":{
+                "22preEE": "../minitree/22preEE_GluGluToHH.root",
+                "22postEE": "../minitree/22postEE_GluGluToHH.root"
+            },
+            "xs": 0.03443
+        },
+        "VBFToHH":{
+            "file":{
+                "22preEE": "../minitree/22preEE_VBFToHH.root",
+                "22postEE": "../minitree/22postEE_VBFToHH.root"
+            },
+            "xs": 0.00192
+        },
+        "GJet_Pt20to40":{
+            "file":{
+                "22preEE": "../minitree/22preEE_GJet_Pt20to40.root",
+                "22postEE": "../minitree/22postEE_GJet_Pt20to40.root"
+            },
+            "xs": 242.5
+        },
+        "GJet_Pt40":{
+            "file":{
+                "22preEE": "../minitree/22preEE_GJet_Pt40.root",
+                "22postEE": "../minitree/22postEE_GJet_Pt40.root"
+            },
+            "xs": 919.1
+        },
+        "GGJets":{
+            "file":{
+                "22preEE": "../minitree/22preEE_GGJets.root",
+                "22postEE": "../minitree/22postEE_GGJets.root"
+            },
+            "xs": 88.75
+        },
+        "GluGluHtoGG_M125":{
+            "file":{
+                "22preEE": "../minitree/22preEE_GluGluHtoGG_M125.root",
+                "22postEE": "../minitree/22postEE_GluGluHtoGG_M125.root"
+            },
+            "xs": 0.1185621
+        },
+        "VBFHtoGG_M125":{
+            "file":{
+                "22preEE": "../minitree/22preEE_VBFHtoGG_M125.root",
+                "22postEE": "../minitree/22postEE_VBFHtoGG_M125.root"
+            },
+            "xs": 0.00925706
+        },
+        "VHtoGG_M125":{
+            "file":{
+                "22preEE": "../minitree/22preEE_VHtoGG_M125.root",
+                "22postEE": "../minitree/22postEE_VHtoGG_M125.root"
+            },
+            "xs": 0.00545027
+        },
+        "ttHtoGG_M125":{
+            "file":{
+                "22preEE": "../minitree/22preEE_ttHtoGG_M125.root",
+                "22postEE": "../minitree/22postEE_ttHtoGG_M125.root"
+            },
+            "xs": 0.0012939
+        },
+        "QCD_HT200to400":{
+            "file":{
+                "22preEE": "../minitree/22preEE_QCD_HT200to400.root",
+                "22postEE": "../minitree/22postEE_QCD_HT200to400.root"
+            },
+            "xs": 1961000
+        },
+        "QCD_HT400to600":{
+            "file":{
+                "22preEE": "../minitree/22preEE_QCD_HT400to600.root",
+                "22postEE": "../minitree/22postEE_QCD_HT400to600.root"
+            },
+            "xs": 95620
+        },
+        "QCD_HT600to800":{
+            "file":{
+                "22preEE": "../minitree/22preEE_QCD_HT600to800.root",
+                "22postEE": "../minitree/22postEE_QCD_HT600to800.root"
+            },
+            "xs": 13540
+        },
+        "QCD_HT800to1000":{
+            "file":{
+                "22preEE": "../minitree/22preEE_QCD_HT800to1000.root",
+                "22postEE": "../minitree/22postEE_QCD_HT800to1000.root"
+            },
+            "xs": 3033
+        },
+        "QCD_HT1000to1200":{
+            "file":{
+                "22preEE": "../minitree/22preEE_QCD_HT1000to1200.root",
+                "22postEE": "../minitree/22postEE_QCD_HT1000to1200.root"
+            },
+            "xs": 883.7
+        },
+        "QCD_HT1200to1500":{
+            "file":{
+                "22preEE": "../minitree/22preEE_QCD_HT1200to1500.root",
+                "22postEE": "../minitree/22postEE_QCD_HT1200to1500.root"
+            },
+            "xs": 383.5
+        },
+        "QCD_HT1500to2000":{
+            "file":{
+                "22preEE": "../minitree/22preEE_QCD_HT1500to2000.root",
+                "22postEE": "../minitree/22postEE_QCD_HT1500to2000.root"
+            },
+            "xs": 125.2
+        },
+        "QCD_HT2000":{
+            "file":{
+                "22preEE": "../minitree/22preEE_QCD_HT2000.root",
+                "22postEE": "../minitree/22postEE_QCD_HT2000.root"
+            },
+            "xs": 26.49
+        }
+
+    },
+
+    "Data":{
+        "file":{
+            "22preEE": "../minitree/data/22preEE_EGamma*.root",
+            "22postEE": "../minitree/data/22postEE_EGamma*.root"
+        },
+        "xs": 1,
+        "lumi":{
+            "22preEE": 7980.4,
+            "22postEE": 26671.7
+        }
+    }
+}

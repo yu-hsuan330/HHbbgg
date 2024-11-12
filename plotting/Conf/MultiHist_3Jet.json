@@ -1,0 +1,102 @@
+{
+    "lumi":{
+        "22preEE": 7980.4,
+        "22postEE": 26671.7
+    },
+    "era": "22postEE",
+    "MultiHist_list":["Jet", "genJet", "genPart"],
+    "MultiHist":{
+        "Jet":{
+            "file":{
+                "22postEE": "../minitree_reco/22postEE_VBFToHH.root"
+            },
+            "tree": "DiphotonTree/data_125_13TeV_NOTAG",
+            "weight": "weight*((lead_gen_PromptHardProcess==1)&&(sublead_gen_PromptHardProcess==1)&&(lead_bjet_gen_PromptHardProcess==1)&&(sublead_bjet_gen_PromptHardProcess==1)&&(lead_gen_pdgIdMother==25)&&(sublead_gen_pdgIdMother==25)&&(lead_bjet_gen_pdgIdMother == 25)&&(sublead_bjet_gen_pdgIdMother == 25)&&(lead_bjet_gen_pt>=0)&&(sublead_bjet_gen_pt>=0)&&(fabs(lead_bjet_pFlav)==5)&&(fabs(sublead_bjet_pFlav)==5))",
+            "xs": 0.00192,
+            "histColor": "#EC8C6F",
+            "histLine": 1
+        },
+        "genJet":{
+            "file":{
+                "22postEE": "../minitree_reco/22postEE_VBFToHH.root"
+            },
+            "tree": "DiphotonTree/data_125_13TeV_NOTAG",
+            "weight": "weight*((lead_gen_PromptHardProcess==1)&&(sublead_gen_PromptHardProcess==1)&&(lead_bjet_gen_PromptHardProcess==1)&&(sublead_bjet_gen_PromptHardProcess==1)&&(lead_gen_pdgIdMother==25)&&(sublead_gen_pdgIdMother==25)&&(lead_bjet_gen_pdgIdMother == 25)&&(sublead_bjet_gen_pdgIdMother == 25)&&(lead_bjet_gen_pt>=0)&&(sublead_bjet_gen_pt>=0)&&(fabs(lead_bjet_pFlav)==5)&&(fabs(sublead_bjet_pFlav)==5))",
+            "xs": 0.00192,
+            "histColor": "#37A3D2",
+            "histLine": 1
+        },
+        "genPart":{
+            "file":{
+                "22postEE": "../minitree_reco/22postEE_VBFToHH.root"
+            },
+            "tree": "DiphotonTree/data_125_13TeV_NOTAG",
+            "weight": "weight*((lead_gen_PromptHardProcess==1)&&(sublead_gen_PromptHardProcess==1)&&(lead_bjet_gen_PromptHardProcess==1)&&(sublead_bjet_gen_PromptHardProcess==1)&&(lead_gen_pdgIdMother==25)&&(sublead_gen_pdgIdMother==25)&&(lead_bjet_gen_pdgIdMother == 25)&&(sublead_bjet_gen_pdgIdMother == 25)&&(lead_bjet_gen_pt>=0)&&(sublead_bjet_gen_pt>=0)&&(fabs(lead_bjet_pFlav)==5)&&(fabs(sublead_bjet_pFlav)==5))",
+            "xs": 0.00192,
+            "histColor": "#2E5266",
+            "histLine": 1
+        }
+    },
+    "var_list":{
+        "lead_bjet_pt":{
+            "var":{
+                "Jet":"lead_bjet_pt",
+                "genJet":"lead_bjet_genjet_pt",
+                "genPart":"lead_bjet_gen_pt"
+            },
+            "unit":["lead b p_{T} (GeV)", "a.u."],
+            "range":[25, 200, 1.5],
+            "nbin": 40
+        },
+        "lead_bjet_eta":{
+            "var":{
+                "Jet":"lead_bjet_eta",
+                "genJet":"lead_bjet_genjet_eta",
+                "genPart":"lead_bjet_gen_eta"
+            },
+            "unit":["lead b #eta", "a.u."],
+            "range":[-2.7, 2.7, 1.5],
+            "nbin": 20
+        },
+        "lead_bjet_phi":{
+            "var":{
+                "Jet":"lead_bjet_phi",
+                "genJet":"lead_bjet_genjet_phi",
+                "genPart":"lead_bjet_gen_phi"
+            },
+            "unit":["lead b #phi", "a.u."],
+            "range":[-3.2, 3.2, 1.5],
+            "nbin": 20
+        },
+        "sublead_bjet_pt":{
+            "var":{
+                "Jet":"sublead_bjet_pt",
+                "genJet":"sublead_bjet_genjet_pt",
+                "genPart":"sublead_bjet_gen_pt"
+            },
+            "unit":["sublead b p_{T} (GeV)", "a.u."],
+            "range":[25, 120, 1.5],
+            "nbin": 50
+        },
+        "sublead_bjet_eta":{
+            "var":{
+                "Jet":"sublead_bjet_eta",
+                "genJet":"sublead_bjet_genjet_eta",
+                "genPart":"sublead_bjet_gen_eta"
+            },
+            "unit":["sublead b #eta", "a.u."],
+            "range":[-2.7, 2.7, 1.5],
+            "nbin": 20
+        },
+        "sublead_bjet_phi":{
+            "var":{
+                "Jet":"sublead_bjet_phi",
+                "genJet":"sublead_bjet_genjet_phi",
+                "genPart":"sublead_bjet_gen_phi"
+            },
+            "unit":["sublead b #phi", "a.u."],
+            "range":[-3.2, 3.2, 1.5],
+            "nbin": 20
+        }
+    }
+}
