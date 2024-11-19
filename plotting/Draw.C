@@ -41,7 +41,6 @@ void draw_MultiHist(std::map<std::string, TH1F> hist, vector<string> histName, T
 		
 	}
 
-
 	// legend setting
 	TLegend *le1 = new TLegend(0.6,0.65,0.92,0.87);
 	le1->SetFillStyle(0);
@@ -107,10 +106,6 @@ void MultiHist(string json_file="./SampleList.json", string dir="test"){
 		draw_MultiHist(histmap, histNames, varTitle, unit, range[2], dir);
 
 	}
-
-	
-
-
 }
 
 void drawDataMC(std::map<std::string, TH1F> hist, TString var, string unit, float min, float max, string dir){

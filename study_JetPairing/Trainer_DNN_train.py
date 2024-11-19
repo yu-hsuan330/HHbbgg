@@ -28,7 +28,7 @@ from sklearn.preprocessing import MinMaxScaler
 from matplotlib import pyplot as plt
 
 from Tools.dfUtils import df_from_rootfiles, df_balance_rwt
-from Tools.PlotsUtils import prGreen, pltSty, plot_Features, plot_Features2, plot_ROC, plot_VarImportance, plot_MVA, plot_CM, plot_correlation_matrix
+from Tools.PlotsUtils import prGreen, pltSty, plot_Features, plot_Features2, plot_ROC, plot_VarImportance, plot_MVA, plot_confusion_matrix, plot_correlation_matrix, loss_history
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import classification_report
 
@@ -160,18 +160,35 @@ if __name__ == "__main__":
             y_train = to_categorical(y_train, num_classes=len(Conf.Classes))
             y_test = to_categorical(y_test, num_classes=len(Conf.Classes))
             
-            # Scale the input dataset
+            #* Scale the input dataset
+            x_train.loc[x_train["pair1_btagPNetB"] < 0, "pair1_btagPNetB"] = -99
+            x_train.loc[x_train["pair2_btagPNetB"] < 0, "pair2_btagPNetB"] = -99
+            x_train.loc[x_train["pair1_btagPNetQvG"] < 0, "pair1_btagPNetQvG"] = -999
+            x_train.loc[x_train["pair2_btagPNetQvG"] < 0, "pair2_btagPNetQvG"] = -999
+            
+            x_test.loc[x_test["pair1_btagPNetB"] < 0, "pair1_btagPNetB"] = -99
+            x_test.loc[x_test["pair2_btagPNetB"] < 0, "pair2_btagPNetB"] = -99
+            x_test.loc[x_test["pair1_btagPNetQvG"] < 0, "pair1_btagPNetQvG"] = -999
+            x_test.loc[x_test["pair2_btagPNetQvG"] < 0, "pair2_btagPNetQvG"] = -999
             try:
                 exec("sc = "+MVA["Scaler"]+"()")
-                x_train = sc.fit_transform(x_train)
-                x_test = sc.transform(x_test)
+                # TODO optimize the scaling
+                valid_mask = (x_train != -999) & (x_train != -99)
+                x_train[valid_mask] = sc.fit_transform(x_train[valid_mask])
+                x_train[(x_train == -99)] = 0
+                x_train[(x_train == -999)] = -1
+                
+                valid_mask = (x_test != -999) & (x_test != -99)
+                x_test[valid_mask] = sc.transform(x_test[valid_mask])
+                x_test[(x_test == -99)] = 0
+                x_test[(x_test == -999)] = -1
                 
                 with open((Conf.OutputDirName+"/"+MVA["MVAtype"]+"/"+MVA["MVAtype"]+"_"+"scaler.pkl"), 'wb') as f:
                     pkl.dump(sc, f)
             except:
                 print("Data is not being scaled! Either no scaling option provided or scaling not found")
-                
-            # set the parameters of early stopping
+            
+            #* set the parameters of early stopping
             global es
             try:
                 es = MVA["DNNDict"]["earlyStopping"]
@@ -179,8 +196,7 @@ if __name__ == "__main__":
                 es = EarlyStopping(monitor='val_loss', mode='min', verbose=1, patience=10)
                 print("No early stopping specified, will use the default one")
             
-            #TODO Search hyperparameter  
-            
+            # TODO Search hyperparameter  
             if MVA["hyperopt"]:
                 trials = hpt.Trials()
                 best_params = hpt.fmin(fn=DNN_objective, space=DNN_space, algo=hpt.tpe.suggest, max_evals=50, trials=trials)
@@ -199,20 +215,20 @@ if __name__ == "__main__":
 
             # print(y_train_pred)
             training_loss = train_history.history['loss']
-            test_loss = train_history.history['val_loss']
+            testing_loss = train_history.history['val_loss']
 
-            # Create count of the number of epochs
-            epoch_count = range(1, len(training_loss) + 1)
+            loss_history(MVA, training_loss, testing_loss, Conf)
+            
+            #// Create count of the number of epochs
+            # epoch_count = range(1, len(training_loss) + 1)
 
-            # Visualize loss history
-            fig, axes = plt.subplots(1, 1, figsize=(6, 6))
-            axes.plot(epoch_count, training_loss)
-            axes.plot(epoch_count, test_loss)
-            axes.legend(['Training Loss', 'Test Loss'])
-            # axes.set_xlabel('Epoch')
-            # axes.set_ylabel(MVA["Label"]+': Loss')
-            pltSty(axes, xName = "Epoch", yName = MVA["Label"]+': Loss')
-            plt.savefig(Conf.OutputDirName+"/"+MVA["MVAtype"]+"/"+MVA["MVAtype"]+"_"+"Loss.pdf")
+            #* Visualize loss history
+            # fig, axes = plt.subplots(1, 1, figsize=(6, 6))
+            # axes.plot(epoch_count, training_loss)
+            # axes.plot(epoch_count, test_loss)
+            # axes.legend(['Training Loss', 'Testing Loss'], fontsize=12, frameon=False)
+            # pltSty(axes, xName = "Epoch", yName = MVA["Label"]+': Loss')
+            # plt.savefig(Conf.OutputDirName+"/"+MVA["MVAtype"]+"/"+MVA["MVAtype"]+"_"+"Loss.pdf")
             
         elif MVA["Algorithm"] == "XGB":
             # Move the data to GPU
@@ -272,8 +288,8 @@ if __name__ == "__main__":
         # plot_MVA(MVA, y_train[abs(x_train[:,10])>1.566], y_test[abs(x_test[:,10])>1.566], y_train_pred[abs(x_train[:,10])>1.566], y_test_pred[abs(x_test[:,10])>1.566], w_train[abs(x_train[:,10])>1.566], w_test[abs(x_test[:,10])>1.566], Conf, False)   
         plot_MVA(MVA, y_train, y_test, y_train_pred, y_test_pred, w_train, w_test, Conf, False)   
         #Confusion matrix with and without normalization
-        plot_CM(MVA, y_test, y_test_pred, Conf)
-        plot_CM(MVA, y_test, y_test_pred, Conf, True)
+        plot_confusion_matrix(MVA, y_test, y_test_pred, Conf)
+        plot_confusion_matrix(MVA, y_test, y_test_pred, Conf, True)
         
         plot_correlation_matrix(MVA, x_train, Conf)
         # plot_VarImportance(MVA, modelDNN, Conf, x_train, x_test) # plot_VarImportance(MVA, cv.best_estimator_, Conf)

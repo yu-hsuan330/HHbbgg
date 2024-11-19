@@ -35,7 +35,8 @@ minitree = [
             # "22preEE_GluGluToHH", "22postEE_GluGluToHH",
             # "22preEE_GJet_Pt20to40_MGG80", "22postEE_GJet_Pt20to40_MGG80", "22preEE_GJet_Pt40_MGG80", "22postEE_GJet_Pt40_MGG80",
             # "22preEE_GGJets", "22postEE_GGJets",
-            # "22preEE_QCD_Pt30to40_MGG80", "22postEE_QCD_Pt30to40_MGG80", "22preEE_QCD_Pt40_MGG80", "22postEE_QCD_Pt40_MGG80",
+            # "22preEE_QCD_Pt30to40_MGG80", 
+            # "22postEE_QCD_Pt30to40_MGG80", "22preEE_QCD_Pt40_MGG80", "22postEE_QCD_Pt40_MGG80",
             # "22preEE_QCD_Pt30_MGG40to80", "22postEE_QCD_Pt30_MGG40to80",
             ]
 lumi_xs = [
@@ -43,7 +44,8 @@ lumi_xs = [
     # 7980.4*0.03443, 26671.7*0.03443, 
     # 7980.4*242.5, 26671.7*242.5, 7980.4*919.1, 26671.7*919.1,
     # 7980.4*88.75, 26671.7*88.75,
-    # 7980.4*25950, 26671.7*25950, 7980.4*124700, 26671.7*124700,
+    # 7980.4*25950, 
+    # 26671.7*25950, 7980.4*124700, 26671.7*124700,
     # 7980.4*252200, 26671.7*252200
 ]
 branch_features = [
@@ -51,37 +53,39 @@ branch_features = [
     "pair1_ptOverM", "pair2_ptOverM", "pair1_eta", "pair2_eta", 
     "pair1_btagPNetB", "pair2_btagPNetB", "pair1_btagPNetQvG", "pair2_btagPNetQvG",
     "pair_pt","pair_eta", "pair_phi", "pair_mass",
-    "pair_DeltaR", #"pair_DeltaPhi", 
+    "pair_DeltaR", "pair_DeltaPhi", 
     "pair_eta_prod", "pair_eta_diff", 
-    "pair_Cgg", #"pair1_phi", "pair2_phi"
+    "pair_Cgg", "pair1_phi", "pair2_phi"
 ]
 
 if __name__ == "__main__":
 
     #* Load the saved DNN model
-    model = tf.keras.models.load_model("./MultiClass_DNN_VBF_1110/DNN/DNN_modelDNN.keras")
+    model = tf.keras.models.load_model("./MultiClass_DNN_VBF_1115/DNN/DNN_modelDNN.keras")
 
-    with open('./MultiClass_DNN_VBF_1110/DNN/DNN_scaler.pkl', 'rb') as f:
+    with open('./MultiClass_DNN_VBF_1115/DNN/DNN_scaler.pkl', 'rb') as f:
         sc = pickle.load(f)
 
-    #* Load the ROOT files
     for i, j in zip(minitree, lumi_xs):
-        print("Processing: ", i)
+        print("Start processing file: ", i)
+        #* Load the ROOT files
         events = uproot.concatenate(["../minitree/{}/{}.root:{}".format(version, i, TreeName)], library="ak")
-        # events = events[:50]
-        jet1 = ak.zip({"pt": events["jet1_pt"], "eta": events["jet1_eta"], "phi": events["jet1_phi"], "mass": events["jet1_mass"], "charge": events["jet1_charge"], "btagPNetB": events["jet1_btagPNetB"], "btagPNetQvG": events["jet1_btagPNetQvG"]})
-        jet2 = ak.zip({"pt": events["jet2_pt"], "eta": events["jet2_eta"], "phi": events["jet2_phi"], "mass": events["jet2_mass"], "charge": events["jet2_charge"], "btagPNetB": events["jet2_btagPNetB"], "btagPNetQvG": events["jet2_btagPNetQvG"]})
-        jet3 = ak.zip({"pt": events["jet3_pt"], "eta": events["jet3_eta"], "phi": events["jet3_phi"], "mass": events["jet3_mass"], "charge": events["jet3_charge"], "btagPNetB": events["jet3_btagPNetB"], "btagPNetQvG": events["jet3_btagPNetQvG"]})
-        jet4 = ak.zip({"pt": events["jet4_pt"], "eta": events["jet4_eta"], "phi": events["jet4_phi"], "mass": events["jet4_mass"], "charge": events["jet4_charge"], "btagPNetB": events["jet4_btagPNetB"], "btagPNetQvG": events["jet4_btagPNetQvG"]})
-        jet5 = ak.zip({"pt": events["jet5_pt"], "eta": events["jet5_eta"], "phi": events["jet5_phi"], "mass": events["jet5_mass"], "charge": events["jet5_charge"], "btagPNetB": events["jet5_btagPNetB"], "btagPNetQvG": events["jet5_btagPNetQvG"]})
-        jet6 = ak.zip({"pt": events["jet6_pt"], "eta": events["jet6_eta"], "phi": events["jet6_phi"], "mass": events["jet6_mass"], "charge": events["jet6_charge"], "btagPNetB": events["jet6_btagPNetB"], "btagPNetQvG": events["jet6_btagPNetQvG"]})
+        # events = events[1:100]
+        jet1 = ak.zip({"pt": events["jet1_pt"], "eta": events["jet1_eta"], "phi": events["jet1_phi"], "mass": events["jet1_mass"], "charge": events["jet1_charge"], "btagPNetB": events["jet1_btagPNetB"], "btagPNetQvG": events["jet1_btagPNetQvG"], "genFlav": events["jet1_genFlav"], "lheMatched": events["jet1_lheMatched"]})
+        jet2 = ak.zip({"pt": events["jet2_pt"], "eta": events["jet2_eta"], "phi": events["jet2_phi"], "mass": events["jet2_mass"], "charge": events["jet2_charge"], "btagPNetB": events["jet2_btagPNetB"], "btagPNetQvG": events["jet2_btagPNetQvG"], "genFlav": events["jet2_genFlav"], "lheMatched": events["jet2_lheMatched"]})
+        jet3 = ak.zip({"pt": events["jet3_pt"], "eta": events["jet3_eta"], "phi": events["jet3_phi"], "mass": events["jet3_mass"], "charge": events["jet3_charge"], "btagPNetB": events["jet3_btagPNetB"], "btagPNetQvG": events["jet3_btagPNetQvG"], "genFlav": events["jet3_genFlav"], "lheMatched": events["jet3_lheMatched"]})
+        jet4 = ak.zip({"pt": events["jet4_pt"], "eta": events["jet4_eta"], "phi": events["jet4_phi"], "mass": events["jet4_mass"], "charge": events["jet4_charge"], "btagPNetB": events["jet4_btagPNetB"], "btagPNetQvG": events["jet4_btagPNetQvG"], "genFlav": events["jet4_genFlav"], "lheMatched": events["jet4_lheMatched"]})
+        jet5 = ak.zip({"pt": events["jet5_pt"], "eta": events["jet5_eta"], "phi": events["jet5_phi"], "mass": events["jet5_mass"], "charge": events["jet5_charge"], "btagPNetB": events["jet5_btagPNetB"], "btagPNetQvG": events["jet5_btagPNetQvG"], "genFlav": events["jet5_genFlav"], "lheMatched": events["jet5_lheMatched"]})
+        jet6 = ak.zip({"pt": events["jet6_pt"], "eta": events["jet6_eta"], "phi": events["jet6_phi"], "mass": events["jet6_mass"], "charge": events["jet6_charge"], "btagPNetB": events["jet6_btagPNetB"], "btagPNetQvG": events["jet6_btagPNetQvG"], "genFlav": events["jet6_genFlav"], "lheMatched": events["jet6_lheMatched"]})
 
         jets = ak.concatenate([jet1[:,None], jet2[:,None], jet3[:,None], jet4[:,None], jet5[:,None], jet6[:,None]], axis=1)
         jets = ak.with_name(jets, "PtEtaPhiMCandidate", behavior=candidate.behavior)
         
         jets = ak.drop_none(jets.mask[jets.pt > 0]) 
         jets["idx"] = ak.local_index(jets, axis=1)
-
+        jets["true_bjet"] = abs(jets.genFlav) == 5
+        jets["true_vbfjet"] = (abs(jets.genFlav) != 5) & (jets.lheMatched == 1)
+        
         dijets = ak.combinations(jets, 2, fields=["lead", "sublead"])
         pair = dijets["lead"] + dijets["sublead"]
         
@@ -90,10 +94,12 @@ if __name__ == "__main__":
         dijets["phi"] = pair.phi
         dijets["mass"] = pair.mass
         dijets["charge"] = pair.charge
+        dijets["true_bjet_pair"] = dijets["lead"].true_bjet & dijets["sublead"].true_bjet
+        dijets["true_vbfjet_pair"] = dijets["lead"].true_vbfjet & dijets["sublead"].true_vbfjet
         
         dijets["event"] = events["event"]
         dijets["weight"] = events["weight"]
-        dijets["selected"] = events["VBF_dijet_pt"] > 0        
+        dijets["VBF_selected"] = events["VBF_dijet_pt"] > 0        
         dijets["gg_pt"] = events["pt"]
         dijets["gg_eta"] = events["eta"]
         dijets["gg_phi"] = events["phi"]
@@ -106,7 +112,7 @@ if __name__ == "__main__":
         branches = ak.zip({
             "event": dijets["event"],
             "weight": dijets["weight"],
-            "selected": dijets["selected"],
+            "VBF_selected": dijets["VBF_selected"],
             "lead_idx": dijets["lead"].idx,
             "sublead_idx": dijets["sublead"].idx,
             "pt": dijets["gg_pt"],
@@ -119,8 +125,8 @@ if __name__ == "__main__":
             "pair2_ptOverM": dijets["sublead"].pt / dijets["mass"], 
             "pair1_eta": dijets.lead.eta, 
             "pair2_eta": dijets.sublead.eta, 
-            "pair1_phi": dijets.lead.eta,  
-            "pair2_phi": dijets.sublead.eta,
+            "pair1_phi": dijets.lead.phi,  
+            "pair2_phi": dijets.sublead.phi,
             "pair1_btagPNetB": dijets.lead.btagPNetB, 
             "pair2_btagPNetB": dijets.sublead.btagPNetB, 
             "pair1_btagPNetQvG": dijets.lead.btagPNetQvG, 
@@ -134,6 +140,8 @@ if __name__ == "__main__":
             "pair_eta_prod": dijets.lead.eta * dijets.sublead.eta, 
             "pair_eta_diff": dijets["eta_diff"],
             "pair_Cgg": Cgg(dijets["eta_diff"], dijets["eta_sum"], dijets["gg_eta"]),
+            "true_bjet_pair": dijets["true_bjet_pair"],
+            "true_vbfjet_pair": dijets["true_vbfjet_pair"],
             }
         )  
 
@@ -143,7 +151,16 @@ if __name__ == "__main__":
 
         #* Convert structured array to a flat array and do the normalization 
         DNN_Input = pd.DataFrame(flat_features.to_numpy(), columns=flat_features.fields)
-        DNN_Input = sc.transform(DNN_Input)
+
+        DNN_Input.loc[DNN_Input["pair1_btagPNetB"] < 0, "pair1_btagPNetB"] = -99
+        DNN_Input.loc[DNN_Input["pair2_btagPNetB"] < 0, "pair2_btagPNetB"] = -99
+        DNN_Input.loc[DNN_Input["pair1_btagPNetQvG"] < 0, "pair1_btagPNetQvG"] = -999
+        DNN_Input.loc[DNN_Input["pair2_btagPNetQvG"] < 0, "pair2_btagPNetQvG"] = -999
+
+        valid_mask = (DNN_Input != -99) & (DNN_Input != -999)
+        DNN_Input[valid_mask] = sc.transform(DNN_Input[valid_mask])
+        DNN_Input[DNN_Input == -99] = 0
+        DNN_Input[DNN_Input == -999] = -1
         
         #* DNN prediction
         DNN_Score = model.predict(DNN_Input)
@@ -168,8 +185,12 @@ if __name__ == "__main__":
         branches["sublead"] = dijets["sublead"]
         
         print("number of events: ", ak.num(branches, axis=0))
-        print("total yeild: ", j*ak.sum(branches["weight"], axis=0)[0])
-        print("total VBF yeild: ", j*ak.sum(branches["weight"][branches["selected"]==1], axis=0)[0])
+        print(f"the number of true bb: {ak.sum(branches['true_bjet_pair'])}, ({j*ak.sum(branches['true_bjet_pair']*branches['weight'])})")
+        print(f"the number of true VBF jj: {ak.sum(branches['true_vbfjet_pair'])}, ({j*ak.sum(branches['true_vbfjet_pair']*branches['weight'])}")
+        
+        print("total yield (cut-based): ", j*ak.sum(branches["weight"], axis=0)[0])
+        print("total VBF yeild (cut-based): ", j*ak.sum(branches["weight"][branches["VBF_selected"]==1], axis=0)[0])
+        
         #* b-jet pair selection
         is_bb = (branches["DNN_class"] == 0) & (abs(branches["pair1_eta"]) < 2.5) & (abs(branches["pair2_eta"]) < 2.5)
         is_jj = (branches["DNN_class"] == 1) & (branches["pair1_pt"] > 40) & (branches["pair2_pt"] > 30)
@@ -194,9 +215,9 @@ if __name__ == "__main__":
         
         results = ak.firsts(pair_bbjj[deltaRCut & idxCut])
         results = ak.drop_none(results)
-        print(results["bb"].fields)
+        # print(results["bb"].fields)
         print("number of bb+jj pair: ", ak.num(results, axis=0))
-        print("total yeild after bb+jj: ", j*ak.sum(results["bb"]["weight"], axis=0))
+        print("total yield after bb+jj: ", j*ak.sum(results["bb"]["weight"], axis=0))
 
         output = ak.zip({
             "event": results["bb"].event,
@@ -204,7 +225,9 @@ if __name__ == "__main__":
             "pt": results["bb"].pt,
             "eta": results["bb"].eta, 
             "phi": results["bb"].phi, 
-            "n_jets": results["bb"].n_jets
+            "n_jets": results["bb"].n_jets,
+            "true_bjet_pair": results["bb"].true_bjet_pair,
+            "true_vbfjet_pair": results["jj"].true_vbfjet_pair,
         })
 
         store_variables = [
