@@ -1,0 +1,8 @@
+# Ignore root files
+*.root
+
+# Ignore parquet files
+*.parquet
+
+# Ignore __pycache__ directories
+__pycache__/
