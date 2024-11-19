@@ -1,0 +1,20 @@
+{
+    "samplejson": "json_SampleList/MC_22preEEv12_QCD.json",
+    "workflow": "HHbbgg",
+    "metaconditions": "Era2022_v1",
+    "taggers": [],
+    "year": {
+        "22preEE_QCD_Pt30_MGG40to80": [
+            "2022preEE"
+        ],
+        "22preEE_QCD_Pt30to40_MGG80":[
+            "2022preEE"
+        ],
+        "22preEE_QCD_Pt40_MGG80":[
+            "2022preEE"
+        ]
+    },
+    "systematics": {},
+    "corrections": {}
+
+}

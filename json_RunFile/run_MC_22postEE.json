@@ -1,0 +1,50 @@
+{
+    "samplejson": "json_SampleList/MC_22postEEv12.json",
+    "workflow": "HHbbgg",
+    "metaconditions": "Era2022_v1",
+    "taggers": [],
+    "year": {
+        "22postEE_GluGluToHH": [
+            "2022postEE"
+        ],
+        "22postEE_VBFToHH": [
+            "2022postEE"
+        ],    
+        "22postEE_GJet_Pt20_MGG40to80": [
+            "2022postEE"
+        ],
+        "22postEE_GJet_Pt20to40_MGG80": [
+            "2022postEE"
+        ], 
+        "22postEE_GJet_Pt40_MGG80": [
+            "2022postEE"
+        ],
+        "22postEE_GGJets": [
+            "2022postEE"
+        ],
+        "22postEE_QCD_Pt30_MGG40to80": [
+            "2022postEE"
+        ],
+        "22postEE_QCD_Pt30to40_MGG80":[
+            "2022postEE"
+        ],
+        "22postEE_QCD_Pt40_MGG80":[
+            "2022postEE"
+        ],
+        "22postEE_GluGluHtoGG_M125": [
+            "2022postEE"
+        ],        
+        "22postEE_VBFHtoGG_M125": [
+            "2022postEE"
+        ],
+        "22postEE_VHtoGG_M125": [
+            "2022postEE"
+        ],
+        "22postEE_ttHtoGG_M125": [
+            "2022postEE"
+        ]
+    },
+    "systematics": {},
+    "corrections": {}
+
+}

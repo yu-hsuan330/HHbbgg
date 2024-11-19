@@ -1,0 +1,17 @@
+{
+    "samplejson": "json_SampleList/MC_22postEEv12_sig.json",
+    "workflow": "HHbbgg",
+    "metaconditions": "Era2022_v1",
+    "taggers": [],
+    "year": {
+        "22postEE_GluGluToHH": [
+            "2022postEE"
+        ],
+        "22postEE_VBFToHH": [
+            "2022postEE"
+        ]
+    },
+    "systematics": {},
+    "corrections": {}
+
+}

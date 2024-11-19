@@ -1,0 +1,39 @@
+{
+    "samplejson": "json_SampleList/MC_22preEEv12.json",
+    "workflow": "HHbbgg",
+    "metaconditions": "Era2022_v1",
+    "taggers": [],
+    "year": {
+        "22preEE_GluGluToHH": [
+            "2022preEE"
+        ],
+        "22preEE_VBFToHH": [
+            "2022preEE"
+        ],    
+        "22preEE_GJet_Pt20to40": [
+            "2022preEE"
+        ], 
+        "22preEE_GJet_Pt40": [
+            "2022preEE"
+        ],
+        "22preEE_GGJets": [
+            "2022preEE"
+        ],
+        "22preEE_GluGluHtoGG_M125": [
+            "2022preEE"
+        ],        
+        "22preEE_VBFHtoGG_M125": [
+            "2022preEE"
+        ],
+        "22preEE_VHtoGG_M125": [
+            "2022preEE"
+        ],
+        "22preEE_ttHtoGG_M125": [
+            "2022preEE"
+        ]
+    },
+    "systematics": {},
+    "corrections": {
+    }
+
+}

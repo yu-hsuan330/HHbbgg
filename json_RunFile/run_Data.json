@@ -1,0 +1,26 @@
+{
+    "samplejson": "sample_list/Data_22v12.json",
+    "workflow": "HHbbgg",
+    "metaconditions": "Era2022_v1",
+    "taggers": [],
+    "year": {
+        "22preEE_EGammaC": [
+            "2022preEE"
+        ],
+        "22preEE_EGammaD": [
+            "2022preEE"
+        ],    
+        "22postEE_EGammaE": [
+            "2022postEE"
+        ], 
+        "22postEE_EGammaF": [
+            "2022postEE"
+        ],
+        "22postEE_EGammaG": [
+            "2022postEE"
+        ]
+    },
+    "systematics": {},
+    "corrections": {}
+
+}

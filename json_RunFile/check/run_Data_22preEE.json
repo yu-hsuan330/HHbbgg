@@ -1,0 +1,17 @@
+{
+    "samplejson": "Data_Run2022_preEE_v12.json",
+    "workflow": "HHbbgg",
+    "metaconditions": "Era2022_v1",
+    "taggers": [],
+    "year": {
+        "EGamma_Run2022C": [
+            "2022EE"
+        ],
+        "EGamma_Run2022D": [
+            "2022EE"
+        ]
+    },
+    "systematics": {},
+    "corrections": {}
+
+}

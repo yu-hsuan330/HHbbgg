@@ -1,0 +1,28 @@
+{
+    "samplejson": "json_SampleList/MC_22v12_sig.json",
+    "workflow": "HHbbgg",
+    "metaconditions": "Era2022_v1",
+    "taggers": [],
+    "year": {
+        "22preEE_GluGluToHH": [
+            "2022preEE"
+        ],
+        "22preEE_VBFToHH": [
+            "2022preEE"
+        ],
+        "22postEE_GluGluToHH": [
+            "2022postEE"
+        ],
+        "22postEE_VBFToHH": [
+            "2022postEE"
+        ]
+    },
+    "systematics": {},
+    "corrections": {
+        "22preEE_GluGluToHH": ["jerc_jet", "Pileup", "Et_dependent_Smearing", "FNUF", "Material", "ElectronVetoSF", "PreselSF", "TriggerSF", "PNet_bTagShapeSF"],
+        "22preEE_VBFToHH": ["jerc_jet", "Pileup", "Et_dependent_Smearing", "FNUF", "Material", "ElectronVetoSF", "PreselSF", "TriggerSF", "PNet_bTagShapeSF"],
+        "22postEE_GluGluToHH": ["jerc_jet", "Pileup", "Et_dependent_Smearing", "FNUF", "Material", "ElectronVetoSF", "PreselSF", "TriggerSF", "PNet_bTagShapeSF"],
+        "22postEE_VBFToHH": ["jerc_jet", "Pileup", "Et_dependent_Smearing", "FNUF", "Material", "ElectronVetoSF", "PreselSF", "TriggerSF", "PNet_bTagShapeSF"]
+
+    }
+}

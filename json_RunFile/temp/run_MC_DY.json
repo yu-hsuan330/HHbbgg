@@ -1,0 +1,17 @@
+{
+    "samplejson": "sample_list/MC_DY_22.json",
+    "workflow": "HHbbgg",
+    "metaconditions": "Era2022_v1",
+    "taggers": [],
+    "year": {
+        "22_preEE_DYJetsToLL_M-50": [
+            "2022preEE"
+        ],
+        "22_postEE_DYJetsToLL_M-50": [
+            "2022postEE"
+        ]
+    },
+    "systematics": {},
+    "corrections": {}
+
+}

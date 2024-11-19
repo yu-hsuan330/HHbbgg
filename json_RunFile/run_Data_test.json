@@ -1,0 +1,14 @@
+{
+    "samplejson": "sample_list/Data_test.json",
+    "workflow": "HHbbgg",
+    "metaconditions": "Era2022_v1",
+    "taggers": [],
+    "year": {
+        "22postEE_EGammaG": [
+            "2022postEE"
+        ]
+    },
+    "systematics": {},
+    "corrections": {}
+
+}
