@@ -1,7 +1,10 @@
-from configs import TrainConfig_Pairing_v3
+from configs import Pairing_multi
+from configs import Pairing_vbf
+from configs import EventCate
 
 workflows = {}
-workflows["TrainConfig_Pairing_v3"] = TrainConfig_Pairing_v3
-# workflows["TrainConfig_Pairing_v3"] = TrainConfig_Pairing_v3
+workflows["Pairing_multi"] = Pairing_multi
+workflows["Pairing_vbf"] = Pairing_vbf
+workflows["EventCate"] = EventCate
 
 __all__ = ["workflows"]

@@ -8,7 +8,7 @@ from tensorflow.keras.layers import Dense, Activation, Dropout, BatchNormalizati
 from tensorflow.keras.optimizers import Adam
 from tensorflow.keras.callbacks import EarlyStopping
 
-OutputDirName = "results/MultiClass_DNN_Pairing_v3_" # All plots, models, config file will be stored here
+OutputDirName = "MultiClass_DNN_Pairing_v4" # All plots, models, config file will be stored here
 Debug, MVAlogplot = False, False
 
 # ROOT files
@@ -32,7 +32,7 @@ TestSize, RandomState = 0.5, 123
 Processes = [
     {
     "Class": "b-jet pair",
-    "path": ["../minitree/ver0121_pair/22*_VBFToHH_jet*.root"],# "../minitree/ver0121_pair/22*_GluGluToHH_jet*.root"],
+    "path": ["../minitree/ver0121_pair/22*_VBFToHH_jet*.root", "../minitree/ver0121_pair/22*_GluGluToHH_jet*.root"],
     "selection": "(b_jetPair == 1)",
     "input_weight": ("weight","lumi_xs"),
     },
@@ -44,7 +44,7 @@ Processes = [
     },
     {
     "Class": "wrong pair",
-    "path": ["../minitree/ver0121_pair/22*_VBFToHH_jet*.root"],# "../minitree/ver0121_pair/22*_GluGluToHH_jet*.root"],#, "../minitree/ver0121_pair/22*GJet*.root"],
+    "path": ["../minitree/ver0121_pair/22*_VBFToHH_jet*.root", "../minitree/ver0121_pair/22*_GluGluToHH_jet*.root"],#, "../minitree/ver0121_pair/22*GJet*.root"],
     "selection": "(WrongPair == 1)",
     "input_weight": ("weight","lumi_xs"),
     },
@@ -82,7 +82,7 @@ MVAs = [
         "hyperopt": False,
         "Algorithm": "DNN",
         "Scaler":"MinMaxScaler", #Scaling for features before passing to the model training
-        "DNNDict":{ "ModelParams":{"epochs": 200, "batchsize": 2000, "input_dim": (19,), "output_dim": len(Classes)},
+        "DNNDict":{ "ModelParams":{"epochs": 200, "batchsize": 2500, "input_dim": (19,), "output_dim": len(Classes)},
                     'model': Sequential([
                                 Input(shape=(19,)),
                                 Masking(mask_value=-1),

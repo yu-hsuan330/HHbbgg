@@ -8,7 +8,7 @@ def get_parser():
     
     parser = argparse.ArgumentParser(prog="ML-trainer", description="DNN/XGBoost training", epilog="Good luck!")
     parser.add_argument("-r", "--runConfig", type=str, required=True, help="Path to the configuration file")
-    
+    parser.add_argument("-p", "--progress", action="store_true", help="Show the progress bar")
     return parser
 
 if __name__ == "__main__":
@@ -26,4 +26,4 @@ if __name__ == "__main__":
     os.system(f"cp configs/{args.runConfig}.py src/trainer.py {workflow.OutputDirName}/CodeANDConfig/")
     
     # Run the trainer
-    trainer(workflow)
+    trainer(workflow, args.progress)

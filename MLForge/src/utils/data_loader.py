@@ -114,6 +114,17 @@ def df_from_rootfiles(processes, treepath, branches, debug=False):
     output = daskframe.compute()
     output.reset_index(inplace = True, drop = True)
     return output
+
+def PrepDataset(df, TrainIndices, TestIndices, features, weight):
+    X_train = df.loc[TrainIndices, features]
+    Y_train = df.loc[TrainIndices, "Category"]
+    W_train = df.loc[TrainIndices, weight]
+
+    X_test = df.loc[TestIndices, features]
+    Y_test = df.loc[TestIndices, "Category"]
+    W_test = df.loc[TestIndices, weight]
+
+    return X_train, Y_train, W_train, X_test, Y_test, W_test
     
 def df_balance_rwt(Mdf, SumWeightCol="InstWt", NewWeightCol="NewWt", Classes=[""], debug=False) -> pd.Series:
     Mdf[NewWeightCol] = 1.

@@ -9,6 +9,7 @@ from sklearn.metrics import roc_curve, auc, confusion_matrix
 from sklearn.inspection import permutation_importance
 import seaborn as sns
 import shap
+shap.utils._show_progress = lambda x: None  
 # import pandas as pd
 # import dask.dataframe as dd
 # from scipy.interpolate import interp1d
@@ -98,7 +99,7 @@ def plot_VarImportance(MVA, model, Conf, X_train, X_test, Y_test):
     
     elif MVA["Algorithm"] == "DNN":
         # Use SHAP to explain the model's predictions
-        explainer = shap.Explainer(model.predict, X_train)
+        explainer = shap.Explainer(model.predict, X_train, progress_bar=False)
         shap_values = explainer.shap_values(X_test[:1000]) 
         for i, class_names in enumerate(Conf.Classes):
             fig, ax = plt.subplots(1, 1, figsize=(6,6))
@@ -117,7 +118,7 @@ def plot_VarImportance(MVA, model, Conf, X_train, X_test, Y_test):
             plt.close("all")
         for i, class_names in enumerate(Conf.Classes):
             fig, ax = plt.subplots(1, 1, figsize=(6,6))
-            shap.summary_plot(shap_values[..., i], X_test[:2000], feature_names=MVA["features_unit"], show=False, color=Conf.ClassColors[i], plot_type="bar", max_display=10) #, class_names= ['a']
+            shap.summary_plot(shap_values[..., i], X_test[:1000], feature_names=MVA["features_unit"], show=False, color=Conf.ClassColors[i], plot_type="bar", max_display=10) #, class_names= ['a']
         
             plt.gca().spines['left'].set_visible(True)
             plt.gca().spines['right'].set_visible(True)
@@ -170,7 +171,6 @@ def plot_ROC(MVA, y_train_categorical, y_test_categorical, y_train_pred, y_test_
 def plot_MVA(MVA, y_train_categorical, y_test_categorical, y_train_pred, y_test_pred, w_train, w_test, Conf, transform=False):
     
     n_classes = len(Conf.Classes)
-
     # if MVA["Algorithm"] == "XGB":
     #     y_train_categorical = to_categorical(y_train, n_classes)
     #     y_test_categorical = to_categorical(y_test, n_classes)
@@ -245,10 +245,10 @@ def plot_confusion_matrix(MVA, y_test, y_test_pred, Conf, Norm=False):
 
 def plot_correlation_matrix(MVA, X_train, Conf):
     # Compute the correlation matrix
-    X_train = X_train[X_train["vbfjet_lead_ptOverM"] < 0]
-    X_train = X_train[MVA["features"][0:-18]]
+    # X_train = X_train[X_train["vbfjet_lead_ptOverM"] < 0]
+    X_train = X_train[MVA["features"]] #[0:-18]
     print(X_train.shape)
-    units = MVA["features_unit"][0:-18]
+    units = MVA["features_unit"] #[0:-18]
     if isinstance(X_train, np.ndarray):
         X_train = pd.DataFrame(X_train, columns=units)
     
@@ -270,7 +270,7 @@ def plot_correlation_matrix(MVA, X_train, Conf):
     fig.savefig(Conf.OutputDirName+"/"+MVA["MVAtype"]+"/"+"CorrMat_"+MVA["MVAtype"]+"1.pdf", bbox_inches='tight')
     fig.savefig(Conf.OutputDirName+"/Plots/"+"CorrMat_"+MVA["MVAtype"]+"1.pdf", bbox_inches='tight')
 
-def loss_history(MVA, training_loss, testing_loss, Conf):
+def save_loss_history(MVA, training_loss, testing_loss, Conf):
     # Create count of the number of epochs
     epoch_count = range(1, len(training_loss) + 1)
     # Visualize loss history
