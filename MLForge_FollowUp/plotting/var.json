@@ -1,0 +1,22 @@
+{
+    "era": "22",
+    "var_list":{
+        "bjet_pair_mass":{
+            "unit":["m_{bb} (GeV)", "a.u."],
+            "range":[70, 190, 1.5],
+            "nbin": 40
+        },
+
+        "diphoton_mass":{
+            "unit":["m_{#gamma#gamma} (GeV)", "a.u."],
+            "range":[100, 180, 1.5],
+            "nbin": 40
+        },
+        "vbfjet_pair_mass":{
+            "unit":["m_{jj} (GeV)", "a.u."],
+            "range":[0, 3000, 1],
+            "nbin": 40
+        }
+        
+    }
+}

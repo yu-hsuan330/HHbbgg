@@ -1,0 +1,277 @@
+{
+    "era": "22",
+    "var_list":{
+        "bjet_pair_mass":{
+            "unit":["m_{bb} (GeV)", "a.u."],
+            "range":[70, 190, 1.5],
+            "nbin": 40
+        },
+
+        "bjet_pair_pt":{
+            "var":{
+                "selection":"pair_pt",
+                "DNN-class":"bb_pair_pt",
+                "gen-match":"pair_pt"
+            },
+            "unit":["P_{T}^{bb} (GeV)", "a.u."],
+            "range":[0, 250, 1.3],
+            "nbin": 40
+        },
+        "bjet_pair_eta":{
+            "var":{
+                "selection":"pair_eta",
+                "DNN-class":"bb_pair_eta",
+                "gen-match":"pair_eta"
+            },
+            "unit":["#eta_{bb}", "a.u."],
+            "range":[-4.7, 4.7, 1.5],
+            "nbin": 30
+        },
+        "bjet_pair_eta_prod":{
+            "var":{
+                "selection":"pair_eta_prod",
+                "DNN-class":"bb_pair_eta_prod",
+                "gen-match":"pair_eta_prod"
+            },
+            "unit":["#eta_{j1}#times#eta_{j2}", "a.u."],
+            "range":[-2, 6, 1.5],
+            "nbin": 40
+        },
+        "bjet_pair_eta_diff":{
+            "var":{
+                "selection":"pair_eta_diff",
+                "DNN-class":"bb_pair_eta_diff",
+                "gen-match":"pair_eta_diff"
+            },
+            "unit":["#Delta#eta(j,j)", "a.u."],
+            "range":[-3, 3, 1.5],
+            "nbin": 40
+        },
+        "bjet_pair_phi":{
+            "var":{
+                "selection":"pair_phi",
+                "DNN-class":"bb_pair_phi",
+                "gen-match":"pair_phi"
+            },
+            "unit":["#phi_{bb}", "a.u."],
+            "range":[-3.2, 3.2, 1.5],
+            "nbin": 20
+        },
+        "bjet_pair_DeltaR":{
+            "var":{
+                "selection":"pair_DeltaR",
+                "DNN-class":"bb_pair_DeltaR",
+                "gen-match":"pair_DeltaR"
+            },
+            "unit":["#DeltaR(b,b)", "a.u."],
+            "range":[0, 4, 1.5],
+            "nbin": 40
+        },
+        "bjet_pair_DeltaPhi":{
+            "var":{
+                "selection":"pair_DeltaPhi",
+                "DNN-class":"bb_pair_DeltaPhi",
+                "gen-match":"pair_DeltaPhi"
+            },
+            "unit":["#Delta#phi(b,b)", "a.u."],
+            "range":[-3.2, 3.2, 1.5],
+            "nbin": 40
+        },
+        "bjet_pair_Cgg":{
+            "var":{
+                "selection":"pair_Cgg",
+                "DNN-class":"bb_pair_Cgg",
+                "gen-match":"pair_Cgg"
+            },
+            "unit":["Cgg", "a.u."],
+            "range":[0, 1, 1.5],
+            "nbin": 40
+        },
+        "bjet_lead_pt":{
+            "var":{
+                "selection":"pair1_pt",
+                "DNN-class":"bb_pair1_pt",
+                "gen-match":"pair1_pt"
+            },
+            "unit":["lead P_{T}^{b} (GeV)", "a.u."],
+            "range":[20, 200, 1.5],
+            "nbin": 40
+        }, 
+        "bjet_lead_ptOverM":{
+            "var":{
+                "selection":"pair1_ptOverM",
+                "DNN-class":"bb_pair1_ptOverM",
+                "gen-match":"pair1_ptOverM"
+            },
+            "unit":["lead P_{T}^{b}/m_{bb}", "a.u."],
+            "range":[0, 2.5, 1.5],
+            "nbin": 40
+        },
+        "bjet_lead_eta":{
+            "unit":["lead #eta_{b}", "a.u."],
+            "range":[-2.5, 2.5, 1.5],
+            "nbin": 40
+        },
+        "bjet_lead_phi":{
+            "unit":["lead #phi_{b}", "a.u."],
+            "range":[-3.2, 3.2, 2.5],
+            "nbin": 20
+        },
+        "bjet_sublead_pt":{
+            "unit":["sublead P_{T}^{b} (GeV)", "a.u."],
+            "range":[20, 80, 1.5],
+            "nbin": 40
+        },
+        "bjet_sublead_ptOverM":{
+            "unit":["sublead P_{T}^{b}/m_{bb}", "a.u."],
+            "range":[0, 0.8, 1.5],
+            "nbin": 40
+        },
+        "bjet_sublead_eta":{
+            "unit":["sublead #eta_{b}", "a.u."],
+            "range":[-2.5, 2.5, 1.5],
+            "nbin": 40
+        },
+        "bjet_sublead_phi":{
+            "unit":["sublead #phi_{b}", "a.u."],
+            "range":[-3.2, 3.2, 2.5],
+            "nbin": 20
+        },
+        "diphoton_mass":{
+            "unit":["m_{#gamma#gamma} (GeV)", "a.u."],
+            "range":[100, 180, 1.5],
+            "nbin": 40
+        },
+        "diphoton_pt":{
+            "unit":["P_{T}^{#gamma#gamma} (GeV)", "a.u."],
+            "range":[0, 250, 1.5],
+            "nbin": 40
+        },
+        "diphoton_eta":{
+            "unit":["#eta_{#gamma#gamma}", "a.u."],
+            "range":[-5, 5, 1.5],
+            "nbin": 30
+        },
+        "diphoton_phi":{
+            "unit":["#phi_{#gamma#gamma}", "a.u."],
+            "range":[-3.2, 3.2, 1.5],
+            "nbin": 20
+        },
+        "pho_lead_pt":{
+            "unit":["lead P_{T}^{#gamma} (GeV)", "a.u."],
+            "range":[20, 300, 1.5],
+            "nbin": 40
+        },
+        "pho_lead_eta":{
+            "unit":["lead #eta_{#gamma}", "a.u."],
+            "range":[-2.5, 2.5, 1.5],
+            "nbin": 40
+        },
+        "pho_lead_phi":{
+            "unit":["lead #phi_{#gamma}", "a.u."],
+            "range":[-3.2, 3.2, 2.5],
+            "nbin": 20
+        },
+        "pho_sublead_pt":{
+            "unit":["sublead P_{T}^{#gamma} (GeV)", "a.u."],
+            "range":[20, 200, 1.5],
+            "nbin": 40
+        },
+        "pho_sublead_eta":{
+            "unit":["sublead #eta_{#gamma}", "a.u."],
+            "range":[-2.5, 2.5, 1.5],
+            "nbin": 40
+        },
+        "pho_sublead_phi":{
+            "unit":["sublead #phi_{#gamma}", "a.u."],
+            "range":[-3.2, 3.2, 2.5],
+            "nbin": 20
+        },
+        "vbfjet_pair_mass":{
+            "unit":["m_{jj} (GeV)", "a.u."],
+            "range":[0, 3000, 1],
+            "nbin": 40
+        },
+        "vbfjet_pair_pt":{
+            "unit":["P_{T}^{jj} (GeV)", "a.u."],
+            "range":[0, 500, 1],
+            "nbin": 40
+        },
+        "vbfjet_pair_eta":{
+            "unit":["#eta_{jj}", "a.u."],
+            "range":[-5, 5, 1],
+            "nbin": 30
+        },
+        "vbfjet_pair_eta_prod":{
+            "unit":["#eta_{j1}#times#eta_{j2}", "a.u."],
+            "range":[-8, 13, 1],
+            "nbin": 40
+        },
+        "vbfjet_pair_eta_diff":{
+            "unit":["#Delta#eta(j,j)", "a.u."],
+            "range":[-6, 6, 1],
+            "nbin": 40
+        },
+        "vbfjet_pair_phi":{
+            "unit":["#phi_{jj}", "a.u."],
+            "range":[-3.2, 3.2, 1],
+            "nbin": 20
+        },
+        "vbfjet_pair_DeltaR":{
+            "unit":["#DeltaR(j,j)", "a.u."],
+            "range":[0, 6, 1],
+            "nbin": 40
+        },
+        "vbfjet_pair_DeltaPhi":{
+            "unit":["#Delta#phi(j,j)", "a.u."],
+            "range":[-3.2, 3.2, 1],
+            "nbin": 40
+        },
+        "vbfjet_pair_Cgg":{
+            "unit":["Cgg", "a.u."],
+            "range":[0, 1, 1],
+            "nbin": 40
+        },
+        "vbfjet_lead_pt":{
+            "unit":["lead P_{T}^{j} (GeV)", "a.u."],
+            "range":[20, 300, 1],
+            "nbin": 40
+        },
+        "vbfjet_lead_ptOverM":{
+            "unit":["lead P_{T}^{j}/m_{jj}", "a.u."],
+            "range":[0, 2, 1],
+            "nbin": 40
+        },
+        "vbfjet_lead_eta":{
+            "unit":["lead #eta_{j}", "a.u."],
+            "range":[-4.7, 4.7, 0.8],
+            "nbin": 40
+        },
+        "vbfjet_lead_phi":{
+            "unit":["lead #phi_{j}", "a.u."],
+            "range":[-3.2, 3.2, 2],
+            "nbin": 20
+        },
+        "vbfjet_sublead_pt":{
+            "unit":["sublead P_{T}^{j} (GeV)", "a.u."],
+            "range":[20, 200, 1],
+            "nbin": 40
+        },
+        "vbfjet_sublead_ptOverM":{
+            "unit":["sublead P_{T}^{j}/m_{jj}", "a.u."],
+            "range":[0, 0.7, 1],
+            "nbin": 40
+        },
+        "vbfjet_sublead_eta":{
+            "unit":["sublead #eta_{j}", "a.u."],
+            "range":[-4.7, 4.7, 0.8],
+            "nbin": 40
+        },
+        "vbfjet_sublead_phi":{
+            "unit":["sublead #phi_{j}", "a.u."],
+            "range":[-3.2, 3.2, 2],
+            "nbin": 20
+        }
+
+    }
+}

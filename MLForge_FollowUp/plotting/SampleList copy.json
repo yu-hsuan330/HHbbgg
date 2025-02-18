@@ -1,0 +1,98 @@
+{
+    "weight":{
+        "MC": "weight*lumi_xs",
+        "data": "weight*lumi_xs"
+    },
+    "tree":{
+        "MC": "DiphotonTree/data_125_13TeV_NOTAG",
+        "Data": "DiphotonTree/Data_13TeV_NOTAG"
+    },    
+    "MC":{
+        "GluGluToHH":{
+            "file":{
+                "22preEE": "../update_minitree/ver1108_TPS_cate/22preEE_GluGluToHH*.root",
+                "22postEE": "../update_minitree/ver1108_TPS_cate/22postEE_GluGluToHH*.root",
+                "22": "../update_minitree/ver1108_TPS_cate/22*_GluGluToHH*.root"
+            },
+            "xs": 0.03443
+        },
+        "VBFToHH":{
+            "file":{
+                "22preEE": "../update_minitree/ver1108_TPS_cate/22preEE_VBFToHH*.root",
+                "22postEE": "../update_minitree/ver1108_TPS_cate/22postEE_VBFToHH*.root",
+                "22": "../update_minitree/ver1108_TPS_cate/22*_VBFToHH*.root"
+            },
+            "xs": 0.00192
+        },
+        "GJet_Pt20_MGG40to80":{
+            "file":{
+                "22preEE": "../update_minitree/ver1108_TPS_cate/22preEE_GJet_Pt20_MGG40to80*.root",
+                "22postEE": "../update_minitree/ver1108_TPS_cate/22postEE_GJet_Pt20_MGG40to80*.root",
+                "22": "../update_minitree/ver1108_TPS_cate/22*_GJet_Pt20_MGG40to80*.root"
+            },
+            "xs": 3284
+        },
+        "GJet_Pt20to40":{
+            "file":{
+                "22preEE": "../update_minitree/ver1108_TPS_cate/22preEE_GJet_Pt20to40*.root",
+                "22postEE": "../update_minitree/ver1108_TPS_cate/22postEE_GJet_Pt20to40*.root",
+                "22": "../update_minitree/ver1108_TPS_cate/22*_GJet_Pt20to40*.root"
+            },
+            "xs": 242.5
+        },
+        "GJet_Pt40":{
+            "file":{
+                "22preEE": "../update_minitree/ver1108_TPS_cate/22preEE_GJet_Pt40*.root",
+                "22postEE": "../update_minitree/ver1108_TPS_cate/22postEE_GJet_Pt40*.root",
+                "22": "../update_minitree/ver1108_TPS_cate/22*_GJet_Pt40*.root"
+            },
+            "xs": 919.1
+        },
+        "GGJets":{
+            "file":{
+                "22preEE": "../update_minitree/ver1108_TPS_cate/22preEE_GGJets*.root",
+                "22postEE": "../update_minitree/ver1108_TPS_cate/22postEE_GGJets*.root",
+                "22": "../update_minitree/ver1108_TPS_cate/22*_GGJets*.root"
+            },
+            "xs": 88.75
+        },
+        "QCD_Pt30_MGG40to80":{
+            "file":{
+                "22preEE": "../update_minitree/ver1108_TPS_cate/22preEE_QCD_Pt30_MGG40to80*.root",
+                "22postEE": "../update_minitree/ver1108_TPS_cate/22postEE_QCD_Pt30_MGG40to80*.root",
+                "22": "../update_minitree/ver1108_TPS_cate/22*_QCD_Pt30_MGG40to80*.root"
+            },
+            "xs": 252200
+        },
+        "QCD_Pt30to40":{
+            "file":{
+                "22preEE": "../update_minitree/ver1108_TPS_cate/22preEE_QCD_Pt30to40*.root",
+                "22postEE": "../update_minitree/ver1108_TPS_cate/22postEE_QCD_Pt30to40*.root",
+                "22": "../update_minitree/ver1108_TPS_cate/22*_QCD_Pt30to40*.root"
+            },
+            "xs": 25950
+        },
+        "QCD_Pt40":{
+            "file":{
+                "22preEE": "../update_minitree/ver1108_TPS_cate/22preEE_QCD_Pt40*.root",
+                "22postEE": "../update_minitree/ver1108_TPS_cate/22postEE_QCD_Pt40*.root",
+                "22": "../update_minitree/ver1108_TPS_cate/22*_QCD_Pt40*.root"
+            },
+            "xs": 124700
+        }
+    },
+
+    "Data":{
+        "file":{
+            "22preEE": "../update_minitree/ver1108_TPS_cate/data/22preEE_EGamma*.root",
+            "22postEE": "../update_minitree/ver1108_TPS_cate/data/22postEE_EGamma*.root",
+            "22": "../update_minitree/ver1108_TPS_cate/data/22*.root"
+        },
+        "xs": 1,
+        "lumi":{
+            "22preEE": 7980.4,
+            "22postEE": 26671.7,
+            "22": 34652.1
+        }
+    }
+}
