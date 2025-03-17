@@ -9,14 +9,10 @@ from sklearn.metrics import roc_curve, auc, confusion_matrix
 from sklearn.inspection import permutation_importance
 import seaborn as sns
 import shap
-shap.utils._show_progress = lambda x: None  
 # import pandas as pd
 # import dask.dataframe as dd
 # from scipy.interpolate import interp1d
 # from sklearn import metrics, preprocessing
-# from itertools import combinations
-# from CateUtils import *
-# from .dfUtils import *
 
 def prGreen(prt): 
     print("\033[92m {}\033[00m" .format(prt))
@@ -99,6 +95,9 @@ def plot_VarImportance(MVA, model, Conf, X_train, X_test, Y_test):
     
     elif MVA["Algorithm"] == "DNN":
         # Use SHAP to explain the model's predictions
+        shap.utils._show_progress = lambda x: None  
+        # shap.utils.disable_progress_bar()
+        
         explainer = shap.Explainer(model.predict, X_train, progress_bar=False)
         shap_values = explainer.shap_values(X_test[:1000]) 
         for i, class_names in enumerate(Conf.Classes):
@@ -209,6 +208,32 @@ def plot_MVA(MVA, y_train_categorical, y_test_categorical, y_train_pred, y_test_
     else:
         figMVA.savefig(Conf.OutputDirName+"/"+MVA["MVAtype"]+"/"+"MVA_"+MVA["MVAtype"]+".pdf", bbox_inches='tight')
         figMVA.savefig(Conf.OutputDirName+"/Plots/"+"MVA_"+MVA["MVAtype"]+".pdf", bbox_inches='tight')
+
+def plot_confusion_matrix_yield(MVA, y_test, y_test_pred, w_test, Conf, output_type):
+    y_test = np.argmax(y_test, axis=1)
+    y_pred = np.argmax(y_test_pred, axis=1)
+     
+    cm = confusion_matrix(y_test, y_pred, sample_weight=w_test)
+    cm_type = '.2e'
+    
+    fig, ax = plt.subplots(1, 1, figsize=(6.5, 6.5))
+    ax = sns.heatmap(cm, annot=True, fmt=cm_type, cmap='Oranges', cbar=False, xticklabels=Conf.Classes, yticklabels=Conf.Classes, annot_kws={"fontsize":13})
+    # Oranges Blues
+    pltSty(ax, xName = "Predicted Class", yName = "Actual Class", yAuto = False, MajTickLength = 0, MinTickLength = 0)
+
+    if(len(Conf.Classes) > 3):
+        ax.set_xticks(np.arange(len(Conf.Classes))+0.5, labels=Conf.Classes, rotation=45, ha="right", va="center", rotation_mode="anchor")
+        ax.set_yticks(np.arange(len(Conf.Classes))+0.5, labels=Conf.Classes, rotation=0, ha="right", va="center", rotation_mode="anchor")
+
+    fig.tight_layout()
+   
+    plt.draw()
+
+    fig.savefig(Conf.OutputDirName+"/"+MVA["MVAtype"]+"/"+"ConfMat_"+MVA["MVAtype"]+"_"+output_type+".pdf", bbox_inches='tight')
+    fig.savefig(Conf.OutputDirName+"/Plots/"+"ConfMat_"+MVA["MVAtype"]+"_"+output_type+".pdf", bbox_inches='tight')
+    
+    plt.close("all")
+    
 
 def plot_confusion_matrix(MVA, y_test, y_test_pred, Conf, Norm=False):
     y_test = np.argmax(y_test, axis=1)

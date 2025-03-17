@@ -8,7 +8,7 @@ from tensorflow.keras.layers import Dense, Activation, Dropout, BatchNormalizati
 from tensorflow.keras.optimizers import Adam
 from tensorflow.keras.callbacks import EarlyStopping
 
-OutputDirName = "results/EventCate" # All plots, models, config file will be stored here
+OutputDirName = "results/EventCate_0301" # All plots, models, config file will be stored here
 Debug, MVAlogplot = False, False
 
 # ROOT files
@@ -38,31 +38,31 @@ TestSize, RandomState = 0.5, 123
 Processes = [
     {
     "Class": "ggHH-0/1jet",
-    "path": ["../study_JetPairing/update_minitree/ver0121_/22*_GluGluToHH.root"],
+    "path": ["/home/cosine/HHbbgg/MLForge_FollowUp/samples/Pairing_vbf_0301/22*_GluGluToHH.root"],
     "selection": "(bjet_true_bjet_pair == 1) & (vbfjet_lead_pt < 0)",
     "input_weight": ("weight","lumi_xs"),
     },
     {
     "Class": "ggHH-2jet",
-    "path": ["../study_JetPairing/update_minitree/ver0121_/22*_GluGluToHH.root"],
+    "path": ["/home/cosine/HHbbgg/MLForge_FollowUp/samples/Pairing_vbf_0301/22*_GluGluToHH.root"],
     "selection": "(bjet_true_bjet_pair == 1) & (vbfjet_lead_pt > 0)",
     "input_weight": ("weight","lumi_xs"),
     },
     {
     "Class": "VBFHH-0/1jet",
-    "path": ["../study_JetPairing/update_minitree/ver0121_/22*_VBFToHH.root"],
+    "path": ["/home/cosine/HHbbgg/MLForge_FollowUp/samples/Pairing_vbf_0301/22*_VBFToHH.root"],
     "selection": "(bjet_true_bjet_pair == 1) & (vbfjet_lead_pt < 0)",
     "input_weight": ("weight","lumi_xs"),
     },
     {
     "Class": "VBFHH-2jet",
-    "path": ["../study_JetPairing/update_minitree/ver0121_/22*_VBFToHH.root"],
+    "path": ["/home/cosine/HHbbgg/MLForge_FollowUp/samples/Pairing_vbf_0301/22*_VBFToHH.root"],
     "selection": "(bjet_true_bjet_pair == 1) & (vbfjet_true_vbfjet_pair == 1)",
     "input_weight": ("weight","lumi_xs"),
     },
     {
     "Class": "background",
-    "path": ["../study_JetPairing/update_minitree/ver0121_/22*_GGJets.root", "../study_JetPairing/update_minitree/ver0121_/22*_GJet*.root"],
+    "path": ["/home/cosine/HHbbgg/MLForge_FollowUp/samples/Pairing_vbf_0301/22*_GGJets.root", "/home/cosine/HHbbgg/MLForge_FollowUp/samples/Pairing_vbf_0301/22*_GJet*.root"],
     "selection": "event > 0",
     "input_weight": ("weight","lumi_xs"),
     },
@@ -119,22 +119,23 @@ MVAs = [
             np.linspace(-18, 6, 31),    np.linspace(-10, 10, 31),   np.linspace(0, 10, 31),     np.linspace(-3.2, 3.2, 31), 
             np.linspace(0, 1, 31),      np.linspace(0, 1, 31),            
         ],
-        "hyperopt": False,
+        "hyperopt": True,
         "Algorithm": "DNN",
         "Scaler":"MinMaxScaler", #Scaling for features before passing to the model training
-        "DNNDict":{ "ModelParams":{"epochs": 10, "batchsize": 1000, "input_dim": (42,), "output_dim": len(Classes)},
-                    'model': Sequential([#Masking(mask_value=-999),
-                                Input(shape=(42,)),
-                                Masking(mask_value=-1),
-                                Dense(128, kernel_initializer='glorot_normal', activation='relu'),
-                                Dropout(0.1),
-                                Dense(64, activation="relu"),
-                                # Dense(32, activation="relu"),
-                                Dropout(0.1),
-                                Dense(len(Classes), activation="softmax")
-                            ]),
+        "DNNDict":{ "ModelParams":{"epochs": 200, "batchsize": 512, "input_dim": (42,), "output_dim": len(Classes)},
                     'compile': {'loss':'categorical_crossentropy','optimizer':Adam(learning_rate=0.001), 'metrics':['accuracy']},
-                    'earlyStopping': EarlyStopping(monitor='val_loss', mode='min', verbose=1, patience=15)
+                    'earlyStopping': EarlyStopping(monitor='val_loss', mode='min', verbose=2, patience=20),
+                    'model': Sequential([#Masking(mask_value=-999),
+                        Input(shape=(42,)),
+                        Masking(mask_value=-1),
+                        Dense(128, kernel_initializer='glorot_normal', activation='relu'),
+                        Dropout(0.1),
+                        Dense(64, activation="relu"),
+                        # Dense(32, activation="relu"),
+                        Dropout(0.1),
+                        Dense(len(Classes), activation="softmax")
+                    ])
+                    
                 }
     },
     # {

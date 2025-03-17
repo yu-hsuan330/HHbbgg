@@ -53,7 +53,6 @@ def trainer(Conf, show_progress):
         df["add_weight"] = df["input_weight"].abs()
         if MVA["addwei"] != "nowei":
             df.loc[df["Category"] == 0, "add_weight"] /= df.loc[df["Category"] == 0, MVA["addwei"]]
-        plot_Features(MVA, df, "add_weight", Conf)
 
         # Balance two classes
         weight = "balancedWt"
@@ -66,6 +65,8 @@ def trainer(Conf, show_progress):
         global x_train, y_train, w_train, x_test, y_test, w_test
         x_train, y_train, w_train, x_test, y_test, w_test = PrepDataset(df, TrainIndices, TestIndices, MVA["features"], weight) 
         
+        x_all = df.loc[:, MVA["features"]]
+
         scaler_classes = {
             "MinMaxScaler": MinMaxScaler,
         }
@@ -75,16 +76,12 @@ def trainer(Conf, show_progress):
             y_test = to_categorical(y_test, num_classes=len(Conf.Classes))
             
             #* Scale the input dataset
-            # x_train.loc[x_train["pair1_btagPNetB"] < 0, "pair1_btagPNetB"] = -99
-            # x_train.loc[x_train["pair2_btagPNetB"] < 0, "pair2_btagPNetB"] = -99
-            # x_train.loc[x_train["pair1_btagPNetQvG"] < 0, "pair1_btagPNetQvG"] = -999
-            # x_train.loc[x_train["pair2_btagPNetQvG"] < 0, "pair2_btagPNetQvG"] = -999
-            
-            # x_test.loc[x_test["pair1_btagPNetB"] < 0, "pair1_btagPNetB"] = -99
-            # x_test.loc[x_test["pair2_btagPNetB"] < 0, "pair2_btagPNetB"] = -99
-            # x_test.loc[x_test["pair1_btagPNetQvG"] < 0, "pair1_btagPNetQvG"] = -999
-            # x_test.loc[x_test["pair2_btagPNetQvG"] < 0, "pair2_btagPNetQvG"] = -999
-
+            for var in MVA["features"]:
+                if ("btagPNetB" in var) or ("btagPNetQvG" in var):
+                    x_train.loc[x_train[var] < 0, var] = -999
+                    x_test.loc[x_test[var] < 0, var] = -999
+                    x_all.loc[x_all[var] < 0, var] = -999
+                    
             #* Apply the scaler
             try:
                 scaler_name = MVA["Scaler"]
@@ -102,6 +99,10 @@ def trainer(Conf, show_progress):
                 x_test[valid_mask] = sc.transform(x_test[valid_mask])
                 x_test[~valid_mask] = -1
 
+                valid_mask = (x_all != -999) & (x_all != -99)
+                x_all[valid_mask] = sc.transform(x_all[valid_mask])
+                x_all[~valid_mask] = -1
+                
                 with open(Conf.OutputDirName + "/" + MVA["MVAtype"] + "/" + MVA["MVAtype"] + "_scaler.pkl", 'wb') as f:
                     pkl.dump(sc, f)
             
@@ -130,7 +131,7 @@ def trainer(Conf, show_progress):
                 search_params = {**MVA["DNNDict"]["ModelParams"], **space}
                 # trials = hpt.Trials()
                 best = hpt.fmin(fn=objective, space=search_params, algo=hpt.tpe.suggest, max_evals=500,
-                                       early_stop_fn=no_progress_loss(iteration_stop_count=30, percent_increase=0.001), show_progressbar=show_progress)
+                                early_stop_fn=no_progress_loss(iteration_stop_count=30, percent_increase=0.001), show_progressbar=show_progress)
                                     #    trials=trials
                 best_params = hpt.space_eval(search_params, best)
                 with open(Conf.OutputDirName + "/" + MVA["MVAtype"] + "/best_params.txt", 'w') as f:
@@ -147,9 +148,10 @@ def trainer(Conf, show_progress):
             #// train_history = modelDNN.fit(x_train, y_train, epochs=MVA["DNNDict"]["ModelParams"]["epochs"], batch_size=batchsize, validation_data=(x_test, y_test, w_test), verbose=1, callbacks=[es], sample_weight=w_train)
             modelDNN.save(Conf.OutputDirName+"/"+MVA["MVAtype"]+"/"+MVA["MVAtype"]+"_"+"modelDNN.keras")
 
-            y_train_pred = modelDNN.predict(x_train, batch_size=batchsize)  
-            y_test_pred  = modelDNN.predict(x_test, batch_size=batchsize)  
-
+            y_train_pred = modelDNN.predict(x_train, batch_size=batchsize, verbose=2)  
+            y_test_pred  = modelDNN.predict(x_test, batch_size=batchsize, verbose=2)  
+            
+            y_all_pred = modelDNN.predict(x_all, batch_size=batchsize, verbose=2)
             #* Save loss history
             training_loss = train_history.history['loss']
             testing_loss = train_history.history['val_loss']
@@ -228,8 +230,10 @@ def trainer(Conf, show_progress):
         # Confusion matrix with and without normalization
         plot_confusion_matrix(MVA, y_test, y_test_pred, Conf)
         plot_confusion_matrix(MVA, y_test, y_test_pred, Conf, True)
+        plot_confusion_matrix_yield(MVA, y_test, y_test_pred, df.loc[TestIndices, "add_weight"], Conf, "test")
+        plot_confusion_matrix_yield(MVA, y_train, y_train_pred, df.loc[TrainIndices, "add_weight"], Conf, "train")
+        plot_confusion_matrix_yield(MVA, to_categorical(df["Category"], num_classes=len(Conf.Classes)), y_all_pred, df["add_weight"], Conf, "all")
         
-
         plot_VarImportance(MVA, modelDNN, Conf, x_train, x_test, y_test) # plot_VarImportance(MVA, cv.best_estimator_, Conf)
 
 

@@ -8,7 +8,7 @@ from tensorflow.keras.layers import Dense, Activation, Dropout, BatchNormalizati
 from tensorflow.keras.optimizers import Adam
 from tensorflow.keras.callbacks import EarlyStopping
 
-OutputDirName = "results/Pairing_vbf_0309" # All plots, models, config file will be stored here
+OutputDirName = "results/Pairing_vbf_0226" # All plots, models, config file will be stored here
 Debug, MVAlogplot = False, False
 
 # ROOT files
@@ -61,7 +61,7 @@ MVAs = [
             "pair1_btagPNetB", "pair2_btagPNetB", "pair1_btagPNetQvG", "pair2_btagPNetQvG",
             "n_jets","pair_pt","pair_eta", "pair_mass",
             "pair_DeltaR", "pair_DeltaPhi", "pair_eta_prod", "pair_eta_diff", 
-            "pair_Cgg", "pair1_phi", "pair2_phi"
+            #"pair_Cgg", "pair1_phi", "pair2_phi"
         ],
         "features_unit":[
             
@@ -70,30 +70,30 @@ MVAs = [
             "$N_{jets}$", "$p_{T}^{jj}$", "$\eta_{jj}$", "$M_{jj} (GeV)$",
             "$\Delta R(j_1, j_2)$", "$\Delta \Phi(j_1, j_2)$", 
             "$\eta_{j_1} X \eta_{j_2}$", "$\Delta\eta(j_1, j_2)$", 
-            "$C_{\gamma\gamma}$", "lead $\Phi_{j}$", "sublead $\Phi_{j}$"
+            #"$C_{\gamma\gamma}$", "lead $\Phi_{j}$", "sublead $\Phi_{j}$"
         ],
         "feature_bins":[ 
             np.linspace(0, 2.5, 31), np.linspace(0, 1.5, 31), 15, 15, 
             np.linspace(0, 1, 21), np.linspace(0, 1, 21), np.linspace(0, 1, 21), np.linspace(0, 1, 21),
             np.linspace(2, 10, 9), np.linspace(0, 500, 31), np.linspace(-5, 5, 31), np.linspace(0, 3000, 31),
             31, 31, 31, 31,
-            31, 15, 15      
+            #31, 15, 15      
         ],
         "hyperopt": True,
         "Algorithm": "DNN",
         "Scaler":"MinMaxScaler", #Scaling for features before passing to the model training
         
-        "DNNDict":{ "ModelParams":{"epochs": 200, "batchsize": 1024, "input_dim": (19,), "output_dim": len(Classes)},
-                    'compile': {'loss':'categorical_crossentropy','optimizer':Adam(learning_rate=0.004), 'metrics':['accuracy']},
+        "DNNDict":{ "ModelParams":{"epochs": 200, "batchsize": 1024, "input_dim": (16,), "output_dim": len(Classes)},
+                    'compile': {'loss':'categorical_crossentropy','optimizer':Adam(learning_rate=0.001), 'metrics':['accuracy']},
                     'earlyStopping': EarlyStopping(monitor='val_loss', mode='min', verbose=0, patience=15),
                     'model': Sequential([
-                        Input(shape=(19,)),
+                        Input(shape=(16,)),
                         Masking(mask_value=-1),
-                        Dense(128, kernel_initializer='glorot_uniform', activation='relu'),
-                        Dropout(0.19),
-                        Dense(256, kernel_initializer='glorot_uniform', activation="relu"),
-                        Dropout(0.19),
-                        Dense(256, kernel_initializer='glorot_uniform', activation="relu"),
+                        Dense(256, kernel_initializer='he_normal', activation='relu'),
+                        Dropout(0.13),
+                        Dense(32, kernel_initializer='he_normal', activation="relu"),
+                        Dropout(0.13),
+                        Dense(128, kernel_initializer='he_normal', activation="relu"),
                         Dense(len(Classes), activation="softmax")
                     ])
                 }
