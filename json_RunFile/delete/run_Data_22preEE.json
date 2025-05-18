@@ -1,0 +1,20 @@
+{
+    "samplejson": "json_SampleList/Data_22preEEv12.json",
+    "workflow": "HHbbgg",
+    "metaconditions": "Era2022_v1",
+    "taggers": [],
+    "year": {
+        "22preEE_EGammaC": [
+            "2022preEE"
+        ],
+        "22preEE_EGammaD": [
+            "2022preEE"
+        ]
+    },
+    "systematics": {},
+    "corrections": {
+        "22preEE_EGammaC":["Et_dependent_Scale", "jec_RunC"],
+        "22preEE_EGammaD":["Et_dependent_Scale", "jec_RunD"]
+    }
+
+}

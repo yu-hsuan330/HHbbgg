@@ -58,7 +58,7 @@
         "/data5/NanoAOD/v12/VBFHHto2B2G_CV_1_C2V_1_C3_1_Summer22/edfb6c16-18cf-41fd-8668-915e6b938bd2.root"
         
     ],
-    "22preEE_GJet_Pt40": [
+    "22preEE_GJet_Pt40_MGG80": [
         "/data5/NanoAOD/v12/GJet_PT-40_DoubleEMEnriched_Summer22/00fd01ff-5fa2-4229-89fe-09122e26c102.root",
         "/data5/NanoAOD/v12/GJet_PT-40_DoubleEMEnriched_Summer22/081c2589-da43-41c2-b218-e16dfd79c895.root",
         "/data5/NanoAOD/v12/GJet_PT-40_DoubleEMEnriched_Summer22/0c85f06d-96fc-47a8-b443-2246f132b4b4.root",
@@ -96,7 +96,7 @@
         "/data5/NanoAOD/v12/GJet_PT-40_DoubleEMEnriched_Summer22/f96830be-caa2-4229-93d6-00b131f7f759.root",
         "/data5/NanoAOD/v12/GJet_PT-40_DoubleEMEnriched_Summer22/fb955b4e-0b83-4d31-85c7-8a65388c5cdb.root"        
     ],
-    "22preEE_GJet_Pt20to40": [
+    "22preEE_GJet_Pt20to40_MGG80": [
         "/data5/NanoAOD/v12/GJet_PT-20to40_DoubleEMEnriched_MGG-80_Summer22/143a7bee-fec2-43cb-9de5-15cc8bc9a6f8.root",
         "/data5/NanoAOD/v12/GJet_PT-20to40_DoubleEMEnriched_MGG-80_Summer22/14fe4381-a55e-4374-8fed-6dad44e3b6de.root",
         "/data5/NanoAOD/v12/GJet_PT-20to40_DoubleEMEnriched_MGG-80_Summer22/159c3fa1-42c7-43b4-bd89-73d2b14db2c6.root",
@@ -141,6 +141,14 @@
         "/data5/NanoAOD/v12/GJet_PT-20to40_DoubleEMEnriched_MGG-80_Summer22/d342b69a-2a34-485e-85f5-c5d33699d85e.root",
         "/data5/NanoAOD/v12/GJet_PT-20to40_DoubleEMEnriched_MGG-80_Summer22/e4736a32-db92-4ffe-8c21-3ff5cadd2a35.root",
         "/data5/NanoAOD/v12/GJet_PT-20to40_DoubleEMEnriched_MGG-80_Summer22/e8da43d0-3869-4594-82b6-290484c5be2c.root"
+    ],
+    "22preEE_GJet_Pt20_MGG40to80": [
+        "/data5/NanoAOD/v12/GJet_PT-20_DoubleEMEnriched_MGG-40to80_Summer22/29651122-57d9-4088-93d9-a838d89d841a.root",
+        "/data5/NanoAOD/v12/GJet_PT-20_DoubleEMEnriched_MGG-40to80_Summer22/375acfda-a0b6-49fd-92e4-14fdbd180b30.root",
+        "/data5/NanoAOD/v12/GJet_PT-20_DoubleEMEnriched_MGG-40to80_Summer22/39c48458-1fe1-4c39-bdad-92e67ec33f9a.root",
+        "/data5/NanoAOD/v12/GJet_PT-20_DoubleEMEnriched_MGG-40to80_Summer22/71cfbf36-201d-44b5-b488-4bf973f157ff.root",
+        "/data5/NanoAOD/v12/GJet_PT-20_DoubleEMEnriched_MGG-40to80_Summer22/be23dd15-7f8d-472b-9b01-a9c5d90c25ca.root",
+        "/data5/NanoAOD/v12/GJet_PT-20_DoubleEMEnriched_MGG-40to80_Summer22/d21b0046-7c0a-44a3-b916-94e3123554ed.root"
     ],
     "22preEE_GGJets":[
         "/data5/NanoAOD/v12/GG-Box-3Jets_MGG-80_Summer22/01495791-50db-4aa2-b456-0af9dbc2a3d7.root",

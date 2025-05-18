@@ -1,0 +1,43 @@
+{
+    "samplejson": "json_SampleList/MC_22v12_QCD.json",
+    "workflow": "HHbbgg",
+    "metaconditions": "Era2022_v1",
+    "taggers": [],
+    "year": {
+        "22preEE_QCD_Pt30_MGG40to80": [
+            "2022preEE"
+        ],
+        "22preEE_QCD_Pt30to40_MGG80":[
+            "2022preEE"
+        ],
+        "22preEE_QCD_Pt40_MGG80":[
+            "2022preEE"
+        ],
+        "22postEE_QCD_Pt30_MGG40to80": [
+            "2022postEE"
+        ],
+        "22postEE_QCD_Pt30to40_MGG80":[
+            "2022postEE"
+        ],
+        "22postEE_QCD_Pt40_MGG80":[
+            "2022postEE"
+        ]
+    },
+    "systematics": {
+        "22preEE_QCD_Pt30_MGG40to80": [],
+        "22preEE_QCD_Pt30to40_MGG80":[],
+        "22preEE_QCD_Pt40_MGG80":[],
+        "22postEE_QCD_Pt30_MGG40to80": [],
+        "22postEE_QCD_Pt30to40_MGG80":[],
+        "22postEE_QCD_Pt40_MGG80":[]
+    },
+    "corrections": {
+        "22preEE_QCD_Pt30_MGG40to80": ["jerc_jet", "Pileup", "Et_dependent_Smearing", "FNUF", "Material", "ElectronVetoSF", "PreselSF", "TriggerSF", "PNet_bTagShapeSF"],
+        "22preEE_QCD_Pt30to40_MGG80": ["jerc_jet", "Pileup", "Et_dependent_Smearing", "FNUF", "Material", "ElectronVetoSF", "PreselSF", "TriggerSF", "PNet_bTagShapeSF"], 
+        "22preEE_QCD_Pt40_MGG80": ["jerc_jet", "Pileup", "Et_dependent_Smearing", "FNUF", "Material", "ElectronVetoSF", "PreselSF", "TriggerSF", "PNet_bTagShapeSF"],
+        "22postEE_QCD_Pt30_MGG40to80": ["jerc_jet", "Pileup", "Et_dependent_Smearing", "FNUF", "Material", "ElectronVetoSF", "PreselSF", "TriggerSF", "PNet_bTagShapeSF"],
+        "22postEE_QCD_Pt30to40_MGG80": ["jerc_jet", "Pileup", "Et_dependent_Smearing", "FNUF", "Material", "ElectronVetoSF", "PreselSF", "TriggerSF", "PNet_bTagShapeSF"],
+        "22postEE_QCD_Pt40_MGG80": ["jerc_jet", "Pileup", "Et_dependent_Smearing", "FNUF", "Material", "ElectronVetoSF", "PreselSF", "TriggerSF", "PNet_bTagShapeSF"]
+    }
+
+}

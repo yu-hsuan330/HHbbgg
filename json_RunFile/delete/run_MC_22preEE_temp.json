@@ -1,0 +1,18 @@
+{
+    "samplejson": "json_SampleList/MC_22preEEv12_temp.json",
+    "workflow": "HHbbgg",
+    "metaconditions": "Era2022_v1",
+    "taggers": [],
+    "year": {
+        "22preEE_GJet_Pt20_MGG40to80": [
+            "2022preEE"
+        ]
+    },
+    "systematics": {
+        "22preEE_GJet_Pt20_MGG40to80": []
+    },
+    "corrections": {
+        "22preEE_GJet_Pt20_MGG40to80": ["jerc_jet", "Pileup", "Et_dependent_Smearing", "FNUF", "Material", "ElectronVetoSF", "PreselSF", "TriggerSF", "PNet_bTagShapeSF"]
+    }
+
+}

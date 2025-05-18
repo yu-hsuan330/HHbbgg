@@ -9,7 +9,7 @@
         ],
         "22postEE_VBFToHH": [
             "2022postEE"
-        ],    
+        ],  
         "22postEE_GJet_Pt20_MGG40to80": [
             "2022postEE"
         ],
@@ -20,15 +20,6 @@
             "2022postEE"
         ],
         "22postEE_GGJets": [
-            "2022postEE"
-        ],
-        "22postEE_QCD_Pt30_MGG40to80": [
-            "2022postEE"
-        ],
-        "22postEE_QCD_Pt30to40_MGG80":[
-            "2022postEE"
-        ],
-        "22postEE_QCD_Pt40_MGG80":[
             "2022postEE"
         ],
         "22postEE_GluGluHtoGG_M125": [
@@ -44,7 +35,30 @@
             "2022postEE"
         ]
     },
-    "systematics": {},
-    "corrections": {}
+    "systematics": {
+        "22postEE_GluGluToHH": [],
+        "22postEE_VBFToHH": [],  
+        "22postEE_GJet_Pt20_MGG40to80": [],
+        "22postEE_GJet_Pt20to40_MGG80": [],
+        "22postEE_GJet_Pt40_MGG80": [],
+        "22postEE_GGJets": [],
+        "22postEE_GluGluHtoGG_M125": [],
+        "22postEE_VBFHtoGG_M125": [],
+        "22postEE_VHtoGG_M125": [],
+        "22postEE_ttHtoGG_M125": []
+    },
+    "corrections": {
+        "22postEE_GluGluToHH": ["jerc_jet_pnetNu_syst", "Pileup", "Smearing2G_IJazZ", "FNUF", "Material", "ElectronVetoSF", "PreselSF", "TriggerSF", "PNet_bTagShapeSF"],
+        "22postEE_VBFToHH": ["jerc_jet_pnetNu_syst", "Pileup", "Smearing2G_IJazZ", "FNUF", "Material", "ElectronVetoSF", "PreselSF", "TriggerSF", "PNet_bTagShapeSF"], 
+        "22postEE_GJet_Pt20_MGG40to80": ["jerc_jet_pnetNu_syst", "Pileup", "Smearing2G_IJazZ", "FNUF", "Material", "ElectronVetoSF", "PreselSF", "TriggerSF", "PNet_bTagShapeSF"],
+        "22postEE_GJet_Pt20to40_MGG80": ["jerc_jet_pnetNu_syst", "Pileup", "Smearing2G_IJazZ", "FNUF", "Material", "ElectronVetoSF", "PreselSF", "TriggerSF", "PNet_bTagShapeSF"],
+        "22postEE_GJet_Pt40_MGG80": ["jerc_jet_pnetNu_syst", "Pileup", "Smearing2G_IJazZ", "FNUF", "Material", "ElectronVetoSF", "PreselSF", "TriggerSF", "PNet_bTagShapeSF"],
+        "22postEE_GGJets": ["jerc_jet_pnetNu_syst", "Pileup", "Smearing2G_IJazZ", "FNUF", "Material", "ElectronVetoSF", "PreselSF", "TriggerSF", "PNet_bTagShapeSF"],
+        "22postEE_GluGluHtoGG_M125": ["NNLOPS", "jerc_jet_pnetNu_syst", "Pileup", "Smearing2G_IJazZ", "FNUF", "Material", "ElectronVetoSF", "PreselSF", "TriggerSF", "PNet_bTagShapeSF"],
+        "22postEE_VBFHtoGG_M125": ["jerc_jet_pnetNu_syst", "Pileup", "Smearing2G_IJazZ", "FNUF", "Material", "ElectronVetoSF", "PreselSF", "TriggerSF", "PNet_bTagShapeSF"],
+        "22postEE_VHtoGG_M125": ["jerc_jet_pnetNu_syst", "Pileup", "Smearing2G_IJazZ", "FNUF", "Material", "ElectronVetoSF", "PreselSF", "TriggerSF", "PNet_bTagShapeSF"],
+        "22postEE_ttHtoGG_M125": ["jerc_jet_pnetNu_syst", "Pileup", "Smearing2G_IJazZ", "FNUF", "Material", "ElectronVetoSF", "PreselSF", "TriggerSF", "PNet_bTagShapeSF"]
+
+    }
 
 }

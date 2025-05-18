@@ -1,5 +1,5 @@
 {
-    "samplejson": "sample_list/Data_22v12.json",
+    "samplejson": "json_SampleList/Data_22v12.json",
     "workflow": "HHbbgg",
     "metaconditions": "Era2022_v1",
     "taggers": [],
@@ -21,6 +21,12 @@
         ]
     },
     "systematics": {},
-    "corrections": {}
+    "corrections": {
+        "22preEE_EGammaC":["Scale2G_IJazZ", "jec_pnetNu_RunC"],
+        "22preEE_EGammaD":["Scale2G_IJazZ", "jec_pnetNu_RunD"],
+        "22postEE_EGammaE":["Scale2G_IJazZ", "jec_pnetNu_RunE"],
+        "22postEE_EGammaF":["Scale2G_IJazZ", "jec_pnetNu_RunF"],
+        "22postEE_EGammaG":["Scale2G_IJazZ", "jec_pnetNu_RunG"]
+    }
 
 }
