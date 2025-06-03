@@ -14,7 +14,7 @@ from tensorflow.keras.utils import to_categorical
 from tensorflow.keras.callbacks import EarlyStopping
 
 from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import MinMaxScaler
+from sklearn.preprocessing import MinMaxScaler, StandardScaler
 # from sklearn.metrics import classification_report
 
 from src.utils import * # the function details are in the __init__.py file
@@ -60,17 +60,14 @@ def trainer(Conf, show_progress):
         df.loc[TrainIndices, weight] = df_balance_rwt(df.loc[TrainIndices], SumWeightCol="add_weight", NewWeightCol=weight, Classes=Conf.Classes, debug=Conf.Debug)
         if Conf.Debug == True: print( "Balanced reweighting for testing sample" , flush=True)
         df.loc[TestIndices, weight] = df_balance_rwt(df.loc[TestIndices], SumWeightCol="add_weight", NewWeightCol=weight, Classes=Conf.Classes, debug=Conf.Debug)
-
         #* Prepare the training/testing dataset
         global x_train, y_train, w_train, x_test, y_test, w_test
         x_train, y_train, w_train, x_test, y_test, w_test = PrepDataset(df, TrainIndices, TestIndices, MVA["features"], weight) 
-        
         x_all = df.loc[:, MVA["features"]]
 
         scaler_classes = {
             "MinMaxScaler": MinMaxScaler,
         }
-        
         if MVA["Algorithm"] == "DNN":
             y_train = to_categorical(y_train, num_classes=len(Conf.Classes))
             y_test = to_categorical(y_test, num_classes=len(Conf.Classes))
@@ -80,7 +77,7 @@ def trainer(Conf, show_progress):
                 if ("btagPNetB" in var) or ("btagPNetQvG" in var):
                     x_train.loc[x_train[var] < 0, var] = -999
                     x_test.loc[x_test[var] < 0, var] = -999
-                    x_all.loc[x_all[var] < 0, var] = -999
+                    x_all.loc[x_all[var] < 0, var] = -999 
                     
             #* Apply the scaler
             try:
@@ -109,7 +106,7 @@ def trainer(Conf, show_progress):
             except Exception as e:
                 print("Data is not being scaled! Either no scaling option provided or scaling not found.")
                 print("Error:", e)
-                
+                        
             #* Set the parameters of early stopping
             global es
             try:
@@ -147,7 +144,7 @@ def trainer(Conf, show_progress):
                                          epochs=MVA["DNNDict"]["ModelParams"]["epochs"], batch_size=batchsize, callbacks=[es], verbose=0)
             #// train_history = modelDNN.fit(x_train, y_train, epochs=MVA["DNNDict"]["ModelParams"]["epochs"], batch_size=batchsize, validation_data=(x_test, y_test, w_test), verbose=1, callbacks=[es], sample_weight=w_train)
             modelDNN.save(Conf.OutputDirName+"/"+MVA["MVAtype"]+"/"+MVA["MVAtype"]+"_"+"modelDNN.keras")
-
+            
             y_train_pred = modelDNN.predict(x_train, batch_size=batchsize, verbose=2)  
             y_test_pred  = modelDNN.predict(x_test, batch_size=batchsize, verbose=2)  
             

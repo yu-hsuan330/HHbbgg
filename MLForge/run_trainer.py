@@ -5,7 +5,7 @@ from src.trainer import trainer
 from configs import workflows
 
 def get_parser():
-    
+    # python run_trainer.py -r Pairing_vbf -p
     parser = argparse.ArgumentParser(prog="ML-trainer", description="DNN/XGBoost training", epilog="Good luck!")
     parser.add_argument("-r", "--runConfig", type=str, required=True, help="Path to the configuration file")
     parser.add_argument("-p", "--progress", action="store_true", help="Show the progress bar")
