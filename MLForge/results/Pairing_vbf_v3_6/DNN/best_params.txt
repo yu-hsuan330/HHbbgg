@@ -1,0 +1,1 @@
+{'batchsize': 1024, 'dropout_rate': 0.09, 'epochs': 200, 'input_dim': (18,), 'kernel_initializer': 'he_normal', 'learning_rate': 0.004, 'num_units_1': 128, 'num_units_2': 128, 'num_units_3': 12, 'output_dim': 3}

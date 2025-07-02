@@ -123,15 +123,20 @@ void drawDataMC(std::map<std::string, TH1F> hist, TString var, string unit, floa
 	pad1->cd();
 	
     THStack *hs = new THStack("hs","");
+	// hs->Add(&hist["HGG"]);
+	hs->Add(&hist["VBFHtoGG_M125"]);
+	hs->Add(&hist["ttHtoGG_M125"]);
+	hs->Add(&hist["VHtoGG_M125"]);
+	hs->Add(&hist["GluGluHtoGG_M125"]);
 	hs->Add(&hist["GGJets"]);	
-	hs->Add(&hist["GJet_Pt40"]);
-	hs->Add(&hist["GJet_Pt20to40"]);
-	hs->Add(&hist["GJet_Pt20_MGG40to80"]);
-    hs->Add(&hist["QCD_Pt40"]);
-    hs->Add(&hist["QCD_Pt30_MGG40to80"]);
-    hs->Add(&hist["QCD_Pt30to40"]);
-
-	hs->Add(&hist["HGG"]);
+	// hs->Add(&hist["GJet_Pt40"]);
+	// hs->Add(&hist["GJet_Pt20to40"]);
+	hs->Add(&hist["DD_QCDGJets"]);
+    // hs->Add(&hist["QCD_Pt40"]);
+    // hs->Add(&hist["QCD_Pt30_MGG40to80"]);
+    // hs->Add(&hist["QCD_Pt30to40"]);
+	
+	hs->SetMinimum(0.1);
 
 	float maxY = (hist["mc"].GetBinContent(hist["mc"].GetMaximumBin()));
 	if(maxY < hist["data"].GetBinContent(hist["data"].GetMaximumBin())) maxY = hist["data"].GetBinContent(hist["data"].GetMaximumBin());
@@ -144,15 +149,16 @@ void drawDataMC(std::map<std::string, TH1F> hist, TString var, string unit, floa
 		pad1->SetLogy(1);
 		// hs->SetMinimum(0);
 	} 
-
+	hs->SetMaximum(1000000);
+	pad1->SetLogy(1);
 	SetHistColor(&hist["GGJets"], "#0B66C1");
 	SetHistColor(&hist["HGG"], "#BCC2AD");
-	SetHistColor(&hist["GJet_Pt40"], "#37A3D2");
+	SetHistColor(&hist["VHtoGG_M125"], "#37A3D2");
 	SetHistColor(&hist["GJet_Pt20to40"], "#37A3D2");
-	SetHistColor(&hist["GJet_Pt20_MGG40to80"], "#37A3D2");
-	SetHistColor(&hist["QCD_Pt40"], "#F3C568");
-	SetHistColor(&hist["QCD_Pt30to40"], "#70877F");
-	SetHistColor(&hist["QCD_Pt30_MGG40to80"], "#EC8C6F");
+	SetHistColor(&hist["DD_QCDGJets"], "#B8C5D6");
+	SetHistColor(&hist["VBFHtoGG_M125"], "#F3C568");
+	SetHistColor(&hist["GluGluHtoGG_M125"], "#28AFB0");
+	SetHistColor(&hist["ttHtoGG_M125"], "#EC8C6F");
 
 	hs->Draw("hist");
 
@@ -163,11 +169,18 @@ void drawDataMC(std::map<std::string, TH1F> hist, TString var, string unit, floa
 	hs->GetYaxis()->SetLabelSize(0.04);
 	
 	
-    hist["mc_sig"].SetLineColor(TColor::GetColor("#EF5B5B"));
-	hist["mc_sig"].SetLineWidth(3);
-	hist["mc_sig"].Scale(100);
-    hist["mc_sig"].Draw("histSAME");
+    hist["GluGluToHH"].SetLineColor(TColor::GetColor("#FC4622"));
+	hist["GluGluToHH"].SetLineWidth(3);
+	hist["GluGluToHH"].Scale(1000);
+	// hist["GluGluToHH"].SetLineStyle(2);
+    hist["GluGluToHH"].Draw("histSAME");
 
+	hist["VBFToHH"].SetLineColor(TColor::GetColor("#9AE3FE"));
+	hist["VBFToHH"].SetLineWidth(3);
+	hist["VBFToHH"].Scale(10000);
+	// hist["VBFToHH"].SetLineStyle(2);
+    hist["VBFToHH"].Draw("histSAME");
+	
     hist["data"].SetMarkerSize(1);
 	hist["data"].SetMarkerStyle(20);
 	hist["data"].SetLineColor(1);
@@ -180,17 +193,23 @@ void drawDataMC(std::map<std::string, TH1F> hist, TString var, string unit, floa
 	le1->SetNColumns(2);
 	le1->SetFillStyle(0);
 	le1->SetBorderSize(0);
-	le1->AddEntry(&hist["data"],"Data","PE");	
-    le1->AddEntry(&hist["QCD_Pt40"],"QCD (Pt40 MGG80)","f");
+    // le1->AddEntry(&hist["QCD_Pt40"], "QCD (Pt40 MGG80)","f");
 
-	le1->AddEntry(&hist["mc_sig"],"signal#times100","L");
-    le1->AddEntry(&hist["QCD_Pt30to40"],"QCD (Pt30-40 MGG80)","f");
+    // le1->AddEntry(&hist["QCD_Pt30to40"],"QCD (Pt30-40 MGG80)","f");
+	le1->AddEntry(&hist["DD_QCDGJets"],"DD background","f");
+	le1->AddEntry(&hist["GGJets"], "#gamma#gamma+jets","f");
+    // le1->AddEntry(&hist["QCD_Pt30_MGG40to80"], "QCD (Pt30 MGG40-80)","f");
 
-	le1->AddEntry(&hist["GGJets"],"#gamma#gamma+jets","f");
-    le1->AddEntry(&hist["QCD_Pt30_MGG40to80"],"QCD (Pt30 MGG40-80)","f");
+	// le1->AddEntry(&hist["GJet_Pt40"], "#gamma+jets","f");
+	// le1->AddEntry(&hist["HGG"], "H#rightarrow#gamma#gamma","f");
+	le1->AddEntry(&hist["GluGluHtoGG_M125"], "ggH(#gamma#gamma)","f");
+	le1->AddEntry(&hist["VBFHtoGG_M125"], "VBFH(#gamma#gamma)","f");
+	le1->AddEntry(&hist["VHtoGG_M125"], "VH(#gamma#gamma)","f");
+	le1->AddEntry(&hist["ttHtoGG_M125"], "ttH(#gamma#gamma)","f");
+	le1->AddEntry(&hist["GluGluToHH"], "ggHH#times1000","L");
+	le1->AddEntry(&hist["VBFToHH"], "VBFHH#times10000","L");
 
-	le1->AddEntry(&hist["GJet_Pt40"],"#gamma+jets","f");
-	le1->AddEntry(&hist["HGG"],"H#rightarrow#gamma#gamma","f");
+	le1->AddEntry(&hist["data"], "Data","PE");	
 
     le1->Draw();
 	pl.cd(); 
@@ -280,7 +299,7 @@ void make_hist_pt(std::map<std::string, TH1F> &histmap, string json_file="./Samp
 
 	TH1F hdata("hdata","", binning, min, max);
     if(var.find("CMS_hgg_mass") != std::string::npos) data.Draw(Form("%s>>hdata", var.c_str()), Form("%s*(CMS_hgg_mass<115||CMS_hgg_mass>135)", Data_weight.c_str()));
-	else if(var.find("dijet_mass") != std::string::npos) data.Draw(Form("%s>>hdata", var.c_str()), Form("%s*(dijet_mass<105||dijet_mass>145)", Data_weight.c_str()));
+	else if(var.find("nonRes_dijet_mass") != std::string::npos) data.Draw(Form("%s>>hdata", var.c_str()), Form("%s*(nonRes_dijet_mass<105||nonRes_dijet_mass>145)", Data_weight.c_str()));
 	else data.Draw(Form("%s>>hdata", var.c_str()), Data_weight.c_str());
     //* MC
     // check how many samples are included
@@ -331,7 +350,7 @@ void make_hist_pt_(std::map<std::string, TH1F> &histmap, string json_file="./Sam
 
 	TH1F hdata("hdata","", binning, min, max);
     if(var.find("CMS_hgg_mass") != std::string::npos) data.Draw(Form("%s>>hdata", var.c_str()), Form("%s*(CMS_hgg_mass<115||CMS_hgg_mass>135)", Data_weight.c_str()));
-	else if(var.find("dijet_mass") != std::string::npos) data.Draw(Form("%s>>hdata", var.c_str()), Form("%s*(dijet_mass<105||dijet_mass>145)", Data_weight.c_str()));
+	else if(var.find("nonRes_dijet_mass") != std::string::npos) data.Draw(Form("%s>>hdata", var.c_str()), Form("%s*(nonRes_dijet_mass<105||nonRes_dijet_mass>145)", Data_weight.c_str()));
 	else data.Draw(Form("%s>>hdata", var.c_str()), Data_weight.c_str());
     //* MC
     // check how many samples are included
@@ -383,14 +402,16 @@ void make_DataMC(std::map<std::string, TH1F> &histmap, string json_file="./Sampl
 	string Data_weight = infile["weight"]["data"];
     float lumi = infile["Data"]["lumi"][era];
     
+	string basic_selection = "( (CMS_hgg_mass > 100) && (CMS_hgg_mass < 180) && (nonRes_dijet_mass > 0) && lead_mvaID > -0.7 && sublead_mvaID > -0.7 )";
+	// string basic_selection = "( (CMS_hgg_mass > 100) && (CMS_hgg_mass < 180) && (is_nonRes == 1) && (nonRes_has_two_btagged_jets == 1) && (nonRes_dijet_mass > 0) )";
     //* Data
     TChain data(tree.c_str());
     data.Add(file.c_str());
 
 	TH1F hdata("hdata","", binning, min, max);
-    if(var.find("CMS_hgg_mass") != std::string::npos) data.Draw(Form("%s>>hdata", var.c_str()), Form("%s*(CMS_hgg_mass<115||CMS_hgg_mass>135)", Data_weight.c_str()));
-	else if(var.find("dijet_mass") != std::string::npos) data.Draw(Form("%s>>hdata", var.c_str()), Form("%s*(dijet_mass<105||dijet_mass>145)", Data_weight.c_str()));
-	else data.Draw(Form("%s>>hdata", var.c_str()), Data_weight.c_str());
+    if(var.find("CMS_hgg_mass") != std::string::npos) data.Draw(Form("%s>>hdata", var.c_str()), Form("%s*%s*(CMS_hgg_mass < 115 || CMS_hgg_mass > 135)", basic_selection.c_str(), Data_weight.c_str()));
+	else if(var.find("nonRes_dijet_mass") != std::string::npos) data.Draw(Form("%s>>hdata", var.c_str()), Form("%s*%s*(nonRes_dijet_mass < 105 || nonRes_dijet_mass > 145)", basic_selection.c_str(), Data_weight.c_str()));
+	else data.Draw(Form("%s>>hdata", var.c_str()), Form("%s*%s", basic_selection.c_str(), Data_weight.c_str()));
     //* MC
     // check how many samples are included
     const int sample_size = infile["MC"].size();
@@ -409,27 +430,42 @@ void make_DataMC(std::map<std::string, TH1F> &histmap, string json_file="./Sampl
         string sample = it.key();
         float xs = it.value()["xs"];
 		
+		// if(sample == "DD_QCDGJets") tree = infile["tree"]["Data"];
+		// else tree = infile["tree"]["MC"];
+
 		TChain ch(tree.c_str());
 		ch.Add(file.c_str());
         
         // fill hist
 		TH1F hist(sample.c_str(), "", binning, min, max);
 		//TODO optimize!!
-		ch.Draw(Form("%s>>%s", var.c_str(), sample.c_str()), Form("%s*%f*%f", MC_weight.c_str(), lumi, xs));
+		// ch.Draw(Form("%s>>%s", var.c_str(), sample.c_str()), Form("%s*%s*%f*%f", basic_selection.c_str(), MC_weight.c_str(), lumi, xs));
+		if(sample == "DD_QCDGJets"){
+			ch.Draw(Form("%s>>%s", var.c_str(), sample.c_str()), Form("%s*%s", basic_selection.c_str(), MC_weight.c_str()));
+		}
+		else{
+			ch.Draw(Form("%s>>%s", var.c_str(), sample.c_str()), Form("%s*%s*%f*%f", basic_selection.c_str(), MC_weight.c_str(), lumi, xs));
+		}
         histmap[sample] = hist;
 
         // fill overall hist
         if(sample == "GluGluToHH" || sample == "VBFToHH"){
-            ch.Draw(Form("%s>>+hmc_sig", var.c_str()), Form("%s*%f*%f", MC_weight.c_str(), lumi, xs));
+            ch.Draw(Form("%s>>+hmc_sig", var.c_str()), Form("%s*%s*%f*%f", basic_selection.c_str(), MC_weight.c_str(), lumi, xs));
         }
         if(sample.find("M125") != std::string::npos){
-            ch.Draw(Form("%s>>+hHGG", var.c_str()), Form("%s*%f*%f", MC_weight.c_str(), lumi, xs));
+            ch.Draw(Form("%s>>+hHGG", var.c_str()), Form("%s*%s*%f*%f", basic_selection.c_str(), MC_weight.c_str(), lumi, xs));
         }
 		if(sample.find("QCD_HT") != std::string::npos){
-			ch.Draw(Form("%s>>+hQCDHT", var.c_str()), Form("%s*%f*%f", MC_weight.c_str(), lumi, xs));
+			ch.Draw(Form("%s>>+hQCDHT", var.c_str()), Form("%s*%s*%f*%f", basic_selection.c_str(), MC_weight.c_str(), lumi, xs));
 		}
-		ch.Draw(Form("%s>>+hmc", var.c_str()), Form("%s*%f*%f", MC_weight.c_str(), lumi, xs));
 
+		if(sample == "DD_QCDGJets"){
+			ch.Draw(Form("%s>>+hmc", var.c_str()), Form("%s*%s", basic_selection.c_str(), MC_weight.c_str()));
+		}
+		else{
+			ch.Draw(Form("%s>>+hmc", var.c_str()), Form("%s*%s*%f*%f", basic_selection.c_str(), MC_weight.c_str(), lumi, xs));
+		}
+		
         i++;
     }
 
@@ -442,9 +478,29 @@ void make_DataMC(std::map<std::string, TH1F> &histmap, string json_file="./Sampl
 
 
 void Draw(){
-    string json_file="./Conf/MultiHist_1009_matching.json";
+    // string json_file="./Conf/MultiHist_1009_matching.json";
+    string json_file="./Conf/SampleList_v2.json";
+	
     // string json_file="./MultiHist_RecoGen.json";
     // string json_file="./MultiHist_JetEffi.json";
 	setTDRStyle();
-	MultiHist(json_file, "matching");
+	// MultiHist(json_file, "matching");
+	
+	vector<string> var_list = {
+		"nonRes_dijet_mass", "CMS_hgg_mass", "nonRes_dijet_pt", "pt"
+	};
+	
+	std::map<std::string, TH1F> histmap;
+	make_DataMC(histmap, json_file, "22preEE", "nonRes_dijet_mass", 48, 70, 190);
+	drawDataMC(histmap, "nonRes_dijet_mass", "H(bb) mass [GeV]", 70, 190, "22preEE");
+
+	make_DataMC(histmap, json_file, "22preEE", "CMS_hgg_mass", 32, 100, 180);
+	drawDataMC(histmap, "CMS_hgg_mass", "H(#gamma#gamma) mass [GeV]", 100, 180, "22preEE");
+
+	make_DataMC(histmap, json_file, "22preEE", "nonRes_dijet_pt", 51, 0, 500);
+	drawDataMC(histmap, "nonRes_dijet_pt", "dijet p_{T} [GeV]", 0, 500, "22preEE");
+
+	make_DataMC(histmap, json_file, "22preEE", "pt", 51, 0, 400);
+	drawDataMC(histmap, "pt", "diphoton p_{T} [GeV]", 0, 400, "22preEE");
+
 }

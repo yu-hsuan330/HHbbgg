@@ -1,0 +1,87 @@
+nohup: ignoring input
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1739978649.489258 2906200 service.cc:146] XLA service 0x7fa02001c460 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+I0000 00:00:1739978649.489304 2906200 service.cc:154]   StreamExecutor device (0): NVIDIA RTX A5000, Compute Capability 8.6
+I0000 00:00:1739978649.489308 2906200 service.cc:154]   StreamExecutor device (1): NVIDIA RTX A5000, Compute Capability 8.6
+I0000 00:00:1739978649.489315 2906200 service.cc:154]   StreamExecutor device (2): NVIDIA RTX A5000, Compute Capability 8.6
+I0000 00:00:1739978649.489318 2906200 service.cc:154]   StreamExecutor device (3): NVIDIA RTX A5000, Compute Capability 8.6
+I0000 00:00:1739978652.014969 2906200 device_compiler.h:188] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+[92m Start DNN:[00m
+Epoch 16: early stopping
+Epoch 16: early stopping
+Epoch 64: early stopping
+Epoch 15: early stopping
+Epoch 15: early stopping
+Epoch 15: early stopping
+Epoch 15: early stopping
+Epoch 15: early stopping
+Epoch 15: early stopping
+Epoch 15: early stopping
+Epoch 15: early stopping
+Epoch 15: early stopping
+Epoch 15: early stopping
+Epoch 15: early stopping
+Epoch 15: early stopping
+Epoch 15: early stopping
+Epoch 15: early stopping
+Epoch 15: early stopping
+Epoch 15: early stopping
+Epoch 15: early stopping
+Epoch 15: early stopping
+Epoch 15: early stopping
+Epoch 15: early stopping
+Epoch 15: early stopping
+Epoch 15: early stopping
+Epoch 15: early stopping
+Epoch 15: early stopping
+Epoch 15: early stopping
+Epoch 15: early stopping
+Epoch 15: early stopping
+Epoch 15: early stopping
+Epoch 15: early stopping
+Epoch 15: early stopping
+Epoch 15: early stopping
+Epoch 15: early stopping
+Epoch 15: early stopping
+Epoch 15: early stopping
+Epoch 15: early stopping
+Epoch 15: early stopping
+Epoch 15: early stopping
+Epoch 15: early stopping
+Epoch 15: early stopping
+Epoch 15: early stopping
+Epoch 15: early stopping
+Epoch 15: early stopping
+Epoch 15: early stopping
+Epoch 15: early stopping
+Epoch 15: early stopping
+Epoch 15: early stopping
+Epoch 15: early stopping
+Epoch 15: early stopping
+Epoch 15: early stopping
+Epoch 15: early stopping
+Epoch 15: early stopping
+Epoch 15: early stopping
+Epoch 15: early stopping
+Epoch 15: early stopping
+Epoch 15: early stopping
+Epoch 15: early stopping
+Epoch 15: early stopping
+Epoch 15: early stopping
+Epoch 15: early stopping
+Epoch 15: early stopping
+Epoch 15: early stopping
+[1m  1/988[0m [37m━━━━━━━━━━━━━━━━━━━━[0m [1m10:26[0m 635ms/step[1m 62/988[0m [32m━[0m[37m━━━━━━━━━━━━━━━━━━━[0m [1m0s[0m 820us/step   [1m131/988[0m [32m━━[0m[37m━━━━━━━━━━━━━━━━━━[0m [1m0s[0m 770us/step[1m201/988[0m [32m━━━━[0m[37m━━━━━━━━━━━━━━━━[0m [1m0s[0m 753us/step[1m273/988[0m [32m━━━━━[0m[37m━━━━━━━━━━━━━━━[0m [1m0s[0m 739us/step[1m342/988[0m [32m━━━━━━[0m[37m━━━━━━━━━━━━━━[0m [1m0s[0m 737us/step[1m412/988[0m [32m━━━━━━━━[0m[37m━━━━━━━━━━━━[0m [1m0s[0m 735us/step[1m482/988[0m [32m━━━━━━━━━[0m[37m━━━━━━━━━━━[0m [1m0s[0m 733us/step[1m555/988[0m [32m━━━━━━━━━━━[0m[37m━━━━━━━━━[0m [1m0s[0m 727us/step[1m626/988[0m [32m━━━━━━━━━━━━[0m[37m━━━━━━━━[0m [1m0s[0m 725us/step[1m695/988[0m [32m━━━━━━━━━━━━━━[0m[37m━━━━━━[0m [1m0s[0m 725us/step[1m765/988[0m [32m━━━━━━━━━━━━━━━[0m[37m━━━━━[0m [1m0s[0m 725us/step[1m835/988[0m [32m━━━━━━━━━━━━━━━━[0m[37m━━━━[0m [1m0s[0m 724us/step[1m905/988[0m [32m━━━━━━━━━━━━━━━━━━[0m[37m━━[0m [1m0s[0m 724us/step[1m975/988[0m [32m━━━━━━━━━━━━━━━━━━━[0m[37m━[0m [1m0s[0m 723us/step[1m988/988[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 2ms/step  [1m988/988[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m2s[0m 2ms/step
+[1m  1/988[0m [37m━━━━━━━━━━━━━━━━━━━━[0m [1m1:04[0m 66ms/step[1m 56/988[0m [32m━[0m[37m━━━━━━━━━━━━━━━━━━━[0m [1m0s[0m 918us/step [1m118/988[0m [32m━━[0m[37m━━━━━━━━━━━━━━━━━━[0m [1m0s[0m 861us/step[1m177/988[0m [32m━━━[0m[37m━━━━━━━━━━━━━━━━━[0m [1m0s[0m 858us/step[1m243/988[0m [32m━━━━[0m[37m━━━━━━━━━━━━━━━━[0m [1m0s[0m 834us/step[1m307/988[0m [32m━━━━━━[0m[37m━━━━━━━━━━━━━━[0m [1m0s[0m 824us/step[1m375/988[0m [32m━━━━━━━[0m[37m━━━━━━━━━━━━━[0m [1m0s[0m 809us/step[1m440/988[0m [32m━━━━━━━━[0m[37m━━━━━━━━━━━━[0m [1m0s[0m 804us/step[1m507/988[0m [32m━━━━━━━━━━[0m[37m━━━━━━━━━━[0m [1m0s[0m 798us/step[1m570/988[0m [32m━━━━━━━━━━━[0m[37m━━━━━━━━━[0m [1m0s[0m 798us/step[1m636/988[0m [32m━━━━━━━━━━━━[0m[37m━━━━━━━━[0m [1m0s[0m 795us/step[1m699/988[0m [32m━━━━━━━━━━━━━━[0m[37m━━━━━━[0m [1m0s[0m 795us/step[1m764/988[0m [32m━━━━━━━━━━━━━━━[0m[37m━━━━━[0m [1m0s[0m 793us/step[1m833/988[0m [32m━━━━━━━━━━━━━━━━[0m[37m━━━━[0m [1m0s[0m 788us/step[1m897/988[0m [32m━━━━━━━━━━━━━━━━━━[0m[37m━━[0m [1m0s[0m 788us/step[1m968/988[0m [32m━━━━━━━━━━━━━━━━━━━[0m[37m━[0m [1m0s[0m 782us/step[1m988/988[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m0s[0m 1ms/step  [1m988/988[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m1s[0m 1ms/step
+invalid value encountered in divide
+(1011121, 42)
+Traceback (most recent call last):
+  File "/home/cosine/HHbbgg/MLForge/run_trainer.py", line 29, in <module>
+    trainer(workflow, args.progress)
+  File "/home/cosine/HHbbgg/MLForge/src/trainer.py", line 236, in trainer
+    plot_VarImportance(MVA, modelDNN, Conf, x_train, x_test, y_test) # plot_VarImportance(MVA, cv.best_estimator_, Conf)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/cosine/HHbbgg/MLForge/src/utils/plotter.py", line 99, in plot_VarImportance
+    shap.utils.disable_progress_bar()
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'shap.utils' has no attribute 'disable_progress_bar'

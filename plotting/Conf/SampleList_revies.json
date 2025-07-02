@@ -1,0 +1,125 @@
+{
+    "weight":{
+        "MC": "weight",
+        "data": "weight"
+    },
+    "tree":{
+        "MC": "DiphotonTree/data_125_13TeV_NOTAG",
+        "Data": "DiphotonTree/Data_13TeV_NOTAG"
+    },
+
+    "MC":{
+        "GluGluToHH":{
+            "file":{
+                "22preEE": "../minitree/22preEE_GluGluToHH.root",
+                "22postEE": "../minitree/22postEE_GluGluToHH.root"
+            },
+            "color": "#FF0000",
+            "xs": 0.03443
+        },
+        "VBFToHH":{
+            "file":{
+                "22preEE": "../minitree/22preEE_VBFToHH.root",
+                "22postEE": "../minitree/22postEE_VBFToHH.root"
+            },
+            "color": "#FF0000",
+            "xs": 0.00192
+        },
+        "GJet_Pt20_MGG40to80":{
+            "file":{
+                "22preEE": "../minitree/22preEE_GJet_Pt20_MGG40to80.root",
+                "22postEE": "../minitree/22postEE_GJet_Pt20_MGG40to80.root"
+            },
+            "color": "#37A3D2",
+            "xs": 3284
+        },
+        "GJet_Pt20to40":{
+            "file":{
+                "22preEE": "../minitree/22preEE_GJet_Pt20to40.root",
+                "22postEE": "../minitree/22postEE_GJet_Pt20to40.root"
+            },
+            "color": "#37A3D2",
+            "xs": 242.5
+        },
+        "GJet_Pt40":{
+            "file":{
+                "22preEE": "../minitree/22preEE_GJet_Pt40.root",
+                "22postEE": "../minitree/22postEE_GJet_Pt40.root"
+            },
+            "color": "#37A3D2",
+            "xs": 919.1
+        },
+        "GGJets":{
+            "file":{
+                "22preEE": "../minitree/22preEE_GGJets.root",
+                "22postEE": "../minitree/22postEE_GGJets.root"
+            },
+            "color": "#0B66C1",
+            "xs": 88.75
+        },
+        "QCD_Pt30_MGG40to80":{
+            "file":{
+                "22preEE": "../minitree/22preEE_QCD_Pt30_MGG40to80.root",
+                "22postEE": "../minitree/22postEE_QCD_Pt30_MGG40to80.root"
+            },
+            "color": "#EC8C6F",
+            "xs": 252200
+        },
+        "QCD_Pt30to40":{
+            "file":{
+                "22preEE": "../minitree/22preEE_QCD_Pt30to40.root",
+                "22postEE": "../minitree/22postEE_QCD_Pt30to40.root"
+            },
+            "color": "#70877F",
+            "xs": 25950
+        },
+        "QCD_Pt40":{
+            "file":{
+                "22preEE": "../minitree/22preEE_QCD_Pt40.root",
+                "22postEE": "../minitree/22postEE_QCD_Pt40.root"
+            },
+            "color": "#F3C568",
+            "xs": 124700
+        },
+        "GluGluHtoGG_M125":{
+            "file":{
+                "22preEE": "../minitree/22preEE_GluGluHtoGG_M125.root",
+                "22postEE": "../minitree/22postEE_GluGluHtoGG_M125.root"
+            },
+            "xs": 0.1185621
+        },
+        "VBFHtoGG_M125":{
+            "file":{
+                "22preEE": "../minitree/22preEE_VBFHtoGG_M125.root",
+                "22postEE": "../minitree/22postEE_VBFHtoGG_M125.root"
+            },
+            "xs": 0.00925706
+        },
+        "VHtoGG_M125":{
+            "file":{
+                "22preEE": "../minitree/22preEE_VHtoGG_M125.root",
+                "22postEE": "../minitree/22postEE_VHtoGG_M125.root"
+            },
+            "xs": 0.00545027
+        },
+        "ttHtoGG_M125":{
+            "file":{
+                "22preEE": "../minitree/22preEE_ttHtoGG_M125.root",
+                "22postEE": "../minitree/22postEE_ttHtoGG_M125.root"
+            },
+            "xs": 0.0012939
+        }
+    },
+
+    "Data":{
+        "file":{
+            "22preEE": "../minitree/data/22preEE_EGamma*.root",
+            "22postEE": "../minitree/data/22postEE_EGamma*.root"
+        },
+        "xs": 1,
+        "lumi":{
+            "22preEE": 7980.4,
+            "22postEE": 26671.7
+        }
+    }
+}

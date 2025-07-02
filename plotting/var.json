@@ -1,0 +1,182 @@
+{
+    "nonRes_dijet_mass":{
+        "nbin": 48,
+        "min": 70, 
+        "max": 190,
+        "unit": "H(bb) mass [GeV]"
+    },
+    "CMS_hgg_mass":{
+        "nbin": 32,
+        "min": 100, 
+        "max": 180,
+        "unit": "H(#gamma#gamma) mass [GeV]"
+    }, 
+    "nonRes_dijet_pt":{
+        "nbin": 40,
+        "min": 0, 
+        "max": 400,
+        "unit": "dijet p_{T} [GeV]"
+    }, 
+    "pt":{
+        "nbin": 51,
+        "min": 0, 
+        "max": 400,
+        "unit": "diphoton p_{T} [GeV]"
+    },
+    "nonRes_HHbbggCandidate_eta":{
+        "nbin": 50,
+        "min": -8, 
+        "max": 8,
+        "unit": "#eta(bb#gamma#gamma)"
+    },
+    "nonRes_HHbbggCandidate_phi":{
+        "nbin": 50,
+        "min": -3.2, 
+        "max": 3.2,
+        "unit": "#phi(bb#gamma#gamma)"
+    },
+    "nonRes_HHbbggCandidate_mass":{
+        "nbin": 30,
+        "min": 100, 
+        "max": 1000,
+        "unit": "m(bb#gamma#gamma) [GeV]"
+    },
+    "nonRes_HHbbggCandidate_pt":{
+        "nbin": 50,
+        "min": 0, 
+        "max": 800,
+        "unit": "p_{T}(bb#gamma#gamma) [GeV]"
+    },
+    "nonRes_M_X":{
+        "nbin": 50,
+        "min": 250, 
+        "max": 1000,
+        "unit": "M_{X} [GeV]"
+    },
+    "nonRes_CosThetaStar_CS":{
+        "nbin": 50,
+        "min": -1, 
+        "max": 1,
+        "unit": "cos(#theta*{}_{CS})"
+    },
+    "nonRes_CosThetaStar_gg":{
+        "nbin": 50,
+        "min": -1, 
+        "max": 1,
+        "unit": "cos(#theta*{}_{#gamma#gamma})"
+    },
+    "nonRes_CosThetaStar_jj":{
+        "nbin": 50,
+        "min": -1, 
+        "max": 1,
+        "unit": "cos(#theta*{}_{bb})"
+    },
+    "lead_pt":{
+        "nbin": 43,
+        "min": 35, 
+        "max": 250,
+        "unit": "leading photon p_{T} [GeV]"
+    },
+    "sublead_pt":{
+        "nbin": 35,
+        "min": 25, 
+        "max": 200,
+        "unit": "subleading photon p_{T} [GeV]"
+    },
+    "lead_eta":{
+        "nbin": 50,
+        "min": -2.5, 
+        "max": 2.5,
+        "unit": "leading photon #eta"
+    },
+    "sublead_eta":{
+        "nbin": 50,
+        "min": -2.5, 
+        "max": 2.5,
+        "unit": "subleading photon #eta"
+    },
+    "nonRes_lead_bjet_pt":{
+        "nbin": 40,
+        "min": 20, 
+        "max": 400,
+        "unit": "leading b-jet p_{T} [GeV]"
+    },
+    "nonRes_sublead_bjet_pt":{
+        "nbin": 40,
+        "min": 20, 
+        "max": 200,
+        "unit": "subleading b-jet p_{T} [GeV]"
+    },
+    "nonRes_lead_bjet_eta":{
+        "nbin": 25,
+        "min": -2.5, 
+        "max": 2.5,
+        "unit": "leading b-jet #eta"
+    },
+    "nonRes_sublead_bjet_eta":{
+        "nbin": 25,
+        "min": -2.5, 
+        "max": 2.5,
+        "unit": "subleading b-jet #eta"
+    },
+    "lead_mvaID":{
+        "nbin": 34,
+        "min": -0.7, 
+        "max": 1,
+        "unit": "leading photon MVA ID"
+    },
+    "sublead_mvaID":{
+        "nbin": 34,
+        "min": -0.7, 
+        "max": 1,
+        "unit": "subleading photon MVA ID"
+    },
+    "n_jets":{
+        "nbin": 10,
+        "min": 2, 
+        "max": 12,
+        "unit": "number of jets"
+    },
+    "lepton1_pt":{
+        "nbin": 37,
+        "min": 15, 
+        "max": 200,
+        "unit": "leading lepton p_{T} [GeV]"
+    },
+    "lepton1_mvaID":{
+        "nbin": 20,
+        "min": 0, 
+        "max": 1,
+        "unit": "leading lepton MVA ID"
+    },
+    "lepton1_pfIsoId":{
+        "nbin": 11,
+        "min": 0, 
+        "max": 11,
+        "unit": "leading lepton PF ISO ID"
+    },
+    "lepton2_pt":{
+        "nbin": 10,
+        "min": 15, 
+        "max": 65,
+        "unit": "subleading lepton p_{T} [GeV]"
+    },
+    "lepton2_mvaID":{
+        "nbin": 20,
+        "min": 0, 
+        "max": 1,
+        "unit": "subleading lepton MVA ID"
+    },
+    "lepton2_pfIsoId":{
+        "nbin": 11,
+        "min": 0, 
+        "max": 11,
+        "unit": "subleading lepton PF ISO ID"
+    },
+    "n_leptons":{
+        "nbin": 5,
+        "min": 0, 
+        "max": 5,
+        "unit": "number of leptons"
+    }
+}

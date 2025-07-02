@@ -35,7 +35,7 @@ TString lumi_7TeV  = "5.1 fb^{-1}";
 //TString lumi_sqrtS = "2.6 fb^{-1}"; //2015 data
 //TString lumi_sqrtS = "11.4-12.9 fb^{-1}"; //ICHEP data
 //TString lumi_sqrtS = "36.811 fb^{-1}"; //Moriond 17 data (previous)
-TString lumi_sqrtS[5] = {"35.92 fb^{-1}", "41.53 fb^{-1}", "59.73 fb^{-1}", "137 fb^{-1}", " "}; //Moriond 17 data 
+TString lumi_sqrtS[5] = {"35.92 fb^{-1}", "41.53 fb^{-1}", "59.73 fb^{-1}", "137 fb^{-1}", "34.65 fb^{-1}"}; //Moriond 17 data 
 bool drawLogo = false;
 
 void CMS_lumi(TPad *pad, int iPeriod = 0, int iPosX = 0, int iLumi_sqrtS = 4);

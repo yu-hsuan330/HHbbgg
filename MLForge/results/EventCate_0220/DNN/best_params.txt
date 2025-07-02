@@ -1,0 +1,1 @@
+{'batchsize': 2048, 'dropout_rate': 0.05, 'epochs': 200, 'input_dim': (42,), 'kernel_initializer': 'glorot_uniform', 'learning_rate': 0.003, 'num_units_1': 256, 'num_units_2': 256, 'num_units_3': 128, 'output_dim': 5}

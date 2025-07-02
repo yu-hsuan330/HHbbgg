@@ -22,9 +22,10 @@ def create_hyperopt_space(Algorithm):
     elif Algorithm == "DNN":
         space = {
             "learning_rate": hp.quniform("learning_rate", 0.001, 0.01, 0.001),
-            "num_units_1": hp.choice("num_units_1", [16, 32, 64, 128, 256]),
-            "num_units_2": hp.choice("num_units_2", [16, 32, 64, 128, 256]),
-            "num_units_3": hp.choice("num_units_3", [16, 32, 64, 128, 256]),
+            "num_units_1": hp.choice("num_units_1", [128, 256, 512]),
+            "num_units_2": hp.choice("num_units_2", [128, 256, 512]),
+            "num_units_3": hp.choice("num_units_3", [16, 32, 64]),
+            "num_units_4": hp.choice("num_units_4", [16, 32, 64]),
             "dropout_rate": hp.quniform("dropout_rate", 0.05, 0.5, 0.01),
             "kernel_initializer": hp.choice("kernel_initializer", ["glorot_uniform", "he_uniform", "he_normal"]),
             # "batch_size": hp.choice("batch_size", [16, 32, 64, 128]),

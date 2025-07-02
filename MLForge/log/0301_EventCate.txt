@@ -1,0 +1,136 @@
+nohup: ignoring input
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1740920058.231186 3963735 service.cc:146] XLA service 0x7f30f0004ee0 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+I0000 00:00:1740920058.231222 3963735 service.cc:154]   StreamExecutor device (0): NVIDIA RTX A5000, Compute Capability 8.6
+I0000 00:00:1740920058.231226 3963735 service.cc:154]   StreamExecutor device (1): NVIDIA RTX A5000, Compute Capability 8.6
+I0000 00:00:1740920058.231240 3963735 service.cc:154]   StreamExecutor device (2): NVIDIA RTX A5000, Compute Capability 8.6
+I0000 00:00:1740920058.231245 3963735 service.cc:154]   StreamExecutor device (3): NVIDIA RTX A5000, Compute Capability 8.6
+I0000 00:00:1740920060.646953 3963735 device_compiler.h:188] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+[92m Start DNN:[00m
+Epoch 58: early stopping
+Epoch 20: early stopping
+Epoch 42: early stopping
+Epoch 67: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 29: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 41: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 39: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+Epoch 20: early stopping
+1609/1609 - 2s - 2ms/step
+1609/1609 - 2s - 985us/step
+3217/3217 - 3s - 947us/step
+invalid value encountered in divide
+(823343, 42)
+[INFO] Time Taken: 02:06:52

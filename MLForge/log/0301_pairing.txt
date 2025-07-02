@@ -1,0 +1,14 @@
+nohup: ignoring input
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1740812934.100404 3830976 service.cc:146] XLA service 0x7f3d58003920 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+I0000 00:00:1740812934.100448 3830976 service.cc:154]   StreamExecutor device (0): NVIDIA RTX A5000, Compute Capability 8.6
+I0000 00:00:1740812934.100452 3830976 service.cc:154]   StreamExecutor device (1): NVIDIA RTX A5000, Compute Capability 8.6
+I0000 00:00:1740812934.100459 3830976 service.cc:154]   StreamExecutor device (2): NVIDIA RTX A5000, Compute Capability 8.6
+I0000 00:00:1740812934.100461 3830976 service.cc:154]   StreamExecutor device (3): NVIDIA RTX A5000, Compute Capability 8.6
+I0000 00:00:1740812936.693425 3830976 device_compiler.h:188] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+[92m Start DNN:[00m
+2678/2678 - 4s - 2ms/step
+2678/2678 - 2s - 868us/step
+5356/5356 - 5s - 1ms/step
+(2741914, 19)
+[INFO] Time Taken: 00:52:05
