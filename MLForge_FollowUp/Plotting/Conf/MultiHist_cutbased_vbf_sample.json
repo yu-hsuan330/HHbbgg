@@ -1,0 +1,107 @@
+{
+    "lumi":{
+        "22preEE": 7980.4,
+        "22postEE": 26671.7
+    },
+    "era": "22",
+    "MultiHist_list":["with_pairing", "without_pairing"],
+    "MultiHist":{
+        "with_pairing":{
+            "file":{
+                "22preEE": "/home/cosine/HHbbgg/MLForge_FollowUp/samples/Pairing_Nitishi/22preEE_VBFToHH",
+                "22postEE": "/home/cosine/HHbbgg/MLForge_FollowUp/samples/Pairing_Nitishi/22postEE_VBFToHH"
+            },
+            "tree": "DiphotonTree/data_125_13TeV_NOTAG",
+            "weight": "weight",
+            "xs": "0.00173*(0.00227*0.582*2)",
+            "histColor": "#EC8C6F",
+            "histLine": 1
+        },
+        "without_pairing":{
+            "file":{
+                "22preEE": "/home/cosine/HHbbgg/MLForge_FollowUp/samples/sample_from_Nitishi_add/22preEE_VBFHHto2B2G_CV_1_C2V_1_C3_1",
+                "22postEE": "/home/cosine/HHbbgg/MLForge_FollowUp/samples/sample_from_Nitishi_add/22postEE_VBFHHto2B2G_CV_1_C2V_1_C3_1"
+            },
+            "tree": "DiphotonTree/data_125_13TeV_NOTAG",
+            "weight": "weight",
+            "xs": "0.00173*(0.00227*0.582*2)",
+            "histColor": "#37A3D2",
+            "histLine": 1
+        }
+    },
+    "var_list":{
+        "MultiClass_ggFcate_hbb_mass":{
+            "var":{
+                "with_pairing": ["bjet_pair_mass", "(N_matched == 1 && bjet_pair_mass > 70 && bjet_pair_mass < 190 && N_DNN_class == 3)", "nonRes_dijet_mass", "(matched == 1 && mask == 1 && DNN_class == 3)"],
+                "without_pairing": ["nonRes_dijet_mass", "(matched == 1 && DNN_class == 3)"]
+            },
+            "unit": ["m_{bb} (GeV)", "a.u."],
+            "range": [70, 190, 1.3],
+            "nbin": 60
+        },
+        "MultiClass_ggFcate_jj_mass":{
+            "var":{
+                "with_pairing": ["vbfjet_pair_mass", "(N_matched == 1 && N_DNN_class == 3 && vbfjet_pair_mass > 400)", "VBF_dijet_mass", "(matched == 1 && mask == 1 && DNN_class == 3 && VBF_dijet_mass > 400)"],
+                "without_pairing": ["VBF_dijet_mass", "(matched == 1 && DNN_class == 3 && VBF_dijet_mass > 400)"]
+            },
+            "unit": ["m_{jj} (GeV)", "a.u."],
+            "range": [0, 3000, 1.3],
+            "nbin": 60
+        },
+        "MultiClass_VBFcate_hbb_mass":{
+            "var":{
+                "with_pairing": ["bjet_pair_mass", "(N_matched == 1 && bjet_pair_mass > 70 && bjet_pair_mass < 190 && N_DNN_class == 4 && vbfjet_pair_mass > 400)", "nonRes_dijet_mass", "(matched == 1 && mask == 1 && DNN_class == 4 && VBF_dijet_mass > 400)"],
+                "without_pairing": ["nonRes_dijet_mass", "(matched == 1 && DNN_class == 4  && VBF_dijet_mass > 400)"]
+            },
+            "unit": ["m_{bb} (GeV)", "a.u."],
+            "range": [70, 190, 1.3],
+            "nbin": 60
+        },
+        "MultiClass_VBFcate_jj_mass":{
+            "var":{
+                "with_pairing": ["vbfjet_pair_mass", "(N_matched == 1 && N_DNN_class == 4 && vbfjet_pair_mass > 400)", "VBF_dijet_mass", "(matched == 1 && mask == 1 && DNN_class == 4 && VBF_dijet_mass > 400)"],
+                "without_pairing": ["VBF_dijet_mass", "(matched == 1 && DNN_class == 4  && VBF_dijet_mass > 400)"]
+            },
+            "unit": ["m_{jj} (GeV)", "a.u."],
+            "range": [0, 3000, 1.3],
+            "nbin": 60
+        },
+        
+        "Cutbased_ggFcate_hbb_mass":{
+            "var":{
+                "with_pairing": ["bjet_pair_mass", "(N_matched == 1 && bjet_pair_mass > 70 && bjet_pair_mass < 190 && vbfjet_pair_mass < 400)", "nonRes_dijet_mass", "(matched == 1 && mask == 1 && VBF_dijet_mass < 400)"],
+                "without_pairing": ["nonRes_dijet_mass", "(matched == 1 && VBF_dijet_mass < 400)"]
+            },
+            "unit": ["m_{bb} (GeV)", "a.u."],
+            "range": [70, 190, 1.3],
+            "nbin": 60
+        },
+        "Cutbased_ggFcate_jj_mass":{
+            "var":{
+                "with_pairing": ["vbfjet_pair_mass", "(N_matched == 1 && vbfjet_pair_mass < 400)", "VBF_dijet_mass", "(matched == 1 && mask == 1 && VBF_dijet_mass < 400)"],
+                "without_pairing": ["VBF_dijet_mass", "(matched == 1 && VBF_dijet_mass < 400)"]
+            },
+            "unit": ["m_{jj} (GeV)", "a.u."],
+            "range": [0, 400, 1.3],
+            "nbin": 50
+        },
+        "Cutbased_VBFcate_hbb_mass":{
+            "var":{
+                "with_pairing": ["bjet_pair_mass", "(N_matched == 1 && bjet_pair_mass > 70 && bjet_pair_mass < 190 && vbfjet_pair_mass > 400)", "nonRes_dijet_mass", "(matched == 1 && mask == 1 && VBF_dijet_mass > 400)"],
+                "without_pairing": ["nonRes_dijet_mass", "(matched == 1 && VBF_dijet_mass > 400)"]
+            },
+            "unit": ["m_{bb} (GeV)", "a.u."],
+            "range": [70, 190, 1.3],
+            "nbin": 60
+        },
+        "Cutbased_VBFcate_jj_mass":{
+            "var":{
+                "with_pairing": ["vbfjet_pair_mass", "(N_matched == 1 && vbfjet_pair_mass > 400)", "VBF_dijet_mass", "(matched == 1 && mask == 1 && VBF_dijet_mass > 400)"],
+                "without_pairing": ["VBF_dijet_mass", "(matched == 1 && VBF_dijet_mass > 400)"]
+            },
+            "unit": ["m_{jj} (GeV)", "a.u."],
+            "range": [400, 3000, 1.3],
+            "nbin": 50
+        }
+    }
+}

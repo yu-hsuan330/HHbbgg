@@ -1,0 +1,23 @@
+{
+    "samplejson": "/home/cosine/HHbbgg/json_SampleList/MC_22postEEv12.json",
+    "workflow": "HHbbgg",
+    "metaconditions": "Era2022_v1",
+    "taggers": [],
+    "year": {
+        
+        "GJet_Pt40_MGG80": [
+            "2022postEE"
+        ],
+        "GG-Box": [
+            "2022postEE"
+        ]
+    },
+    "systematics": {
+        "GJet_Pt40_MGG80": [],
+        "GG-Box": []
+    },
+    "corrections": {
+        "GJet_Pt40_MGG80": ["jerc_jet_pnetNu", "Pileup", "Smearing2G_IJazZ", "FNUF", "Material", "ElectronVetoSF", "PreselSF", "TriggerSF", "PNet_bTagShapeSF"],
+        "GG-Box": ["jerc_jet_pnetNu", "Pileup", "Smearing2G_IJazZ", "FNUF", "Material", "ElectronVetoSF", "PreselSF", "TriggerSF", "PNet_bTagShapeSF"]
+    }
+}

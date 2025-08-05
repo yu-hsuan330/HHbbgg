@@ -1,0 +1,27 @@
+{
+    "samplejson": "/home/cosine/HHbbgg/Shared_file/samples_23preBPix_v13.json",
+    "workflow": "HHbbgg",
+    "metaconditions": "Era2022_v1",
+    "taggers": [],
+    "year": {
+        "VBFHHto2B2G_CV_1_C2V_1_C3_1": ["2023preBPix"],
+        "VBFHHto2B2G_CV_1p74_C2V_1p37_C3_14p4": ["2023preBPix"],
+        "VBFHHto2B2G_CV_m0p012_C2V_0p030_C3_10p2": ["2023preBPix"],
+        "VBFHHto2B2G_CV_m0p758_C2V_1p44_C3_m19p3": ["2023preBPix"],
+        "VBFHHto2B2G_CV_m0p962_C2V_0p959_C3_m1p43":["2023preBPix"]
+    },
+    "corrections": {       
+        "VBFHHto2B2G_CV_1_C2V_1_C3_1": ["jerc_jet_pnetNu_syst", "Pileup", "Smearing2G_IJazZ", "FNUF", "Material", "ElectronVetoSF", "PreselSF", "TriggerSF", "PNet_bTagShapeSF"],
+        "VBFHHto2B2G_CV_1p74_C2V_1p37_C3_14p4": ["jerc_jet_pnetNu_syst", "Pileup", "Smearing2G_IJazZ", "FNUF", "Material", "ElectronVetoSF", "PreselSF", "TriggerSF", "PNet_bTagShapeSF"],
+        "VBFHHto2B2G_CV_m0p012_C2V_0p030_C3_10p2": ["jerc_jet_pnetNu_syst", "Pileup", "Smearing2G_IJazZ", "FNUF", "Material", "ElectronVetoSF", "PreselSF", "TriggerSF", "PNet_bTagShapeSF"],
+        "VBFHHto2B2G_CV_m0p758_C2V_1p44_C3_m19p3": ["jerc_jet_pnetNu_syst", "Pileup", "Smearing2G_IJazZ", "FNUF", "Material", "ElectronVetoSF", "PreselSF", "TriggerSF", "PNet_bTagShapeSF"],
+        "VBFHHto2B2G_CV_m0p962_C2V_0p959_C3_m1p43": ["jerc_jet_pnetNu_syst", "Pileup", "Smearing2G_IJazZ", "FNUF", "Material", "ElectronVetoSF", "PreselSF", "TriggerSF", "PNet_bTagShapeSF"]
+    },
+    "systematics": {
+        "VBFHHto2B2G_CV_1_C2V_1_C3_1": ["Pileup", "Smearing2G_IJazZ", "ScaleEE2G_IJazZ", "ScaleEB2G_IJazZ", "ElectronVetoSF", "PreselSF", "TriggerSF", "PNet_bTagShapeSF"],
+        "VBFHHto2B2G_CV_1p74_C2V_1p37_C3_14p4": ["Pileup", "Smearing2G_IJazZ", "ScaleEE2G_IJazZ", "ScaleEB2G_IJazZ", "ElectronVetoSF", "PreselSF", "TriggerSF", "PNet_bTagShapeSF"],
+        "VBFHHto2B2G_CV_m0p012_C2V_0p030_C3_10p2": ["Pileup", "Smearing2G_IJazZ", "ScaleEE2G_IJazZ", "ScaleEB2G_IJazZ", "ElectronVetoSF", "PreselSF", "TriggerSF", "PNet_bTagShapeSF"],
+        "VBFHHto2B2G_CV_m0p758_C2V_1p44_C3_m19p3": ["Pileup", "Smearing2G_IJazZ", "ScaleEE2G_IJazZ", "ScaleEB2G_IJazZ", "ElectronVetoSF", "PreselSF", "TriggerSF", "PNet_bTagShapeSF"],
+        "VBFHHto2B2G_CV_m0p962_C2V_0p959_C3_m1p43": ["Pileup", "Smearing2G_IJazZ", "ScaleEE2G_IJazZ", "ScaleEB2G_IJazZ", "ElectronVetoSF", "PreselSF", "TriggerSF", "PNet_bTagShapeSF"]
+    }
+}

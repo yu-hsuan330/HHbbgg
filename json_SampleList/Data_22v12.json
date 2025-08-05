@@ -1,5 +1,5 @@
 {
-    "22preEE_EGammaC":[
+    "Data_EGammaC":[
         "/data1/NanoAOD/v12/EGamma_Run2022C_22Sep2023-v1/009621ee-c6b2-4043-99c3-7cb4ab2c7264.root",
         "/data1/NanoAOD/v12/EGamma_Run2022C_22Sep2023-v1/009c166b-3848-4ad8-8278-ced132ce7dbc.root",
         "/data1/NanoAOD/v12/EGamma_Run2022C_22Sep2023-v1/020979ca-5879-4ace-bfc3-7893bdea4d37.root",
@@ -314,7 +314,7 @@
         "/data1/NanoAOD/v12/EGamma_Run2022C_22Sep2023-v1/fe423c39-f135-41bb-9fab-7c863e338818.root",
         "/data1/NanoAOD/v12/EGamma_Run2022C_22Sep2023-v1/ffe38bf7-7f95-4939-8593-d5a7ece51911.root"
     ],
-    "22preEE_EGammaD":[
+    "Data_EGammaD":[
         "/data1/NanoAOD/v12/EGamma_Run2022D_22Sep2023-v1/002aaeb4-3c58-4df8-9c1e-96c2d3a157ef.root",
         "/data1/NanoAOD/v12/EGamma_Run2022D_22Sep2023-v1/071bd17b-13a4-42b6-aadc-f85edbbbdffa.root",
         "/data1/NanoAOD/v12/EGamma_Run2022D_22Sep2023-v1/088e87a2-9e48-4649-814b-1356a9bb4f79.root",
@@ -425,7 +425,7 @@
         "/data1/NanoAOD/v12/EGamma_Run2022D_22Sep2023-v1/ffabaa21-ec18-4f5b-ac95-cf7565a3b280.root"
         
     ],
-    "22postEE_EGammaE":[
+    "Data_EGammaE":[
         "/data1/NanoAOD/v12/EGamma_Run2022E_22Sep2023-v1/008cc478-10d4-44f3-8d43-0ccb76f23672.root",
         "/data1/NanoAOD/v12/EGamma_Run2022E_22Sep2023-v1/013fae71-8df1-453c-a114-d3e8cd9965d6.root",
         "/data1/NanoAOD/v12/EGamma_Run2022E_22Sep2023-v1/02572330-9619-4b72-a1ff-18df5b8812dc.root",
@@ -616,7 +616,7 @@
         "/data1/NanoAOD/v12/EGamma_Run2022E_22Sep2023-v1/ff8385b4-a4f8-4638-a57d-85f5ef39a66d.root"
         
     ],
-    "22postEE_EGammaF":[
+    "Data_EGammaF":[
         "/data1/NanoAOD/v12/EGamma_Run2022F_22Sep2023-v1/005a47c9-27b2-421e-9444-c3864be0ebe6.root",
         "/data1/NanoAOD/v12/EGamma_Run2022F_22Sep2023-v1/006a0729-ea71-4675-8913-733a2cb0013b.root",
         "/data1/NanoAOD/v12/EGamma_Run2022F_22Sep2023-v1/012a5d1a-f90a-4a6b-abe5-868594ad9692.root",
@@ -1109,7 +1109,7 @@
         "/data1/NanoAOD/v12/EGamma_Run2022F_22Sep2023-v1/ffcd0056-a984-4431-b717-3ba5900ebcfe.root"
         
     ],
-    "22postEE_EGammaG":[
+    "Data_EGammaG":[
         "/data1/NanoAOD/v12/EGamma_Run2022G_22Sep2023-v2/0296e1dd-9a43-446e-b94f-54363ebc28d3.root",
         "/data1/NanoAOD/v12/EGamma_Run2022G_22Sep2023-v2/06336d9b-9217-4822-80bf-1d192e928267.root",
         "/data1/NanoAOD/v12/EGamma_Run2022G_22Sep2023-v2/0bc7f875-74ac-482b-b344-9d1ffb9e97a0.root",
