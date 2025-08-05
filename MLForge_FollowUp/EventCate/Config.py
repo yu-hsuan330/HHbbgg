@@ -3,7 +3,7 @@ lumi = {
     "22postEE": 26671.7
 }
 model_param = {
-    "output": "EventCate_Nitish",
+    "output": "EventCate_03",
     "path": "/home/cosine/HHbbgg/MLForge/results/EventCate_0301/DNN/DNN_modelDNN.keras",
     "scaler": "/home/cosine/HHbbgg/MLForge/results/EventCate_0301/DNN/DNN_scaler.pkl",
     "features": [

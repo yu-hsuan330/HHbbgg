@@ -1,32 +1,32 @@
 {
-    "samplejson": "json_SampleList/Data_22v12.json",
+    "samplejson": "/home/cosine/HHbbgg/json_SampleList/Data_22v12.json",
     "workflow": "HHbbgg",
     "metaconditions": "Era2022_v1",
     "taggers": [],
     "year": {
-        "22preEE_EGammaC": [
+        "Data_EGammaC": [
             "2022preEE"
         ],
-        "22preEE_EGammaD": [
+        "Data_EGammaD": [
             "2022preEE"
         ],    
-        "22postEE_EGammaE": [
+        "Data_EGammaE": [
             "2022postEE"
         ], 
-        "22postEE_EGammaF": [
+        "Data_EGammaF": [
             "2022postEE"
         ],
-        "22postEE_EGammaG": [
+        "Data_EGammaG": [
             "2022postEE"
         ]
     },
     "systematics": {},
     "corrections": {
-        "22preEE_EGammaC":["Scale2G_IJazZ", "jec_pnetNu_RunC"],
-        "22preEE_EGammaD":["Scale2G_IJazZ", "jec_pnetNu_RunD"],
-        "22postEE_EGammaE":["Scale2G_IJazZ", "jec_pnetNu_RunE"],
-        "22postEE_EGammaF":["Scale2G_IJazZ", "jec_pnetNu_RunF"],
-        "22postEE_EGammaG":["Scale2G_IJazZ", "jec_pnetNu_RunG"]
+        "Data_EGammaC":["Scale2G_IJazZ", "jec_pnetNu_RunC"],
+        "Data_EGammaD":["Scale2G_IJazZ", "jec_pnetNu_RunD"],
+        "Data_EGammaE":["Scale2G_IJazZ", "jec_pnetNu_RunE"],
+        "Data_EGammaF":["Scale2G_IJazZ", "jec_pnetNu_RunF"],
+        "Data_EGammaG":["Scale2G_IJazZ", "jec_pnetNu_RunG"]
     }
 
 }

@@ -1,0 +1,17 @@
+{
+    "22preEE_GluGlutoHHto2B2G_kl_1p00_kt_1p00_c2_0p00": [
+        "/data5/NanoAOD/v12/GluGlutoHHto2B2G_kl-1p00_kt-1p00_c2-0p00_Summer22/1b488882-95e1-4bce-bd25-d3f481571d72.root"
+        
+    ],
+    "22preEE_VBFHHto2B2G_CV_1_C2V_1_C3_1": [
+        "/data5/NanoAOD/v12/VBFHHto2B2G_CV_1_C2V_1_C3_1_Summer22/b0d6f3f6-9c39-4947-ba93-6d0c58849c12.root"
+    ],
+    "22postEE_GluGlutoHHto2B2G_kl_1p00_kt_1p00_c2_0p00": [
+        "/data5/NanoAOD/v12/GluGlutoHHto2B2G_kl-1p00_kt-1p00_c2-0p00_Summer22EE/06903e9b-44cd-4414-9452-9023b54e25f1.root"       
+    ],
+    "22postEE_VBFHHto2B2G_CV_1_C2V_1_C3_1": [
+        "/data5/NanoAOD/v12/VBFHHto2B2G_CV_1_C2V_1_C3_1_Summer22EE/008c42b6-c8f8-403a-9874-0bcc88950655.root"
+    ]
+
+
+}

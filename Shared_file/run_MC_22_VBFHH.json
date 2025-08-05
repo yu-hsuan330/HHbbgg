@@ -1,0 +1,38 @@
+{
+    "samplejson": "/home/cosine/HHbbgg/Shared_file/samples_22_v12.json",
+    "workflow": "HHbbgg",
+    "metaconditions": "Era2022_v1",
+    "taggers": [],
+    "year": {
+
+        "22preEE_VBFHHto2B2G_CV_1_C2V_1_C3_1": [
+            "2022preEE"
+        ],
+        "22postEE_VBFHHto2B2G_CV_1_C2V_1_C3_1": [
+            "2022postEE"
+        ]
+    },
+    "corrections": {
+        "22preEE_VBFHHto2B2G_CV_1_C2V_1_C3_1": ["jerc_jet_pnetNu_syst", "Pileup", "Smearing2G_IJazZ", "FNUF", "Material", "ElectronVetoSF", "PreselSF", "TriggerSF", "PNet_bTagShapeSF"],
+        "22postEE_VBFHHto2B2G_CV_1_C2V_1_C3_1": ["jerc_jet_pnetNu_syst", "Pileup", "Smearing2G_IJazZ", "FNUF", "Material", "ElectronVetoSF", "PreselSF", "TriggerSF", "PNet_bTagShapeSF"]
+
+    },
+    "systematics": {
+        "22preEE_VBFHHto2B2G_CV_1_C2V_1_C3_1": [],
+        "22postEE_VBFHHto2B2G_CV_1_C2V_1_C3_1": []
+    },
+    "bbgg_analysis": {
+        "22preEE_VBFHHto2B2G_CV_1_C2V_1_C3_1": [
+            "Res",
+            "nonRes",
+            "nonRes_VBFpair",
+            "nonResReg_VBFpair"
+        ],
+        "22postEE_VBFHHto2B2G_CV_1_C2V_1_C3_1": [
+            "Res",
+            "nonRes",
+            "nonRes_VBFpair",
+            "nonResReg_VBFpair"
+        ]
+    }
+}

@@ -1,5 +1,5 @@
-year=22preEE
-ver_folder=ver1108
+year=22postEE
+ver_folder=ver0121
 
 mkdir -p minitree/${ver_folder}/data
 

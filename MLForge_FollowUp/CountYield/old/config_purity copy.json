@@ -1,0 +1,133 @@
+{
+    "my_my":{
+        "ggHH": {
+            "xs": "0.03443*(0.00227*0.582*2)",
+            "weight": "weight",
+            "selection_ggHH": "DNN_class == 0 && bjet_true_bjet_pair == 1",
+            "selection_VBFHH": "DNN_class == 3",
+            "22preEE":{
+                "file": "/home/cosine/HHbbgg/MLForge_FollowUp/samples/EventCate_0301/22preEE_GluGluToHH.root"
+            },
+            "22postEE":{
+                "file": "/home/cosine/HHbbgg/MLForge_FollowUp/samples/EventCate_0301/22postEE_GluGluToHH.root"
+            }
+        },
+        "VBFHH": {
+            "xs": "0.00192*(0.00227*0.582*2)",
+            "weight": "weight",
+            "selection_ggHH": "DNN_class == 0",
+            "selection_VBFHH": "DNN_class == 3 && vbfjet_true_vbfjet_pair == 1",            
+            "22preEE":{
+                "file": "/home/cosine/HHbbgg/MLForge_FollowUp/samples/EventCate_0301/22preEE_VBFToHH.root"
+            },
+            "22postEE":{
+                "file": "/home/cosine/HHbbgg/MLForge_FollowUp/samples/EventCate_0301/22postEE_VBFToHH.root"
+            }
+        }
+    },
+    "pair_Nitish":{
+        "ggHH": {
+            "xs": "0.03443*(0.00227*0.582*2)",
+            "weight": "weight",
+            "selection_ggHH": "N_DNN_class == 3 && bjet_true_bjet_pair == 1",
+            "selection_VBFHH": "N_DNN_class == 4",
+            "22preEE":{
+                "file": "/home/cosine/HHbbgg/MLForge_FollowUp/samples/Pairing_Nitishi/22preEE_GluGluToHH.root"
+            },
+            "22postEE":{
+                "file": "/home/cosine/HHbbgg/MLForge_FollowUp/samples/Pairing_Nitishi/22postEE_GluGluToHH.root"
+            }
+        },
+        "VBFHH": {
+            "xs": "0.00192*(0.00227*0.582*2)",
+            "weight": "weight",
+            "selection_ggHH": "N_DNN_class == 3",
+            "selection_VBFHH": "N_DNN_class == 4 && vbfjet_true_vbfjet_pair == 1",            
+            "22preEE":{
+                "file": "/home/cosine/HHbbgg/MLForge_FollowUp/samples/Pairing_Nitishi/22preEE_VBFToHH.root"
+            },
+            "22postEE":{
+                "file": "/home/cosine/HHbbgg/MLForge_FollowUp/samples/Pairing_Nitishi/22postEE_VBFToHH.root"
+            }
+        }
+    },
+
+    "Nitish":{
+        "ggHH": {
+            "xs": "0.03443*(0.00227*0.582*2)",
+            "weight": "weight",
+            "selection_ggHH": "DNN_class == 3",
+            "selection_VBFHH": "DNN_class == 4",
+            "22preEE":{
+                "file": "/home/cosine/HHbbgg/MLForge_FollowUp/samples/sample_from_Nitishi_add/22preEE_GluGlutoHHto2B2G_kl-1p00_kt-1p00_c2-0p00.root"
+            },
+            "22postEE":{
+                "file": "/home/cosine/HHbbgg/MLForge_FollowUp/samples/sample_from_Nitishi_add/22postEE_GluGlutoHHto2B2G_kl-1p00_kt-1p00_c2-0p00.root"
+            }
+        },
+        "VBFHH": {
+            "xs": "0.00192*(0.00227*0.582*2)",
+            "weight": "weight",
+            "selection_ggHH": "DNN_class == 3",
+            "selection_VBFHH": "DNN_class == 4",            
+            "22preEE":{
+                "file": "/home/cosine/HHbbgg/MLForge_FollowUp/samples/sample_from_Nitishi_add/22preEE_VBFHHto2B2G_CV_1_C2V_1_C3_1.root"
+            },
+            "22postEE":{
+                "file": "/home/cosine/HHbbgg/MLForge_FollowUp/samples/sample_from_Nitishi_add/22postEE_VBFHHto2B2G_CV_1_C2V_1_C3_1.root"
+            }
+        }
+    },
+    "Nitish_cutbased":{
+        "ggHH": {
+            "xs": "0.03443*(0.00227*0.582*2)",
+            "weight": "weight",
+            "selection_ggHH": "VBF_first_jet_pt < 0",
+            "selection_VBFHH": "VBF_first_jet_pt > 0",
+            "22preEE":{
+                "file": "/home/cosine/HHbbgg/MLForge_FollowUp/samples/sample_from_Nitishi_add/22preEE_GluGlutoHHto2B2G_kl-1p00_kt-1p00_c2-0p00.root"
+            },
+            "22postEE":{
+                "file": "/home/cosine/HHbbgg/MLForge_FollowUp/samples/sample_from_Nitishi_add/22postEE_GluGlutoHHto2B2G_kl-1p00_kt-1p00_c2-0p00.root"
+            }
+        },
+        "VBFHH": {
+            "xs": "0.00192*(0.00227*0.582*2)",
+            "weight": "weight",
+            "selection_ggHH": "VBF_first_jet_pt < 0",
+            "selection_VBFHH": "VBF_first_jet_pt > 0",            
+            "22preEE":{
+                "file": "/home/cosine/HHbbgg/MLForge_FollowUp/samples/sample_from_Nitishi_add/22preEE_VBFHHto2B2G_CV_1_C2V_1_C3_1.root"
+            },
+            "22postEE":{
+                "file": "/home/cosine/HHbbgg/MLForge_FollowUp/samples/sample_from_Nitishi_add/22postEE_VBFHHto2B2G_CV_1_C2V_1_C3_1.root"
+            }
+        }
+    },
+    "CutBased": {
+        "ggHH": {
+            "xs": "0.03443*(0.00227*0.582*2)",
+            "weight": "weight",
+            "selection_ggHH": "VBF_lead_jet_pt < 0 && Res_Higgs_tobb_genMatched == 1",
+            "selection_VBFHH": "VBF_lead_jet_pt > 0",
+            "22preEE":{
+                "file": "/home/cosine/HHbbgg/minitree/ver0121/22preEE_GluGluToHH.root"
+            },
+            "22postEE":{
+                "file": "/home/cosine/HHbbgg/minitree/ver0121/22postEE_GluGluToHH.root"
+            }
+        },
+        "VBFHH": {
+            "xs": "0.00192*(0.00227*0.582*2)",
+            "weight": "weight",
+            "selection_ggHH": "VBF_lead_jet_pt < 0",
+            "selection_VBFHH": "VBF_lead_jet_pt > 0",            
+            "22preEE":{
+                "file": "/home/cosine/HHbbgg/minitree/ver0121/22preEE_VBFToHH.root"
+            },
+            "22postEE":{
+                "file": "/home/cosine/HHbbgg/minitree/ver0121/22postEE_VBFToHH.root"
+            }
+        }
+    }
+}

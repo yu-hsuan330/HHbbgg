@@ -13,8 +13,7 @@ from matplotlib.ticker import AutoLocator, AutoMinorLocator
 import warnings
 warnings.filterwarnings("error", module="coffea.*")
     
-from Config import *
-# from Config_Nitishi import *
+from Config_ import *
 
 def Cxx(jet_eta_diff, jet_eta_sum, xx_eta):
     jet_eta_diff = np.where(jet_eta_diff == 0, 1e-10, jet_eta_diff)
@@ -36,14 +35,14 @@ def pltSty(ax, xName = "x-axis", yName = "y-axis", TitleSize = 17, LabelSize = 1
     ax.tick_params(direction = "in", length = MinTickLength, which = "minor", labelsize = TickSize, top = True, right = True)
 
 feature_name = [
-    "pair1_ptOverM", "pair2_ptOverM", "pair1_eta", "pair2_eta", 
-    "pair1_btagPNetB", "pair2_btagPNetB", "pair1_btagPNetQvG", "pair2_btagPNetQvG",
-    "n_jets", "pair_pt","pair_eta", "pair_mass", 
-    "pair_DeltaR", "pair_DeltaPhi", "pair_eta_prod", "pair_eta_diff", "pair_Cgg", "pair1_phi", "pair2_phi"
+    "pair1_ptOverM",        "pair2_ptOverM",        "pair1_eta",            "pair2_eta", 
+    "pair1_btagPNetB",      "pair2_btagPNetB",      "pair1_btagPNetQvG",    "pair2_btagPNetQvG",
+    "n_jets",               "pair_ptOverM",              "pair_eta",             #"pair_mass", 
+    "pair_DeltaR",          "pair_DeltaPhi",        "pair_eta_prod",        "pair_eta_diff", 
+    "pair_Cgg",             "pair1_phi",            "pair2_phi"
 ] 
 
 def get_parser():
-    
     parser = argparse.ArgumentParser(prog="ML-prediction", description="Jet pairing - prediction", epilog="Good luck!")
     parser.add_argument("-e", "--era", type=str, required=True, help="Era of the sample")
     return parser
@@ -56,18 +55,17 @@ if __name__ == "__main__":
     #* Load the saved DNN model and scaler
     model = tf.keras.models.load_model(model_param["path"])
 
-    with open(model_param["scaler"], 'rb') as f:
-        sc = pickle.load(f)
+    # with open(model_param["scaler"], 'rb') as f:
+    #     sc = pickle.load(f)
 
     for sample in samples:
         print("Start processing file: ", sample["name"])
         
         #* Load the ROOT files
         events = uproot.concatenate(sample[args.era], library="ak")
-        
+        # events = events[:1000]
         #* Check the existence of the LHE info
-        check_list = ["jet1_lheMatched", "VBF_lead_jet_lheMatched", "VBF_sublead_jet_lheMatched", 
-                      "jet1_genFlav", "nonRes_lead_bjet_genFlav", "nonRes_sublead_bjet_genFlav"]
+        check_list = ["jet1_lheMatched", "VBF_lead_jet_lheMatched", "VBF_sublead_jet_lheMatched", "jet1_genFlav", "nonRes_lead_bjet_genFlav", "nonRes_sublead_bjet_genFlav", "jet1_selected_bjet"]
         
         for check_var in check_list:
             if check_var not in events.fields:
@@ -75,20 +73,11 @@ if __name__ == "__main__":
                     for k in range(1, 7): events["jet{}_lheMatched".format(k)] = -999
                 elif check_var == "jet1_genFlav":
                     for k in range(1, 7): events["jet{}_genFlav".format(k)] = -999
+                elif check_var == "jet1_selected_bjet":
+                    for k in range(1, 7): events["jet{}_selected_bjet".format(k)] = -999
+                    for k in range(1, 7): events["jet{}_selected_vbfjet".format(k)] = -999
                 else:
                     events[check_var] = -999
-
-
-        #* Check purity of the sample
-        if sample["name"] == "VBFHH":
-            print("total # of all events in minitree: ", ak.num(events,axis=0), "/", ak.sum(events["weight"]*j, axis=0))
-            print("total # of VBF events in minitree: ", ak.num(events[(events["VBF_dijet_pt"] > 0)],axis=0), "/", ak.sum(events["weight"]*j*(events["VBF_dijet_pt"] > 0), axis=0))
-            criteria = (events["VBF_dijet_pt"] > 0) & (abs(events["nonRes_lead_bjet_genFlav"]) == 5) & (abs(events["nonRes_sublead_bjet_genFlav"]) == 5)
-            print("true b-jet event", ak.num(events[criteria],axis=0), "/", ak.sum(events["weight"]*j*(criteria), axis=0))
-            criteria = (events["VBF_dijet_pt"] > 0) & (events["VBF_lead_jet_lheMatched"] == 1) & (events["VBF_sublead_jet_lheMatched"] == 1)
-            print("true vbf-jet event", ak.num(events[criteria],axis=0), "/", ak.sum(events["weight"]*j*(criteria), axis=0))
-            criteria = (events["VBF_dijet_pt"] > 0) & (abs(events["nonRes_lead_bjet_genFlav"]) == 5) & (abs(events["nonRes_sublead_bjet_genFlav"]) == 5)& (events["VBF_lead_jet_lheMatched"] == 1) & (events["VBF_sublead_jet_lheMatched"] == 1)
-            print("true four jet event", ak.num(events[criteria],axis=0), "/", ak.sum(events["weight"]*j*(criteria), axis=0))
 
         #* Define jet collection
         jet1 = ak.zip({"pt": events["jet1_pt"], "eta": events["jet1_eta"], "phi": events["jet1_phi"], "mass": events["jet1_mass"], "charge": events["jet1_charge"], "btagPNetB": events["jet1_btagPNetB"], "btagPNetQvG": events["jet1_btagPNetQvG"], "genFlav": events["jet1_genFlav"], "lheMatched": events["jet1_lheMatched"], "selected_bjet": events["jet1_selected_bjet"], "selected_vbfjet": events["jet1_selected_vbfjet"]})
@@ -187,29 +176,45 @@ if __name__ == "__main__":
         branches["lead"] = dijets["lead"]
         branches["sublead"] = dijets["sublead"]
         
+        #* Check purity of the sample
         if sample["name"] == "VBFToHH":
+            
+            print("===== Total events =====")
+            have_vbf_event = (events["VBF_dijet_pt"] > 0) & (events["nonRes_lead_bjet_pt"] > 0)
+            print("# of all events in minitree: {}, {}".format(ak.num(events, axis=0), ak.sum(events["weight"]*lumi[args.era]*sample["xs"], axis=0)))
+            print("# of VBF-events in minitree: {}, {}".format(ak.num(events[have_vbf_event], axis=0), ak.sum(events["weight"]*lumi[args.era]*sample["xs"]*have_vbf_event, axis=0)))
+            
+            print("=====  Cut-based  =====")
+            criteria_bb = have_vbf_event & (abs(events["nonRes_lead_bjet_genFlav"]) == 5) & (abs(events["nonRes_sublead_bjet_genFlav"]) == 5)
+            criteria_jj = have_vbf_event & (events["VBF_lead_jet_lheMatched"] == 1) & (events["VBF_sublead_jet_lheMatched"] == 1)
+            print("true b-jet   in VBF-events: {}, {}".format(ak.num(events[criteria_bb],axis=0), ak.sum(events["weight"]*lumi[args.era]*sample["xs"]*(criteria_bb), axis=0)))
+            print("true vbf-jet in VBF-events: {}, {}".format(ak.num(events[criteria_jj],axis=0), ak.sum(events["weight"]*lumi[args.era]*sample["xs"]*(criteria_jj), axis=0)))
+            print("true bbjj    in VBF-events: {}, {}".format(ak.num(events[criteria_bb & criteria_jj],axis=0), ak.sum(events["weight"]*lumi[args.era]*sample["xs"]*(criteria_bb & criteria_jj), axis=0)))
+
+            print("===== True events =====")
             is_true_bb = (abs(branches["lead_eta"]) < 2.5) & (abs(branches["sublead_eta"]) < 2.5) & (branches["true_bjet_pair"] == 1) & (branches["pair_mass"] > 70) & (branches["pair_mass"] < 190)
             is_true_jj = (branches["lead_pt"] > 40) & (branches["sublead_pt"] > 30) & (branches["true_vbfjet_pair"] == 1)
             
             true_pair_bbjj = ak.cartesian({"bb": branches[is_true_bb], "jj": branches[is_true_jj]})
             
             deltaRCut = (true_pair_bbjj["bb"].lead.delta_r(true_pair_bbjj["jj"].lead) > 0.4) & (true_pair_bbjj["bb"].lead.delta_r(true_pair_bbjj["jj"].sublead) > 0.4) & (true_pair_bbjj["bb"].sublead.delta_r(true_pair_bbjj["jj"].lead) > 0.4) & (true_pair_bbjj["bb"].sublead.delta_r(true_pair_bbjj["jj"].sublead) > 0.4)
-            idxCut = (true_pair_bbjj["bb"].lead.idx != true_pair_bbjj["jj"].lead.idx) & (true_pair_bbjj["bb"].sublead.idx != true_pair_bbjj["jj"].sublead.idx)
-                
+            idxCut = (true_pair_bbjj["bb"].lead.idx != true_pair_bbjj["jj"].lead.idx) & (true_pair_bbjj["bb"].sublead.idx != true_pair_bbjj["jj"].sublead.idx) # supposely useless
+
             check_results = ak.firsts(true_pair_bbjj[deltaRCut & idxCut])
             
-            #* Check purity of the sample
-            print("total # of true events (bbjj) in minitree: ", ak.num(events[(events["true_bbjj"]==1)],axis=0), "/", ak.sum(events["weight"]*events["lumi"]*events["xs"]*(events["true_bbjj"]==1), axis=0))
-            print("total # of true events (bbjj) in minitree: ", ak.num(events[(~ak.is_none(check_results.jj.event))],axis=0), "/", ak.sum(events["weight"]*events["lumi"]*events["xs"]*(~ak.is_none(check_results.jj.event)), axis=0))
-            criteria = (events["true_bbjj"]==1) & (~ak.is_none(check_results.jj.event))
-            print("total # of true events (bbjj) in minitree: ", ak.num(events[criteria],axis=0), "/", ak.sum(events["weight"]*events["lumi"]*events["xs"]*(criteria), axis=0))
-            criteria = (~ak.is_none(check_results.jj.event)) & (abs(events["nonRes_lead_bjet_genFlav"]) == 5) & (abs(events["nonRes_sublead_bjet_genFlav"]) == 5)
-            print("true b-jet event", ak.num(events[criteria],axis=0), "/", ak.sum(events["weight"]*events["lumi"]*events["xs"]*(criteria), axis=0))
-            criteria = (~ak.is_none(check_results.jj.event)) & (events["VBF_lead_jet_lheMatched"] == 1) & (events["VBF_sublead_jet_lheMatched"] == 1)
-            print("true vbf-jet event", ak.num(events[criteria],axis=0), "/", ak.sum(events["weight"]*events["lumi"]*events["xs"]*(criteria), axis=0))
-            criteria = (~ak.is_none(check_results.jj.event)) & (abs(events["nonRes_lead_bjet_genFlav"]) == 5) & (abs(events["nonRes_sublead_bjet_genFlav"]) == 5)& (events["VBF_lead_jet_lheMatched"] == 1) & (events["VBF_sublead_jet_lheMatched"] == 1)
-            print("true four jet event", ak.num(events[criteria],axis=0), "/", ak.sum(events["weight"]*events["lumi"]*events["xs"]*(criteria), axis=0))
-         
+            # print("true bbjj wo cut in all events: {}, {} (deprecated)".format(ak.num(events[(events["true_bbjj"]==1)],axis=0), ak.sum(events["weight"]*lumi[args.era]*sample["xs"]*(events["true_bbjj"]==1), axis=0)))
+            # criteria = (events["true_bbjj"]==1) & (~ak.is_none(check_results.jj.event))
+            # print("true bbjj comb   in all events: {}, {} (deprecated)".format(ak.num(events[criteria],axis=0), ak.sum(events["weight"]*lumi[args.era]*sample["xs"]*(criteria), axis=0)))
+
+            criteria = (~ak.is_none(check_results.jj.event))
+            print("true bbjj    in all events: {}, {}".format(ak.num(events[criteria],axis=0), ak.sum(events["weight"]*lumi[args.era]*sample["xs"]*(criteria), axis=0)))
+            criteria = (~ak.is_none(check_results.jj.event)) & criteria_bb
+            print("true b-jet   in cut-based: {}, {}".format(ak.num(events[criteria],axis=0), ak.sum(events["weight"]*lumi[args.era]*sample["xs"]*(criteria), axis=0)))
+            criteria = (~ak.is_none(check_results.jj.event)) & criteria_jj
+            print("true vbf-jet in cut-based: {}, {}".format(ak.num(events[criteria],axis=0), ak.sum(events["weight"]*lumi[args.era]*sample["xs"]*(criteria), axis=0)))
+            criteria = (~ak.is_none(check_results.jj.event)) & criteria_bb & criteria_jj
+            print("true bbjj    in cut-based: {}, {}".format(ak.num(events[criteria],axis=0), ak.sum(events["weight"]*lumi[args.era]*sample["xs"]*(criteria), axis=0)))
+       
         #* Process the format for prediction
         counts = ak.num(branches)
         flat_features = ak.flatten(branches[model_param["features"]])
@@ -222,9 +227,9 @@ if __name__ == "__main__":
         DNN_Input.loc[DNN_Input["sublead_btagPNetQvG"] < 0, "sublead_btagPNetQvG"] = -999
         DNN_Input.columns = feature_name
 
-        valid_mask = (DNN_Input != -999)
-        DNN_Input[valid_mask] = sc.transform(DNN_Input[valid_mask])
-        DNN_Input[~valid_mask] = -1
+        # valid_mask = (DNN_Input != -999)
+        # DNN_Input[valid_mask] = sc.transform(DNN_Input[valid_mask])
+        # DNN_Input[~valid_mask] = -1
 
         #* DNN prediction
         DNN_Score = model.predict(DNN_Input)
@@ -236,7 +241,7 @@ if __name__ == "__main__":
         branches["DNN_wrong_pair"] = DNN_VBF[:,:,2]
         
         #* b-jet pair selection
-        is_bb = (branches["DNN_class"] == 0) & (abs(branches["lead_eta"]) < 2.5) & (abs(branches["sublead_eta"]) < 2.5)
+        is_bb = (branches["DNN_class"] == 0) & (abs(branches["lead_eta"]) < 2.5) & (abs(branches["sublead_eta"]) < 2.5) & (branches["pair_mass"] > 70) & (branches["pair_mass"] < 190)
         is_jj = (branches["DNN_class"] == 1) & (branches["lead_pt"] > 40) & (branches["sublead_pt"] > 30)
 
         candidate_bb = branches[is_bb]
@@ -258,16 +263,18 @@ if __name__ == "__main__":
         #* Check purity of the sample
         if sample["name"] == "VBFToHH":
             print("===== DNN =====")
-            print("total # of true events (bbjj) in minitree: ", ak.num(events[(~ak.is_none(check_results.jj.event))],axis=0), "/", ak.sum(events["weight"]*events["lumi"]*events["xs"]*(~ak.is_none(check_results.jj.event)), axis=0))
-            # criteria = (events["true_bbjj"]==1) & (~ak.is_none(check_results.jj.event))
+            criteria = (~ak.is_none(pair_bb.event)) & (~ak.is_none(pair_jj.event))
+            print("# of VBF-events by DNN: {}, {}".format(ak.num(events[criteria],axis=0), ak.sum(events["weight"]*lumi[args.era]*sample["xs"]*(criteria), axis=0)))
+
+            criteria = (~ak.is_none(check_results.jj.event))
+            print("true bbjj    in all events: {}, {}".format(ak.num(events[criteria],axis=0), ak.sum(events["weight"]*lumi[args.era]*sample["xs"]*(criteria), axis=0)))
             criteria = (~ak.is_none(check_results.jj.event)) & (~ak.is_none(pair_bb.event))
-            print("true b-jet event", ak.num(events[criteria],axis=0), "/", ak.sum(events["weight"]*events["lumi"]*events["xs"]*(criteria), axis=0))
+            print("true b-jet   in DNN: {}, {}".format(ak.num(events[criteria],axis=0), ak.sum(events["weight"]*lumi[args.era]*sample["xs"]*(criteria), axis=0)))
             criteria = (~ak.is_none(check_results.jj.event)) & (~ak.is_none(pair_jj.event))
-            print("true vbf-jet event", ak.num(events[criteria],axis=0), "/", ak.sum(events["weight"]*events["lumi"]*events["xs"]*(criteria), axis=0))
+            print("true vbf-jet in DNN: {}, {}".format(ak.num(events[criteria],axis=0), ak.sum(events["weight"]*lumi[args.era]*sample["xs"]*(criteria), axis=0)))
             criteria = (~ak.is_none(check_results.jj.event)) & (~ak.is_none(pair_bb.event)) & (~ak.is_none(pair_jj.event))
-            print("true four jet event", ak.num(events[criteria],axis=0), "/", ak.sum(events["weight"]*events["lumi"]*events["xs"]*(criteria), axis=0))
-        
-        
+            print("true bbjj    in DNN: {}, {}".format(ak.num(events[criteria],axis=0), ak.sum(events["weight"]*lumi[args.era]*sample["xs"]*(criteria), axis=0)))
+       
         pair_bb = ak.drop_none(pair_bb)
         pair_jj = pair_jj[~mask]
 
@@ -313,8 +320,8 @@ if __name__ == "__main__":
 
         # print(output["vbfjet_pair_Cbb"])
         #* Store the selected pair to ROOT file
-        # with uproot.recreate(f"../samples/{model_param['output']}/{args.era}_{sample['name']}.root") as new_file:
-        #     if sample["name"] == "data":
-        #         new_file[TreeName_data] = output
-        #     else:
-        #        new_file[TreeName_mc] = output
+        with uproot.recreate(f"../samples/{model_param['output']}/{args.era}_{sample['name']}.root") as new_file:
+            if sample["name"] == "data":
+                new_file[TreeName_data] = output
+            else:
+               new_file[TreeName_mc] = output

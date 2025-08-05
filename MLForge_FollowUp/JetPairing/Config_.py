@@ -1,0 +1,79 @@
+lumi = {
+    "22preEE": 7980.4, 
+    "22postEE": 26671.7
+}
+
+model_param = {
+    "output": "Pairing_vbf_onnx",
+    "path": "/home/cosine/HHbbgg/MLForge/results/Pairing_vbf_v3_onnx/DNN/DNN_modelDNN.keras",
+    "scaler": "/home/cosine/HHbbgg/MLForge/results/Pairing_vbf_0301/DNN/DNN_scaler.pkl",
+    "features": [
+        "lead_ptOverM", "sublead_ptOverM", "lead_eta", "sublead_eta", 
+        "lead_btagPNetB", "sublead_btagPNetB", "lead_btagPNetQvG", "sublead_btagPNetQvG",
+        "n_jets","pair_ptOverM","pair_eta", #"pair_mass",
+        "pair_DeltaR", "pair_DeltaPhi", "pair_eta_prod", "pair_eta_diff", 
+        "pair_Cgg", "lead_phi", "sublead_phi"
+    ], 
+}
+TreeName_mc = "DiphotonTree/ggHH_125_13TeV_NOTAG"
+# TreeName_mc = "DiphotonTree/vbfHH_125_13TeV_NOTAG"
+TreeName_data = "DiphotonTree/Data_13TeV_NOTAG"
+
+sample_set = "/home/cosine/HHbbgg/minitree/0619_v3/22preEE/root/GluGlutoHHto2B2G_kl_1p00_kt_1p00_c2_0p00"
+# sample_set = "/home/cosine/HHbbgg/minitree/0619_v3/22preEE/root/VBFHHto2B2G_CV_1_C2V_1_C3_1"
+samples = [
+    {
+        "name": "GluGluToHH",
+        "xs": 0.03443*(0.00227*0.582*2),
+        "22preEE": [f"{sample_set}/output_GluGluHH_M125_13TeV_amcatnloFXFX_pythia8.root:{TreeName_mc}"], 
+        "22postEE": [f"{sample_set}/output_GluGluHH_M125_13TeV_amcatnloFXFX_pythia8.root:{TreeName_mc}"]
+    },
+    # {
+    #     "name": "VBFHH",
+    #     "xs": 0.00192*(0.00227*0.582*2), 
+    #     "22preEE": [f"{sample_set}/output_VBFHH_M125_13TeV_amcatnlo_pythia8.root:{TreeName_mc}"], 
+    #     "22postEE": [f"{sample_set}/output_VBFHH_M125_13TeV_amcatnlo_pythia8.root:{TreeName_mc}"]
+    # },
+    # {
+    #     "name": "GJet_Pt20to40_MGG80",
+    #     "xs": 242.5,
+    #     "22preEE": [f"{sample_set}/22preEE_GJet_Pt20to40_MGG80.root:{TreeName_mc}"],
+    #     "22postEE": [f"{sample_set}/22postEE_GJet_Pt20to40_MGG80.root:{TreeName_mc}"]
+    # },
+    # {
+    #     "name": "GJet_Pt40_MGG80",
+    #     "xs": 919.1,   
+    #     "22preEE": [f"{sample_set}/22preEE_GJet_Pt40_MGG80.root:{TreeName_mc}"],
+    #     "22postEE": [f"{sample_set}/22postEE_GJet_Pt40_MGG80.root:{TreeName_mc}"]
+    # },
+    # {
+    #     "name": "GGJets",
+    #     "xs": 88.75,
+    #     "22preEE": [f"{sample_set}/22preEE_GGJets.root:{TreeName_mc}"],
+    #     "22postEE": [f"{sample_set}/22postEE_GGJets.root:{TreeName_mc}"]
+    # },
+    # {
+    #     "name": "QCD_Pt30to40_MGG80",
+    #     "xs": 25950,
+    #     "22preEE": [f"{sample_set}/22preEE_QCD_Pt30to40_MGG80.root:{TreeName_mc}"],
+    #     "22postEE": [f"{sample_set}/22postEE_QCD_Pt30to40_MGG80.root:{TreeName_mc}"]
+    # },
+    # {
+    #     "name": "QCD_Pt40_MGG80",
+    #     "xs": 124700,
+    #     "22preEE": [f"{sample_set}/22preEE_QCD_Pt40_MGG80.root:{TreeName_mc}"],
+    #     "22postEE": [f"{sample_set}/22postEE_QCD_Pt40_MGG80.root:{TreeName_mc}"]
+    # },
+    # {
+    #     "name": "QCD_Pt30_MGG40to80",
+    #     "xs": 252200,
+    #     "22preEE": [f"{sample_set}/22preEE_QCD_Pt30_MGG40to80.root:{TreeName_mc}"],
+    #     "22postEE": [f"{sample_set}/22postEE_QCD_Pt30_MGG40to80.root:{TreeName_mc}"]
+    # },
+    # {
+    #     "name": "data",
+    #     "xs": 1,
+    #     "22preEE": [f"{sample_set}/data/22preEE_EGammaC.root:{TreeName_data}", f"{sample_set}/data/22preEE_EGammaD.root:{TreeName_data}"],
+    #     "22postEE": [f"{sample_set}/data/22postEE_EGammaE.root:{TreeName_data}", f"{sample_set}/data/22postEE_EGammaF.root:{TreeName_data}", f"{sample_set}/data/22postEE_EGammaG.root:{TreeName_data}"]
+    # } 
+]

@@ -1,0 +1,184 @@
+{
+    "my_my":{
+        "ggHH": {
+            "xs": "0.0311*(0.00227*0.582*2)",
+            "weight": "weight",
+            "selection_ggHH": "(N_matched==1) && (DNN_class == 0 || DNN_class == 1)",
+            "selection_VBFHH": "(N_matched==1) && (DNN_class == 2 || DNN_class == 3)",
+            "22preEE":{
+                "file": "/home/cosine/HHbbgg/MLForge_FollowUp/samples/EventCate_Nitish/22preEE_GluGluToHH.root"
+            },
+            "22postEE":{
+                "file": "/home/cosine/HHbbgg/MLForge_FollowUp/samples/EventCate_Nitish/22postEE_GluGluToHH.root"
+            }
+        },
+        "VBFHH": {
+            "xs": "0.00173*(0.00227*0.582*2)",
+            "weight": "weight",
+            "selection_ggHH": "(N_matched==1) && (DNN_class == 0 || DNN_class == 1)",
+            "selection_VBFHH": "(N_matched==1) && (DNN_class == 2 || DNN_class == 3)",        
+            "22preEE":{
+                "file": "/home/cosine/HHbbgg/MLForge_FollowUp/samples/EventCate_Nitish/22preEE_VBFToHH.root"
+            },
+            "22postEE":{
+                "file": "/home/cosine/HHbbgg/MLForge_FollowUp/samples/EventCate_Nitish/22postEE_VBFToHH.root"
+            }
+        }
+    },
+    "pair_Cutbased":{
+        "ggHH": {
+            "xs": "0.0311*(0.00227*0.582*2)",
+            "weight": "weight",
+            "selection_ggHH": "(N_matched==1) && (vbfjet_pair_mass < 400)",
+            "selection_VBFHH": "(N_matched==1) && (vbfjet_pair_mass > 400)",
+            "22preEE":{
+                "file": "/home/cosine/HHbbgg/MLForge_FollowUp/samples/Pairing_Nitishi/22preEE_GluGluToHH.root"
+            },
+            "22postEE":{
+                "file": "/home/cosine/HHbbgg/MLForge_FollowUp/samples/Pairing_Nitishi/22postEE_GluGluToHH.root"
+            }
+        },
+        "VBFHH": {
+            "xs": "0.00173*(0.00227*0.582*2)",
+            "weight": "weight",
+            "selection_ggHH": "(N_matched==1) && (vbfjet_pair_mass < 400)",
+            "selection_VBFHH": "(N_matched==1) && (vbfjet_pair_mass > 400)",      
+            "22preEE":{
+                "file": "/home/cosine/HHbbgg/MLForge_FollowUp/samples/Pairing_Nitishi/22preEE_VBFToHH.root"
+            },
+            "22postEE":{
+                "file": "/home/cosine/HHbbgg/MLForge_FollowUp/samples/Pairing_Nitishi/22postEE_VBFToHH.root"
+            }
+        }
+    },
+    "pair_Nitish":{
+        "ggHH": {
+            "xs": "0.0311*(0.00227*0.582*2)",
+            "weight": "weight",
+            "selection_ggHH": "(N_matched==1) && (N_DNN_class == 3)",
+            "selection_VBFHH": "(N_matched==1) && (N_DNN_class == 4)",
+            "22preEE":{
+                "file": "/home/cosine/HHbbgg/MLForge_FollowUp/samples/Pairing_Nitishi/22preEE_GluGluToHH.root"
+            },
+            "22postEE":{
+                "file": "/home/cosine/HHbbgg/MLForge_FollowUp/samples/Pairing_Nitishi/22postEE_GluGluToHH.root"
+            }
+        },
+        "VBFHH": {
+            "xs": "0.00173*(0.00227*0.582*2)",
+            "weight": "weight",
+            "selection_ggHH": "(N_matched==1) && (N_DNN_class == 3)",
+            "selection_VBFHH": "(N_matched==1) && (N_DNN_class == 4)",       
+            "22preEE":{
+                "file": "/home/cosine/HHbbgg/MLForge_FollowUp/samples/Pairing_Nitishi/22preEE_VBFToHH.root"
+            },
+            "22postEE":{
+                "file": "/home/cosine/HHbbgg/MLForge_FollowUp/samples/Pairing_Nitishi/22postEE_VBFToHH.root"
+            }
+        }
+    },
+    "Nitish":{
+        "ggHH": {
+            "xs": "0.0311*(0.00227*0.582*2)",
+            "weight": "weight",
+            "selection_ggHH": "(matched == 1) && (DNN_class == 3)",
+            "selection_VBFHH": "(matched == 1) && (DNN_class == 4)",      
+            "22preEE":{
+                "file": "/home/cosine/HHbbgg/MLForge_FollowUp/samples/sample_from_Nitishi_add/22preEE_GluGlutoHHto2B2G_kl-1p00_kt-1p00_c2-0p00.root"
+            },
+            "22postEE":{
+                "file": "/home/cosine/HHbbgg/MLForge_FollowUp/samples/sample_from_Nitishi_add/22postEE_GluGlutoHHto2B2G_kl-1p00_kt-1p00_c2-0p00.root"
+            }
+        },
+        "VBFHH": {
+            "xs": "0.00173*(0.00227*0.582*2)",
+            "weight": "weight",
+            "selection_ggHH": "(matched == 1) && (DNN_class == 3)",
+            "selection_VBFHH": "(matched == 1) && (DNN_class == 4)",            
+            "22preEE":{
+                "file": "/home/cosine/HHbbgg/MLForge_FollowUp/samples/sample_from_Nitishi_add/22preEE_VBFHHto2B2G_CV_1_C2V_1_C3_1.root"
+            },
+            "22postEE":{
+                "file": "/home/cosine/HHbbgg/MLForge_FollowUp/samples/sample_from_Nitishi_add/22postEE_VBFHHto2B2G_CV_1_C2V_1_C3_1.root"
+            }
+        }
+    },
+    "Cutbased":{
+        "ggHH": {
+            "xs": "0.0311*(0.00227*0.582*2)",
+            "weight": "weight",
+            "selection_ggHH": "(matched == 1) && (VBF_dijet_mass < 400)",
+            "selection_VBFHH": "(matched == 1) && (VBF_dijet_mass > 400)",
+            "22preEE":{
+                "file": "/home/cosine/HHbbgg/MLForge_FollowUp/samples/sample_from_Nitishi_add/22preEE_GluGlutoHHto2B2G_kl-1p00_kt-1p00_c2-0p00.root"
+            },
+            "22postEE":{
+                "file": "/home/cosine/HHbbgg/MLForge_FollowUp/samples/sample_from_Nitishi_add/22postEE_GluGlutoHHto2B2G_kl-1p00_kt-1p00_c2-0p00.root"
+            }
+        },
+        "VBFHH": {
+            "xs": "0.00173*(0.00227*0.582*2)",
+            "weight": "weight",
+            "selection_ggHH": "(matched == 1) && (VBF_dijet_mass < 400)",
+            "selection_VBFHH": "(matched == 1) && (VBF_dijet_mass > 400)",        
+            "22preEE":{
+                "file": "/home/cosine/HHbbgg/MLForge_FollowUp/samples/sample_from_Nitishi_add/22preEE_VBFHHto2B2G_CV_1_C2V_1_C3_1.root"
+            },
+            "22postEE":{
+                "file": "/home/cosine/HHbbgg/MLForge_FollowUp/samples/sample_from_Nitishi_add/22postEE_VBFHHto2B2G_CV_1_C2V_1_C3_1.root"
+            }
+        }
+    },
+    "pair_Cutbased_discard":{
+        "ggHH": {
+            "xs": "0.0311*(0.00227*0.582*2)",
+            "weight": "weight",
+            "selection_ggHH": "(matched==1) && (mask == 1) && (VBF_dijet_mass < 400)",
+            "selection_VBFHH": "(matched==1) && (mask == 1) && (VBF_dijet_mass > 400)",
+            "22preEE":{
+                "file": "/home/cosine/HHbbgg/MLForge_FollowUp/samples/Pairing_Nitishi/22preEE_GluGluToHH_discard.root"
+            },
+            "22postEE":{
+                "file": "/home/cosine/HHbbgg/MLForge_FollowUp/samples/Pairing_Nitishi/22postEE_GluGluToHH_discard.root"
+            }
+        },
+        "VBFHH": {
+            "xs": "0.00173*(0.00227*0.582*2)",
+            "weight": "weight",
+            "selection_ggHH": "(matched==1) && (mask == 1) && (VBF_dijet_mass < 400)",
+            "selection_VBFHH": "(matched==1) && (mask == 1) && (VBF_dijet_mass > 400)",      
+            "22preEE":{
+                "file": "/home/cosine/HHbbgg/MLForge_FollowUp/samples/Pairing_Nitishi/22preEE_VBFToHH_discard.root"
+            },
+            "22postEE":{
+                "file": "/home/cosine/HHbbgg/MLForge_FollowUp/samples/Pairing_Nitishi/22postEE_VBFToHH_discard.root"
+            }
+        }
+    },
+    "pair_Nitish_discard":{
+        "ggHH": {
+            "xs": "0.0311*(0.00227*0.582*2)",
+            "weight": "weight",
+            "selection_ggHH": "(matched==1) && (mask == 1) && (DNN_class == 3)",
+            "selection_VBFHH": "(matched==1) && (mask == 1) && (DNN_class == 4)",
+            "22preEE":{
+                "file": "/home/cosine/HHbbgg/MLForge_FollowUp/samples/Pairing_Nitishi/22preEE_GluGluToHH_discard.root"
+            },
+            "22postEE":{
+                "file": "/home/cosine/HHbbgg/MLForge_FollowUp/samples/Pairing_Nitishi/22postEE_GluGluToHH_discard.root"
+            }
+        },
+        "VBFHH": {
+            "xs": "0.00173*(0.00227*0.582*2)",
+            "weight": "weight",
+            "selection_ggHH": "(matched==1) && (mask == 1) && (DNN_class == 3)",
+            "selection_VBFHH": "(matched==1) && (mask == 1) && (DNN_class == 4)",       
+            "22preEE":{
+                "file": "/home/cosine/HHbbgg/MLForge_FollowUp/samples/Pairing_Nitishi/22preEE_VBFToHH_discard.root"
+            },
+            "22postEE":{
+                "file": "/home/cosine/HHbbgg/MLForge_FollowUp/samples/Pairing_Nitishi/22postEE_VBFToHH_discard.root"
+            }
+        }
+    }
+}

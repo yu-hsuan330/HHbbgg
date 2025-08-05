@@ -159,7 +159,7 @@ void CMS_lumi(TPad *pad, int iPeriod, int iPosX, int iLumi_sqrtS){
 
     else if (writeExtraText) {
         if (iPosX == 0) {
-        posX_ = 0.08 + l + relPosX*(1-l-r);
+        posX_ = 0.06 + l + relPosX*(1-l-r);
         posY_ = 1 - t + lumiTextOffset*t;
         }
 

@@ -4,7 +4,7 @@ lumi = {
 }
 
 model_param = {
-    "output": "Pairing_vbf_0301",
+    "output": "Pairing_vbf_0301_",
     "path": "/home/cosine/HHbbgg/MLForge/results/Pairing_vbf_0301/DNN/DNN_modelDNN.keras",
     "scaler": "/home/cosine/HHbbgg/MLForge/results/Pairing_vbf_0301/DNN/DNN_scaler.pkl",
     "features": [
@@ -32,24 +32,24 @@ samples = [
         "22preEE": [f"{sample_set}/22preEE_VBFToHH.root:{TreeName_mc}"], 
         "22postEE": [f"{sample_set}/22postEE_VBFToHH.root:{TreeName_mc}"]
     },
-    {
-        "name": "GJet_Pt20to40_MGG80",
-        "xs": 242.5,
-        "22preEE": [f"{sample_set}/22preEE_GJet_Pt20to40_MGG80.root:{TreeName_mc}"],
-        "22postEE": [f"{sample_set}/22postEE_GJet_Pt20to40_MGG80.root:{TreeName_mc}"]
-    },
-    {
-        "name": "GJet_Pt40_MGG80",
-        "xs": 919.1,   
-        "22preEE": [f"{sample_set}/22preEE_GJet_Pt40_MGG80.root:{TreeName_mc}"],
-        "22postEE": [f"{sample_set}/22postEE_GJet_Pt40_MGG80.root:{TreeName_mc}"]
-    },
-    {
-        "name": "GGJets",
-        "xs": 88.75,
-        "22preEE": [f"{sample_set}/22preEE_GGJets.root:{TreeName_mc}"],
-        "22postEE": [f"{sample_set}/22postEE_GGJets.root:{TreeName_mc}"]
-    },
+    # {
+    #     "name": "GJet_Pt20to40_MGG80",
+    #     "xs": 242.5,
+    #     "22preEE": [f"{sample_set}/22preEE_GJet_Pt20to40_MGG80.root:{TreeName_mc}"],
+    #     "22postEE": [f"{sample_set}/22postEE_GJet_Pt20to40_MGG80.root:{TreeName_mc}"]
+    # },
+    # {
+    #     "name": "GJet_Pt40_MGG80",
+    #     "xs": 919.1,   
+    #     "22preEE": [f"{sample_set}/22preEE_GJet_Pt40_MGG80.root:{TreeName_mc}"],
+    #     "22postEE": [f"{sample_set}/22postEE_GJet_Pt40_MGG80.root:{TreeName_mc}"]
+    # },
+    # {
+    #     "name": "GGJets",
+    #     "xs": 88.75,
+    #     "22preEE": [f"{sample_set}/22preEE_GGJets.root:{TreeName_mc}"],
+    #     "22postEE": [f"{sample_set}/22postEE_GGJets.root:{TreeName_mc}"]
+    # },
     # {
     #     "name": "QCD_Pt30to40_MGG80",
     #     "xs": 25950,
@@ -68,10 +68,10 @@ samples = [
     #     "22preEE": [f"{sample_set}/22preEE_QCD_Pt30_MGG40to80.root:{TreeName_mc}"],
     #     "22postEE": [f"{sample_set}/22postEE_QCD_Pt30_MGG40to80.root:{TreeName_mc}"]
     # },
-    {
-        "name": "data",
-        "xs": 1,
-        "22preEE": [f"{sample_set}/data/22preEE_EGammaC.root:{TreeName_data}", f"{sample_set}/data/22preEE_EGammaD.root:{TreeName_data}"],
-        "22postEE": [f"{sample_set}/data/22postEE_EGammaE.root:{TreeName_data}", f"{sample_set}/data/22postEE_EGammaF.root:{TreeName_data}", f"{sample_set}/data/22postEE_EGammaG.root:{TreeName_data}"]
-    } 
+    # {
+    #     "name": "data",
+    #     "xs": 1,
+    #     "22preEE": [f"{sample_set}/data/22preEE_EGammaC.root:{TreeName_data}", f"{sample_set}/data/22preEE_EGammaD.root:{TreeName_data}"],
+    #     "22postEE": [f"{sample_set}/data/22postEE_EGammaE.root:{TreeName_data}", f"{sample_set}/data/22postEE_EGammaF.root:{TreeName_data}", f"{sample_set}/data/22postEE_EGammaG.root:{TreeName_data}"]
+    # } 
 ]

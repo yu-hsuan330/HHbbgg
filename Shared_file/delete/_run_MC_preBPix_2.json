@@ -1,0 +1,20 @@
+{
+    "samplejson": "/home/cosine/HHbbgg/Shared_file/samples_23preBPix_v13.json",
+    "workflow": "HHbbgg",
+    "metaconditions": "Era2022_v1",
+    "taggers": [],
+    "year": {
+        "GluGlutoHHto2B2G_kl_5p00_kt_1p00_c2_0p00": ["2023preBPix"],
+        "VBFHHto2B2G_CV_1_C2V_0_C3_1": ["2023preBPix"]
+
+    },
+    "corrections": {
+        "GluGlutoHHto2B2G_kl_5p00_kt_1p00_c2_0p00": ["jerc_jet_pnetNu_syst", "Pileup", "Smearing2G_IJazZ", "FNUF", "Material", "ElectronVetoSF", "PreselSF", "TriggerSF", "PNet_bTagShapeSF"],
+        "VBFHHto2B2G_CV_1_C2V_0_C3_1": ["jerc_jet_pnetNu_syst", "Pileup", "Smearing2G_IJazZ", "FNUF", "Material", "ElectronVetoSF", "PreselSF", "TriggerSF", "PNet_bTagShapeSF"]
+    },
+    "systematics": {
+        "GluGlutoHHto2B2G_kl_5p00_kt_1p00_c2_0p00": ["Pileup", "Smearing2G_IJazZ", "ScaleEE2G_IJazZ", "ScaleEB2G_IJazZ", "ElectronVetoSF", "PreselSF", "TriggerSF", "PNet_bTagShapeSF"],
+        "VBFHHto2B2G_CV_1_C2V_0_C3_1": ["Pileup", "Smearing2G_IJazZ", "ScaleEE2G_IJazZ", "ScaleEB2G_IJazZ", "ElectronVetoSF", "PreselSF", "TriggerSF", "PNet_bTagShapeSF"]
+        
+    }
+}

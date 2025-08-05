@@ -1,0 +1,88 @@
+{
+    "weight":{
+        "MC": "weight",
+        "data": "weight"
+    },
+    "tree":{
+        "MC": "DiphotonTree/data_125_13TeV_NOTAG",
+        "Data": "DiphotonTree/Data_13TeV_NOTAG"
+    },
+
+    "MC":{
+        "GluGluToHH":{
+            "file":{
+                "22preEE": "/home/cosine/HHbbgg/MLForge_FollowUp/samples/sample_from_Nitishi/22preEE_GluGlutoHHto2B2G_kl-1p00_kt-1p00_c2-0p00.root",
+                "22postEE": "/home/cosine/HHbbgg/MLForge_FollowUp/samples/sample_from_Nitishi/22postEE_GluGlutoHHto2B2G_kl-1p00_kt-1p00_c2-0p00.root"
+            },
+            "xs": 0.00009
+        },
+        "VBFToHH":{
+            "file":{
+                "22preEE": "/home/cosine/HHbbgg/MLForge_FollowUp/samples/sample_from_Nitishi/22preEE_VBFHHto2B2G_CV_1_C2V_1_C3_1.root",
+                "22postEE": "/home/cosine/HHbbgg/MLForge_FollowUp/samples/sample_from_Nitishi/22postEE_VBFHHto2B2G_CV_1_C2V_1_C3_1.root"
+            },
+            "xs": 0.00000507666432
+        },
+        "DD_QCDGJets":{
+            "file":{
+                "22preEE": "v2/preEE/DDQCDGJets.root",
+                "22postEE": "v2/postEE/DDQCDGJets.root"
+            },
+            "xs": 1
+        },
+        "GGJets":{
+            "file":{
+                "22preEE": "v2/preEE/GGJets.root",
+                "22postEE": "v2/postEE/GGJets.root"
+            },
+            "xs": 88.75
+        },
+        "GluGluHtoGG_M125":{
+            "file":{
+                "22preEE": "v2/preEE/GluGluHToGG_M_125.root",
+                "22postEE": "v2/postEE/GluGluHToGG_M_125.root"
+            },
+            "xs": 0.1186
+        },
+        "VBFHtoGG_M125":{
+            "file":{
+                "22preEE": "v2/preEE/VBFHToGG_M_125.root",
+                "22postEE": "v2/postEE/VBFHToGG_M_125.root"
+            },
+            "xs": 0.00926
+        },
+        "VHtoGG_M125":{
+            "file":{
+                "22preEE": "v2/preEE/VHtoGG_M_125.root",
+                "22postEE": "v2/postEE/VHtoGG_M_125.root"
+            },
+            "xs": 0.00545
+        },
+        "ttHtoGG_M125":{
+            "file":{
+                "22preEE": "v2/preEE/ttHtoGG_M_125.root",
+                "22postEE": "v2/postEE/ttHtoGG_M_125.root"
+            },
+            "xs": 0.0013
+        },
+        "bbHtoGG_M125":{
+            "file":{
+                "22preEE": "v2/preEE/BBHto2G_M_125.root",
+                "22postEE": "v2/postEE/_BBHto2G_M_125.root"
+            },
+            "xs": 0.0012939
+        }
+    },
+
+    "Data":{
+        "file":{
+            "22preEE": "/home/cosine/HHbbgg/plotting/data/22preEE_Data*.root",
+            "22postEE": "/home/cosine/HHbbgg/plotting/data/22postEE_Data*.root"
+        },
+        "xs": 1,
+        "lumi":{
+            "22preEE": 7875,
+            "22postEE": 26337
+        }
+    }
+}
